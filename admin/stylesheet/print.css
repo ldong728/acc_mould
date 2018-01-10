@@ -1,0 +1,62 @@
+@page
+{
+    size: auto;   /* auto is the initial value */
+    margin: 0mm 10mm 0mm 10mm;  /* this affects the margin in the printer settings 最关键的还是这个*/
+}
+body
+{
+    font-family: """黑体", Arial, sans-serif;
+    background-color:#FFFFFF;
+    margin: 0mm;  /* this affects the margin on the content before sending to printer */
+}
+.info-container{
+    margin-top: 15px;
+}
+.detail-container{
+    margin-top: 15px;
+}
+
+table.info{
+    font-size: 16pt;
+    border: none;
+    border-collapse:collapse;
+}
+.info tr{
+
+}
+.info td{
+    padding-left: 30px;
+    /*text-align: center;*/
+}
+
+table.detail{
+    width: 100%;
+    font-size: 11pt;
+    border: dashed 1px #000000;
+    border-collapse: collapse;
+}
+.detail tr {
+    height: 18pt;
+    border: #000000 solid 1px;
+}
+.detail th {
+    /*width: 150px;*/
+}
+.detail td {
+    padding-left: 10px;
+    border: #000000 solid 1px;
+    /*width: 12.5%;*/
+    /*padding-left: 5px;*/
+    /*line-height: 18px;*/
+}
+
+
+.main-title{
+    margin-top: 30px;
+    font-size: x-large;
+    text-align: center;
+}
+
+img {
+    width: 30px;
+}
