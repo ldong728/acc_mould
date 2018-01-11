@@ -1,72 +1,72 @@
 <?php
 include_once '../includePackage.php';
 session_start();
-if (isset($_SESSION[DOMAIN]['login'])&&DOMAIN==$_SESSION[DOMAIN]['login']) {
+if (isset($_SESSION[DOMAIN]['login']) && DOMAIN == $_SESSION[DOMAIN]['login']) {
 
-    if(isset($_POST['pms'])&&array_key_exists($_POST['pms'],$_SESSION[DOMAIN]['pms'])){
-        if(isset($_POST['method'])){
+    if (isset($_POST['pms']) && array_key_exists($_POST['pms'], $_SESSION[DOMAIN]['pms'])) {
+        if (isset($_POST['method'])) {
             switch ($_POST['method']) {
                 default:
-                    $param=isset($_POST['ajax_data'])?$_POST['ajax_data']:null;
-                    $method=trim($_POST['method']);
+                    $param = isset($_POST['ajax_data']) ? $_POST['ajax_data'] : null;
+                    $method = trim($_POST['method']);
                     $method($param);
                     break;
             }
         }
         if (isset($_POST['alteTblVal'])) {//快速更改
-            $altValues=array();
+            $altValues = array();
             foreach ($_POST['col_value'] as $k => $v) {
-                $altValues[$k]=addslashes($v);
+                $altValues[$k] = addslashes($v);
             }
-            $data = pdoUpdate($_POST['tbl'].'_tbl', $altValues, array($_POST['index'] => $_POST['id']),' limit 1');
-            if($data){
-                echo ajaxBack(array('id'=>$data));
-            }else{
-                echo ajaxBack(null,1,'记录无法修改');
+            $data = pdoUpdate($_POST['tbl'] . '_tbl', $altValues, array($_POST['index'] => $_POST['id']), ' limit 1');
+            if ($data) {
+                echo ajaxBack(array('id' => $data));
+            } else {
+                echo ajaxBack(null, 1, '记录无法修改');
             }
             exit;
         }
         if (isset($_POST['deleteTblVal'])) {//快速删除
-            try{
-                pdoDelete($_POST['tbl'].'_tbl', $_POST['value'], ' limit 1');
-                                echo ajaxBack();
+            try {
+                pdoDelete($_POST['tbl'] . '_tbl', $_POST['value'], ' limit 1');
+                echo ajaxBack();
 
-            }catch(PDOException $e){
-                echo ajaxBack(null,1,'记录无法修改');
+            } catch (PDOException $e) {
+                echo ajaxBack(null, 1, '记录无法修改');
             }
             exit;
         }
         if (isset($_POST['addTblVal'])) {//快速插入
-            try{
-                foreach ($_POST['value'] as $k=>$v) {
-                    $value[$k]=addslashes($v);
+            try {
+                foreach ($_POST['value'] as $k => $v) {
+                    $value[$k] = addslashes($v);
                 }
-                $id=pdoInsert($_POST['tbl'].'_tbl', $value, $_POST['onDuplicte']);
-                echo ajaxBack(array('id'=>$id));
-            }catch(PDOException $e){
-                echo ajaxBack(null,1,'记录无法修改');
+                $id = pdoInsert($_POST['tbl'] . '_tbl', $value, $_POST['onDuplicte']);
+                echo ajaxBack(array('id' => $id));
+            } catch (PDOException $e) {
+                echo ajaxBack(null, 1, '记录无法修改');
             }
             exit;
         }
-        if(isset($_POST['altConfig'])){//快速更改设置
-            $path='../config/'.$_POST['name'].'.json';
-            $config=getConfig($path);
-            if(array_key_exists($_POST['key'],$config)){
-                $config[$_POST['key']]=$_POST['value'];
-                saveConfig($path,$config);
+        if (isset($_POST['altConfig'])) {//快速更改设置
+            $path = '../config/' . $_POST['name'] . '.json';
+            $config = getConfig($path);
+            if (array_key_exists($_POST['key'], $config)) {
+                $config[$_POST['key']] = $_POST['value'];
+                saveConfig($path, $config);
                 echo ajaxBack();
-            }else{
-                echo ajaxBack(null,'3','不存在的设置项');
+            } else {
+                echo ajaxBack(null, '3', '不存在的设置项');
             }
             exit;
         }
 
-    }else{
-        if('stock_alert'==$_POST['method']){
+    } else {
+        if ('stock_alert' == $_POST['method']) {
             product_list($_POST['ajax_data']);
             exit;
         }
-        echo ajaxBack(null,9,'无权限');
+        echo ajaxBack(null, 9, '无权限');
         exit;
     }
 }
@@ -74,65 +74,93 @@ if (isset($_SESSION[DOMAIN]['login'])&&DOMAIN==$_SESSION[DOMAIN]['login']) {
 /*
  * 以下为ajax通用方法
  */
-function category_list(){
+function category_list()
+{
 //    verifyPms(['category_edit','product_list','product_edit']);
-    $back=pdoQuery('category_tbl',null,null,'order by p_category asc');
+    $back = pdoQuery('category_tbl', null, null, 'order by p_category asc');
     $back->setFetchMode(PDO::FETCH_ASSOC);
-    $back=$back->fetchAll();
-    if(!$back){
-        $back=[];
+    $back = $back->fetchAll();
+    if (!$back) {
+        $back = [];
     }
+    mylog($back);
     echo ajaxBack($back);
 }
-function category_attr_list($data){
-    $category=$data['category_id'];
-    $back=pdoQuery('category_attr_tbl',null,['category'=>$category],null)->fetchAll();
-    echo ajaxBack($back);
+
+function category_attr_list($data)
+{
+    $category = $data['category_id'];
+    $back = pdoQuery('category_attr_tbl', null, ['category' => $category], null);
+    $back->setFetchMode(PDO::FETCH_ASSOC);
+    echo ajaxBack($back->fetchAll());
 
 }
-function category_attr_edit($data){
-    $categoryId=$data['category_id'];
-    $values=$data['values'];
+
+function category_attr_edit($data)
+{
+    $categoryId = $data['category_id'];
+    $values = $data['values'];
     pdoTransReady();
-    try{
-        pdoDelete('category_attr_tbl',['category'=>$categoryId]);
-        pdoBatchInsert('category_attr_tbl',$values);
+    try {
+        pdoDelete('category_attr_tbl', ['category' => $categoryId]);
+        pdoBatchInsert('category_attr_tbl', $values);
         pdoCommit();
         echo ajaxBack('ok');
-    }catch(PDOException $e){
+    } catch (PDOException $e) {
         mylog($e->getMessage());
         pdoRollBack();
-        echo ajaxBack(null,109,'数据库错误');
+        echo ajaxBack(null, 109, '数据库错误');
     }
 }
-function delete_category($data){
+
+function delete_category($data)
+{
     verifyPms('category_edit');
-    $id=$data['id'];
-    $query=pdoQueryNew('category_tbl',['category_id'],['p_category'=>$id],'limit 1')->fetch();
-    if($query){
-        echo ajaxBack(null,21,'不能删除');
-    }else{
-        pdoDelete('category_tbl',['category_id'=>$id],' limit 1');
+    $id = $data['id'];
+    $query = pdoQueryNew('category_tbl', ['category_id'], ['p_category' => $id], 'limit 1')->fetch();
+    if ($query) {
+        echo ajaxBack(null, 21, '不能删除');
+    } else {
+        pdoDelete('category_tbl', ['category_id' => $id], ' limit 1');
         echo ajaxBack('ok');
     }
 }
-function add_category($data){
+
+function add_category($data)
+{
     verifyPms('category_edit');
-    $name='新类型（双击可更改）';
-    $pid=$data['parent_id'];
-    $id=pdoInsert('category_tbl',['category_name'=>$name,'p_category'=>$pid],'ignore');
-    if($id){
-        echo ajaxBack(['category_id'=>$id,'category_name'=>$name,'p_category'=>$pid,'img'=>'']);
-    }else{
-        echo ajaxBack(null,10,'数据库错误');
+    $name = '新类型（双击可更改）';
+    $pid = $data['parent_id'];
+    $id = pdoInsert('category_tbl', ['category_name' => $name, 'p_category' => $pid], 'ignore');
+    if ($id) {
+        echo ajaxBack(['category_id' => $id, 'category_name' => $name, 'p_category' => $pid, 'img' => '']);
+    } else {
+        echo ajaxBack(null, 10, '数据库错误');
     }
 }
-function add_company($data){
-    mylog($data);
-    $data['img']=json_encode($data['img']);
-    try{
-        pdoInsertNew('company_tbl',$data,'update');
-    }catch(PDOException $e){
+
+function add_company($data)
+{
+    $companyInf = $data['company_inf'];
+    $companyCategory = $data['company_category'];
+    $companyInf['img'] = json_encode($companyInf['img']);
+    pdoTransReady();
+    try {
+        $newId = pdoInsertNew('company_tbl', $companyInf, 'update');
+        if (isset($companyInf['company_id']) && $companyInf['company_id']) {
+            pdoDelete('company_category_tbl', ['company' => $companyInf['company_id']]);
+            $newId = $companyInf['company_id'];
+        }
+        $values = [];
+        foreach ($companyCategory as $row) {
+            $values[] = ['company' => $newId, 'category' => $row['category']];
+        }
+        if (count($values) > 0) {
+            pdoBatchInsert('company_category_tbl', $values, 'ignore');
+        }
+        pdoCommit();
+    } catch (PDOException $e) {
+        pdoRollBack();
         mylog($e->getMessage());
 
     }
@@ -140,8 +168,34 @@ function add_company($data){
     echo ajaxBack('ok');
 }
 
-function company_list($data){
-    $back=getList('company_tbl','company_tbl',$data);
+function company_list($data)
+{
+    $back = getList('company_tbl', 'company_tbl', $data);
+    echo ajaxBack($back);
+}
+
+function company_category_list($data){
+    $category=$data['category'];
+    $query=pdoQuery('company_category_view',['company','category','company_name'],['category'=>$category],null);
+    $query->setFetchMode(PDO::FETCH_ASSOC);
+    echo ajaxBack($query->fetchAll());
+}
+
+function add_product($data)
+{
+    $data['img'] = json_encode($data['img']);
+    $data['product_attr'] = json_encode($data['product_attr']);
+    try {
+        pdoInsertNew('product_tbl', $data, 'update');
+    } catch (PDOException $e) {
+        mylog($e->getMessage());
+
+    }
+    echo ajaxBack('ok');
+}
+function product_list($data){
+//    verifyPms(['product_list','purchase_add']);
+    $back=getList('product_company_view','product_company_view',$data);
     echo ajaxBack($back);
 }
 
@@ -150,11 +204,12 @@ function company_list($data){
  *以下为通用方法
  * 非ajax
  */
-function verifyPms($pms){
-    $query=pdoQuery('pms_view',['f_id'],['f_key'=>$_POST['pms'],'s_key'=>$pms],'limit 1')->fetch();
-    if(!$query){
+function verifyPms($pms)
+{
+    $query = pdoQuery('pms_view', ['f_id'], ['f_key' => $_POST['pms'], 's_key' => $pms], 'limit 1')->fetch();
+    if (!$query) {
         mylog('ajax 权限错误');
-        echo ajaxBack(null,9,'无权限');
+        echo ajaxBack(null, 9, '无权限');
         exit;
     }
 }
@@ -167,17 +222,17 @@ function verifyPms($pms){
  * @param bool $needCount
  * @return mixed
  */
-function getList($tableName, $countTableName, $data,$needCount=true)
+function getList($tableName, $countTableName, $data, $needCount = true)
 {
-    $number = isset($data['number'])?$data['number']:12;
-    $orderby = isset($data['orderby'])&&$data['orderby']?$data['orderby']:'';
-    $order = isset($data['order'])&&$data['order']?$data['order']:'';
+    $number = isset($data['number']) ? $data['number'] : 12;
+    $orderby = isset($data['orderby']) && $data['orderby'] ? $data['orderby'] : '';
+    $order = isset($data['order']) && $data['order'] ? $data['order'] : '';
     $start = $data['page'] * $number;
-    $filter = $orderby&&$order?"order by $orderby $order":'';
+    $filter = $orderby && $order ? "order by $orderby $order" : '';
     $limit = " limit $start,$number";
-    $where = isset($data['where'])&&$data['where'] ? $data['where'] : null;
-    $count=0;
-    if($needCount){
+    $where = isset($data['where']) && $data['where'] ? $data['where'] : null;
+    $count = 0;
+    if ($needCount) {
         $count = pdoQueryNew($countTableName, array('count(*) as count'), $where, $filter)->fetch()['count'];
     }
     $query = pdoQueryNew($tableName, null, $where, $filter . $limit);

@@ -60,18 +60,39 @@ function company_list(){
     printAdminView('company_list.html.php','供应商列表');
 }
 function company_edit(){
-    global $companyInf;
+    global $companyInf,$companyCategory;
     $companyId=isset($_GET['company_id'])?$_GET['company_id']:0;
     $modeName='编辑供应商';
     if($companyId){
         $companyQuery=pdoQuery('company_tbl',null,['company_id'=>$companyId],'limit 1');
         $companyQuery->setFetchMode(PDO::FETCH_ASSOC);
         $companyInf=$companyQuery->fetch();
+        $companyCategory=pdoQuery('company_category_tbl',null,['company'=>$companyId],null);
+        $companyCategory->setFetchMode(PDO::FETCH_ASSOC);
+        $companyCategory=$companyCategory->fetchAll();
     }else{
         $companyInf=0;
+        $companyCategory=0;
         $modeName='新建供应商';
     }
     printAdminView('company_edit.html.php',$modeName);
+}
+function product_edit(){
+    global $productInf;
+    $productId=isset($_GET['product_id'])?$_GET['product_id']:0;
+    $modeName='编辑商品';
+    if($productId){
+        $productQuery=pdoQuery('product_tbl',null,['product_id'=>$productId],'limit 1');
+        $productQuery->setFetchMode(PDO::FETCH_ASSOC);
+        $productInf=$productQuery->fetch();
+    }else{
+        $productInf=0;
+        $modeName='新建商品';
+    }
+    printAdminView('product_edit.html.php',$modeName);
+}
+function product_list(){
+    printAdminView('product_list.html.php','商品列表');
 }
 
 

@@ -10,7 +10,7 @@ class TableProvider
     }
 
     public function user_type($data){
-        $back=$this->getList('user_type_tbl',null,$data);
+        $back=$this->getList('user_type_tbl',null,null,$data);
         echoBack($back);
     }
 
@@ -26,10 +26,10 @@ class TableProvider
      */
     public function company_list($data){
         mylog($data);
-        echoBack($this->getList('company_tbl',null,$data,false));
+        echoBack($this->getList('company_tbl',['company_name','major_business','img'],null,$data,false));
     }
 
-    private function getList($tableName, $countTableName, $data,$needCount=true)
+    private function getList($tableName,$fields, $countTableName, $data,$needCount=true)
     {
         $number = isset($data['number'])?$data['number']:12;
         $orderby = isset($data['orderby'])&&$data['orderby']?$data['orderby']:'';
@@ -43,7 +43,7 @@ class TableProvider
             if($needCount&&$countTableName){
                 $count = pdoQueryNew($countTableName, array('count(*) as count'), $where, $filter)->fetch()['count'];
             }
-            $query = pdoQueryNew($tableName, null, $where, $filter . $limit);
+            $query = pdoQueryNew($tableName, $fields, $where, $filter . $limit);
         }catch(PDOException $e){
             mylog($e->getMessage());
             return null;

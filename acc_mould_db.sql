@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-01-10 08:43:12
+-- Generation Time: 2018-01-11 21:36:48
 -- 服务器版本： 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -30,9 +30,10 @@ CREATE TABLE `category_attr_tbl` (
   `category_attr_id` int(11) NOT NULL,
   `category` int(11) NOT NULL,
   `category_attr_name` varchar(20) NOT NULL,
-  `alt_pms` tinyint(1) NOT NULL DEFAULT '7',
+  `attr_pms` tinyint(1) NOT NULL DEFAULT '7',
   `attr_type` varchar(10) DEFAULT NULL,
   `default_value` varchar(100) DEFAULT NULL,
+  `attr_unit` varchar(10) DEFAULT NULL,
   `remark` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,20 +41,20 @@ CREATE TABLE `category_attr_tbl` (
 -- 转存表中的数据 `category_attr_tbl`
 --
 
-INSERT INTO `category_attr_tbl` (`category_attr_id`, `category`, `category_attr_name`, `alt_pms`, `attr_type`, `default_value`, `remark`) VALUES
-(1, 11, '密度', 2, 'number', '0.00000785', NULL),
-(2, 11, '长', 6, 'number', '', NULL),
-(3, 11, '宽', 6, 'number', '', NULL),
-(4, 11, '高', 6, 'number', '', NULL),
-(5, 11, '单价', 3, 'number', '', NULL),
-(6, 12, '密度', 2, 'number', '0.00000785', NULL),
-(7, 12, '长', 7, 'number', '', NULL),
-(8, 12, '截面积', 7, 'number', '', NULL),
-(9, 12, '价格', 7, 'number', '', NULL),
-(10, 2, '图纸', 7, 'file', '', NULL),
-(11, 6, '图纸', 7, 'file', '', NULL),
-(12, 3, '图纸', 7, 'file', '', NULL),
-(13, 4, '图纸', 7, 'file', '', NULL);
+INSERT INTO `category_attr_tbl` (`category_attr_id`, `category`, `category_attr_name`, `attr_pms`, `attr_type`, `default_value`, `attr_unit`, `remark`) VALUES
+(1, 11, '密度', 2, 'number', '0.00000785', '', NULL),
+(2, 11, '长', 6, 'number', '', 'mm', NULL),
+(3, 11, '宽', 6, 'number', '', 'mm', NULL),
+(4, 11, '高', 6, 'number', '', 'mm', NULL),
+(5, 11, '单价', 3, 'number', '', '元', NULL),
+(6, 12, '密度', 2, 'number', '0.00000785', NULL, NULL),
+(7, 12, '长', 6, 'number', '', NULL, NULL),
+(8, 12, '截面积', 7, 'number', '', NULL, NULL),
+(9, 12, '价格', 7, 'number', '', NULL, NULL),
+(10, 2, '图纸', 6, 'file', '', NULL, NULL),
+(11, 6, '图纸', 6, 'file', '', NULL, NULL),
+(12, 3, '图纸', 6, 'file', '', NULL, NULL),
+(13, 4, '图纸', 6, 'file', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -76,10 +77,10 @@ INSERT INTO `category_tbl` (`category_id`, `category_name`, `p_category`, `img`)
 (1, '模具钢', 0, 'files/ae70798d261c3be973c7939f6927c772.jpg'),
 (2, '模架', 0, '../files/c86e4b577d5ff606497758a8137cbb39.jpg'),
 (3, '热流道', 0, '../files/bab4044c230ac949fe01657b2eaf2454.jpg'),
-(4, '标准件', 0, '../files/c86e4b577d5ff606497758a8137cbb39.jpg'),
+(4, '标准件', 0, '?img=files/feb161ea09181b1124ddf8a134df455c.jpg'),
 (5, '电极（石墨）', 0, '../files/ba053e4671470c246099c4d3e5b3d8c8.jpg'),
 (6, '模具油缸', 0, '../files/311955598e0e008f375fd202351d87a3.jpg'),
-(7, '刀具', 0, NULL),
+(7, '刀具', 0, '?img=files/ba053e4671470c246099c4d3e5b3d8c8.jpg'),
 (8, '模具加工设备', 0, NULL),
 (9, '刀片', 7, '../files/ae70798d261c3be973c7939f6927c772.jpg'),
 (10, '刀柄/刀头', 7, NULL),
@@ -97,6 +98,33 @@ CREATE TABLE `company_category_tbl` (
   `company` int(11) NOT NULL,
   `category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 替换视图以便查看 `company_category_view`
+--
+CREATE TABLE `company_category_view` (
+`company_category_id` int(11)
+,`company` int(11)
+,`category` int(11)
+,`company_id` int(11)
+,`user` int(11)
+,`company_name` varchar(30)
+,`company_address` varchar(50)
+,`company_province` varchar(10)
+,`company_city` varchar(15)
+,`company_area` varchar(15)
+,`company_tel` varchar(14)
+,`company_employee_count` int(11)
+,`company_legal_rep` varchar(10)
+,`registered_capital` varchar(15)
+,`major_business` varchar(50)
+,`business_model` varchar(20)
+,`area_size` varchar(10)
+,`introduction` text
+,`img` text
+);
 
 -- --------------------------------------------------------
 
@@ -128,7 +156,7 @@ CREATE TABLE `company_tbl` (
 --
 
 INSERT INTO `company_tbl` (`company_id`, `user`, `company_name`, `company_address`, `company_province`, `company_city`, `company_area`, `company_tel`, `company_employee_count`, `company_legal_rep`, `registered_capital`, `major_business`, `business_model`, `area_size`, `introduction`, `img`) VALUES
-(1, 0, '广州飞机制造厂', '测试地址', '', '', '', '12345678909', 1234, '测试姓名', '233', '模式A，模式B', '测试数据', '12312', '测试"" ad '''' ', '{"logo":"?img=files\\/f6f5e316dfa881394c6e6bb078800246.jpg","company-img":["?img=files\\/f6f5e316dfa881394c6e6bb078800246.jpg","?img=files\\/29d5f5566968ba07da6464e78cffedfc.jpg"]}');
+(3, 0, '柳道万和（苏州）热流道系统有限公司', '柳道万和（苏州）热流道系统有限公司苏州市吴中区甪直镇凌港路29号', '', '', '', '51265048882', 0, '', '', '热流道', '', '', '公司简介', '{"logo":"?img=files\\/c25c3b9b6e1664896505e3ed903ca233.jpg"}');
 
 -- --------------------------------------------------------
 
@@ -162,7 +190,8 @@ INSERT INTO `file_tbl` (`file_id`, `file_md5`, `file_type`, `file_size`, `file_o
 (36, '29d5f5566968ba07da6464e78cffedfc', '.jpg', 447007, 'palmitasmural_zh-cn10215774743_1920x1080', 'files/29d5f5566968ba07da6464e78cffedfc.jpg', '2018-01-09 02:51:17'),
 (43, 'bab4044c230ac949fe01657b2eaf2454', '.jpg', 436391, 'shenandoahnp_zh-cn9981989975_1920x1080.j', 'files/bab4044c230ac949fe01657b2eaf2454.jpg', '2018-01-09 02:53:21'),
 (54, '91a1509f0e2b05fb8cac9b888874335d', '.jpg', 83740, 'tooopen_11102476.jpg', 'files/91a1509f0e2b05fb8cac9b888874335d.jpg', '2018-01-09 03:24:45'),
-(98, 'f46b0003b02f878abbb1973f43b47e9d', '.jpg', 114204, '5_120331151835_1.jpg', 'files/f46b0003b02f878abbb1973f43b47e9d.jpg', '2018-01-09 08:22:28');
+(98, 'f46b0003b02f878abbb1973f43b47e9d', '.jpg', 114204, '5_120331151835_1.jpg', 'files/f46b0003b02f878abbb1973f43b47e9d.jpg', '2018-01-09 08:22:28'),
+(116, 'c25c3b9b6e1664896505e3ed903ca233', '.jpg', 20539, '公司LOGO.jpg', 'files/c25c3b9b6e1664896505e3ed903ca233.jpg', '2018-01-10 02:57:12');
 
 -- --------------------------------------------------------
 
@@ -235,7 +264,8 @@ CREATE TABLE `pms_tbl` (
 INSERT INTO `pms_tbl` (`id`, `key_word`, `name`, `remark`) VALUES
 (108, 'pms1234', '权限管理', NULL),
 (115, 'hqggdnrAHi', '测试权限', NULL),
-(116, 'tTFPcoqXLD', '供应商管理', NULL);
+(116, 'tTFPcoqXLD', '供应商管理', NULL),
+(117, 'hCeSCpNQCb', '商品管理', NULL);
 
 -- --------------------------------------------------------
 
@@ -254,6 +284,30 @@ CREATE TABLE `pms_view` (
 -- --------------------------------------------------------
 
 --
+-- 替换视图以便查看 `product_company_view`
+--
+CREATE TABLE `product_company_view` (
+`product_id` int(11)
+,`product_name` varchar(40)
+,`category` int(11)
+,`product_pms_type` tinyint(1)
+,`img` text
+,`price_strategy` varchar(100)
+,`product_detail` text
+,`product_attr` text
+,`size_detail` text
+,`user` int(11)
+,`company` int(11)
+,`status` tinyint(4)
+,`start_time` timestamp
+,`end_time` datetime
+,`remark` text
+,`company_name` varchar(30)
+);
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `product_tbl`
 --
 
@@ -261,14 +315,18 @@ CREATE TABLE `product_tbl` (
   `product_id` int(11) NOT NULL,
   `product_name` varchar(40) NOT NULL,
   `category` int(11) NOT NULL,
-  `product_type` tinyint(1) NOT NULL DEFAULT '1',
+  `product_pms_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '发布1/求购4',
   `img` text,
-  `price_strategy` varchar(100) NOT NULL,
+  `price_strategy` varchar(100) DEFAULT NULL COMMENT '价格梯度',
   `product_detail` text,
   `product_attr` text,
   `size_detail` text,
-  `user` int(11) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1'
+  `user` int(11) DEFAULT NULL COMMENT '发布者',
+  `company` int(11) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态1正常，0下架',
+  `start_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `end_time` datetime DEFAULT NULL,
+  `remark` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -293,7 +351,9 @@ INSERT INTO `sub_menu_tbl` (`id`, `parent_id`, `key_word`, `name`) VALUES
 (8, 108, 'options', '控制选项'),
 (26, 115, 'category_edit', '分类管理'),
 (27, 116, 'company_edit', '新建供应商'),
-(28, 116, 'company_list', '供应商列表');
+(28, 116, 'company_list', '供应商列表'),
+(29, 117, 'product_edit', '商品编辑'),
+(30, 117, 'product_list', '商品列表');
 
 -- --------------------------------------------------------
 
@@ -384,6 +444,15 @@ INSERT INTO `user_type_tbl` (`user_type_id`, `user_type_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 视图结构 `company_category_view`
+--
+DROP TABLE IF EXISTS `company_category_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `company_category_view`  AS  select `a`.`company_category_id` AS `company_category_id`,`a`.`company` AS `company`,`a`.`category` AS `category`,`b`.`company_id` AS `company_id`,`b`.`user` AS `user`,`b`.`company_name` AS `company_name`,`b`.`company_address` AS `company_address`,`b`.`company_province` AS `company_province`,`b`.`company_city` AS `company_city`,`b`.`company_area` AS `company_area`,`b`.`company_tel` AS `company_tel`,`b`.`company_employee_count` AS `company_employee_count`,`b`.`company_legal_rep` AS `company_legal_rep`,`b`.`registered_capital` AS `registered_capital`,`b`.`major_business` AS `major_business`,`b`.`business_model` AS `business_model`,`b`.`area_size` AS `area_size`,`b`.`introduction` AS `introduction`,`b`.`img` AS `img` from (`company_category_tbl` `a` left join `company_tbl` `b` on((`a`.`company` = `b`.`company_id`))) ;
+
+-- --------------------------------------------------------
+
+--
 -- 视图结构 `op_pms_view`
 --
 DROP TABLE IF EXISTS `op_pms_view`;
@@ -398,6 +467,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `pms_view`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `pms_view`  AS  select `f`.`id` AS `f_id`,`f`.`key_word` AS `f_key`,`f`.`name` AS `f_name`,`s`.`id` AS `s_id`,`s`.`key_word` AS `s_key`,`s`.`name` AS `s_name` from (`pms_tbl` `f` left join `sub_menu_tbl` `s` on((`s`.`parent_id` = `f`.`id`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- 视图结构 `product_company_view`
+--
+DROP TABLE IF EXISTS `product_company_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `product_company_view`  AS  select `a`.`product_id` AS `product_id`,`a`.`product_name` AS `product_name`,`a`.`category` AS `category`,`a`.`product_pms_type` AS `product_pms_type`,`a`.`img` AS `img`,`a`.`price_strategy` AS `price_strategy`,`a`.`product_detail` AS `product_detail`,`a`.`product_attr` AS `product_attr`,`a`.`size_detail` AS `size_detail`,`a`.`user` AS `user`,`a`.`company` AS `company`,`a`.`status` AS `status`,`a`.`start_time` AS `start_time`,`a`.`end_time` AS `end_time`,`a`.`remark` AS `remark`,`b`.`company_name` AS `company_name` from (`product_tbl` `a` left join `company_tbl` `b` on((`a`.`company` = `b`.`company_id`))) ;
 
 -- --------------------------------------------------------
 
@@ -424,6 +502,13 @@ ALTER TABLE `category_attr_tbl`
 ALTER TABLE `category_tbl`
   ADD PRIMARY KEY (`category_id`),
   ADD UNIQUE KEY `category_name` (`category_name`,`p_category`);
+
+--
+-- Indexes for table `company_category_tbl`
+--
+ALTER TABLE `company_category_tbl`
+  ADD PRIMARY KEY (`company_category_id`),
+  ADD UNIQUE KEY `company` (`company`,`category`);
 
 --
 -- Indexes for table `company_tbl`
@@ -509,15 +594,20 @@ ALTER TABLE `category_attr_tbl`
 ALTER TABLE `category_tbl`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
+-- 使用表AUTO_INCREMENT `company_category_tbl`
+--
+ALTER TABLE `company_category_tbl`
+  MODIFY `company_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
 -- 使用表AUTO_INCREMENT `company_tbl`
 --
 ALTER TABLE `company_tbl`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- 使用表AUTO_INCREMENT `file_tbl`
 --
 ALTER TABLE `file_tbl`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 --
 -- 使用表AUTO_INCREMENT `operator_tbl`
 --
@@ -527,7 +617,7 @@ ALTER TABLE `operator_tbl`
 -- 使用表AUTO_INCREMENT `pms_tbl`
 --
 ALTER TABLE `pms_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 --
 -- 使用表AUTO_INCREMENT `product_tbl`
 --
@@ -537,7 +627,7 @@ ALTER TABLE `product_tbl`
 -- 使用表AUTO_INCREMENT `sub_menu_tbl`
 --
 ALTER TABLE `sub_menu_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- 使用表AUTO_INCREMENT `user_code_tbl`
 --

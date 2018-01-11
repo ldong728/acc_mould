@@ -60,18 +60,23 @@ function prepareElement(){
     var classList=[];
     var outArg=arguments;
     $.each(arguments,function(k,v){
+        console.log($(v.toString()));
         if($(v.toString()).length>0){
             returnData[v]=$(v).clone();
         }
         classList.push(v);
     });
-
+    console.log(returnData);
     $.each(classList,function(k,v){
         $(v).remove();
         for(var i in returnData){
             returnData[i].find(v).remove();
         }
     });
+    console.log(returnData);
+
+    console.log(classList);
+
     return function(jqueryElement){
         var element=jqueryElement;
         if(1==outArg.length){

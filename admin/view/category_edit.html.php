@@ -42,23 +42,24 @@
                 <td>输入权限</td>
                 <td>类型</td>
                 <td>默认值</td>
+                <td>单位（可选）</td>
                 <td>操作</td>
-
             </tr>
             </thead>
             <tbody class="attr-container">
             <tr class="prepare-tr-template">
                 <input type="hidden" class="attr-content" data-field="category_attr_id">
                 <td><input class="attr-content" data-field="category_attr_name"</td>
-                <td><input type="number" class="attr-content" data-field="alt_pms" maxlength="1" value="7"></td>
+                <td><input type="number" class="attr-content" data-field="attr_pms" maxlength="1" value="7"></td>
                 <td><select class="attr-content" data-field="attr_type"><option value="text">文字</option><option value="number">数字</option><option value="file">文件</option></select></td>
                 <td><input class="attr-content" data-field="default_value"></td>
+                <td><input class="attr-content" data-field="attr_unit"></td>
                 <td><button class="button delete-attr">删除</button></td>
             </tr>
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="5">
+                <td colspan="6">
                     <button class="button add-attr">添加属性</button>
                     <button class="button submit-attr">提交修改</button>
                 </td>
@@ -195,10 +196,10 @@
             });
         });
         $(document).on('click','.img',function(){
-            $('#product-img').click();
+            $('#img-file').click();
             currentCategoryId=$(this).attr('id').slice(3);
         });
-        $(document).on('change','#product-img',function(){
+        $(document).on('change','#img-file',function(){
             $.ajaxFileUpload({
                 url: 'upload.php',
                 secureuri: false,

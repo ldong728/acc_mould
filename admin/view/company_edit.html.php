@@ -1,8 +1,10 @@
-<?php global $companyInf ?>
+<?php global $companyInf,$companyCategory?>
 <script>
     var companyInf = <?php echo $companyInf? json_encode($companyInf):'{}'?>;
+    var companyCategory=<?php echo $companyCategory ? json_encode($companyCategory):'[]'?>;
 </script>
 <script type="application/javascript" src="js/ajaxfileupload.js"></script>
+<script type="application/javascript" src="js/tableController.js"></script>
 <style>
     .img{
         width: 40px;
@@ -12,6 +14,9 @@
         width: 150px;
         margin-left: 10px;
         height: auto;
+    }
+    .category-template{
+        margin-left: 20px;
     }
 </style>
 <div id="core" style="height: 618px;">
@@ -31,7 +36,11 @@
                 </tr>
                 <tr>
                     <td>主营模式：</td>
-                    <td colspan="3"><input class="company-normal-info" data-field="major_business" placeholder="主营模式" style="width: 600px"></td>
+                    <td colspan="3"><input class="company-normal-info auto-add-category" data-field="major_business" placeholder="主营模式" style="width: 600px"></td>
+                </tr>
+                <tr>
+                    <td>类别选择：</td>
+                    <td colspan="3" class="category-container"><span class="category-template"><input type="checkbox" class="category-checkbox"><span class="category-name"></span></span></td>
                 </tr>
                 <tr>
                     <td>法人代表：</td>
@@ -81,12 +90,16 @@
     <script>
         var currentImg=null;
         var imgs={};
+        var categoryElementCreator;
+        var categoryInf;
+        var categoryValue={};
         $(document).ready(function () {
-            initCompanyInf();
+
+            initCategory(function(){
+                initCompanyInf();
+            });
             registEvent();
             initImgValues();
-
-
         });
         function initImgValues(){
             var imgInf={};
@@ -148,6 +161,7 @@
 
 
 
+
             });
             $(document).on('change','#img-file',function(){
                 $.ajaxFileUpload({
@@ -176,6 +190,22 @@
                         alert('error');
                     }
                 });
+            });
+            $(document).on('click','.category-checkbox',function(){
+//                var id=$(this).attr('id').slice(3);
+                var companyId=companyInf.company_id||null;
+                var categoryId=this.value;
+                var name=$(this).next().text();
+                var checked=$(this).prop('checked');
+                if(checked){
+                    categoryValue[categoryId]={category:categoryId,company:companyId};
+                    $('.auto-add-category').val($('.auto-add-category').val()+','+name);
+                }else{
+                    delete categoryValue[categoryId];
+                    $('.auto-add-category').val($('.auto-add-category').val().replace(','+name,''));
+                }
+                console.log(categoryValue);
+//                console.log(id+':'+name);
             })
         }
 
@@ -186,13 +216,19 @@
                     v.value=companyInf[field];
                 });
                 var imgInf=JSON.parse(companyInf.img);
-
+            }
+            if(companyCategory.length>0){
+                $.each(companyCategory,function(k,v){
+                   categoryValue[v.category]=v;
+                    console.log($('#chk'+ v.category));
+                    $('#chk'+ v.category).attr('checked',true);
+                });
             }
         }
 
         function updateCompanyInf(){
 
-            ajaxPost('add_company',companyInf,function(back){
+            ajaxPost('add_company',{company_inf:companyInf,company_category:categoryValue},function(back){
                 var backValue=backHandle(back);
                 if(backValue){
                     if(companyInf.company_id){
@@ -205,6 +241,47 @@
                 }
             });
         }
+        function initCategory(callback){
+            categoryElementCreator=TableController.prepareElement('.category-template');
+            ajaxPost('category_list',{},function(back){
+                var backValue=backHandle(back);
+                if(backValue){
+                  categoryInf=encodeListToTree(backValue,'category_id','p_category',0);
+                    $.each(categoryInf,function(id,value){
+                        var count=0;
+                        $.each(value.sub,function(subk,subv){
+                            count++;
+                            var subCheck=categoryElementCreator();
+                            subCheck.find('.category-checkbox').val(subk);
+                            subCheck.find('.category-checkbox').attr('id','chk'+subk);
+                            subCheck.find('.category-name').text(subv.category_name);
+                            $('.category-container').append(subCheck);
+                        });
+                        if(0==count){
+                            var sCheck=categoryElementCreator();
+                            sCheck.find('.category-checkbox').val(id);
+                            sCheck.find('.category-checkbox').attr('id','chk'+id);
+                            sCheck.find('.category-name').text(value.category_name);
+                            $('.category-container').append(sCheck);
+                        }
+
+
+
+                    });
+                    console.log(categoryInf);
+                }
+                if(callback)callback();
+            });
+        }
+//        function getSubCategory(id){
+//            var categorys={};
+//            $.each(categoryInf,function(k,v){
+//                var count=1;
+//                $.each(v.sub,function(subk,subv){
+//
+//                });
+//            });
+//        }
 
     </script>
 
