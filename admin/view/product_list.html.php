@@ -183,7 +183,7 @@
             var imgs= JSON.parse(v.img);
 //            var attr=JSON.parse(v.product_attr);
 //            if
-            console.log(imgs);
+//            console.log(imgs);
             var element = trElements('.tr-template');
             $.each(element.find('.content'), function (index, value) {
                 $(value).text(v[$(value).data('field')]);

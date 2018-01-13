@@ -14,7 +14,39 @@ class TableProvider
         echoBack($back);
     }
 
+    public function product_index_list(){
+        $categoryList=[];
+        $backData=[];
+        $categoryQuery=pdoQueryNew('category_tbl',null,null,' order by category_id asc');
+        $categoryQuery->setFetchMode(PDO::FETCH_ASSOC);
+        foreach ($categoryQuery as $row) {
+            if(0==$row['p_category']){
+                $categoryList[$row['category_id']]=['category_id'=>$row['category_id'],'category_name'=>$row['category_name'],'unit_name'=>$row['unit_name'],'img'=>$row['img'],'sub_category'=>[$row['category_id']]];
+            }else{
+                $categoryList[$row['p_category']]['sub_category'][]=$row['category_id'];
+            }
+        }
+        foreach ($categoryList as $id=>$row) {
+            $productQuery=pdoQueryNew('product_tbl',['product_id','product_name','img','product_attr'],['category'=>$row['sub_category']],'order by priority desc limit 5');
+            $productQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $backData[$id]=$row;
+            $backData[$id]['products']=$productQuery->fetchAll();
+        }
+        $this->echoBackNormalData($backData);
 
+
+    }
+
+    public function company_list($data){
+//        mylog($data);
+        echoBack($this->getList('company_tbl',['company_name','major_business','img'],null,$data,false));
+    }
+
+//    private function
+
+    private function echoBackNormalData($data){
+        echoBack(['count'=>0,'page'=>0,'list'=>$data]);
+    }
 
      /**
      * 通用获取列表内容的方法，和前端TableController联合使用
@@ -24,11 +56,6 @@ class TableProvider
      * @param bool $needCount
      * @return mixed
      */
-    public function company_list($data){
-        mylog($data);
-        echoBack($this->getList('company_tbl',['company_name','major_business','img'],null,$data,false));
-    }
-
     private function getList($tableName,$fields, $countTableName, $data,$needCount=true)
     {
         $number = isset($data['number'])?$data['number']:12;

@@ -19,23 +19,23 @@ class API {
     }
     public function User($methodType){
         include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
-        include_once $GLOBALS['mypath'] . '/tools/User.php';
+        include_once $GLOBALS['mypath'] . '/methods/User.php';
         global $postData;
         $user=new User();
         $user->$methodType($postData);
 
     }
-    public function Device($methodType){
+    public function Product($methodType){
         include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
-        include_once $GLOBALS['mypath'] . '/tools/Device.php';
+        include_once $GLOBALS['mypath'] . '/methods/Product.php';
         global $postData;
-        $device=new Device();
+        $device=new Product();
 //        $user=new User();
         $device->$methodType($postData);
     }
     public function Mall($methodType){
         include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
-        include_once $GLOBALS['mypath'] . '/tools/Mall.php';
+        include_once $GLOBALS['mypath'] . '/methods/Mall.php';
         global $postData;
         $mall=new Mall();
 //        $user=new User();
@@ -114,7 +114,7 @@ class API {
     }
     public function pushTest($deviceId){
         include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
-            include_once $GLOBALS['mypath'] . '/tools/push/PushSender.php';
+            include_once $GLOBALS['mypath'] . '/methods/push/PushSender.php';
             $userInf = pdoQuery('user_tbl', null, null, ' where user_id=(select user from device_tbl where d_id="' . $deviceId . '") limit 1')->fetch();
             echo($userInf['device_token']);
             $pushSender = new PushSender($userInf['device_token']);
@@ -124,12 +124,12 @@ class API {
     }
 
     public function streamTest($id){
-        include_once $GLOBALS['mypath'] . '/tools/one_net/Onenet.php';
+        include_once $GLOBALS['mypath'] . '/methods/one_net/Onenet.php';
         $one=new Onenet();
         echo $one->getDataStream($id);
     }
     public function smsTest($phone){
-        include_once $GLOBALS['mypath'] . '/tools/VerifySms.php';
+        include_once $GLOBALS['mypath'] . '/methods/VerifySms.php';
         $sms=new VerifySms();
         try{
             $back=$sms->sendCode($phone,'123456');

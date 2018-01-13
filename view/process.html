@@ -7,6 +7,13 @@
     <meta name="keyword" content="关键字1，关键字2">
     <link href="css/main.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/animate.js"></script>
+
+    <script>
+        $(function () {
+            index_animate.nav();
+        });
+    </script>
 </head>
 <body class="bg-f8">
 <div class="entrance">
@@ -16,7 +23,7 @@
             <li>
                 <p class="li-login light">
                     <a href="#">[请登录]</a>
-                    <a href="#">[免费注册]</a>
+                    <a href="login.html">[免费注册]</a>
                 </p>
 
             </li>
@@ -27,7 +34,10 @@
                     <a href="#">我的账户</a>
                     <i class="icon icon-angle-down"></i>
                 </div>
-                <div class="entrance-li-none account-set"></div>
+                <dl>
+                    <dt></dt>
+                    <dd><a href="personal_center.html">个人中心</a></dd>
+                </dl>
             </li>
             <li>
                 <div class="entrance-li-show li-shop-cart clearfix">
@@ -77,21 +87,6 @@
                     <button type="button">搜 索</button>
                 </form>
             </div>
-            <div class="search-keywords">
-                <h4 class="title">热门搜索：</h4>
-                <p class="text">
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                </p>
-            </div>
         </div>
         <div class="header-r">
             <p class="wx-code">
@@ -104,10 +99,75 @@
 
 <div class="nav">
     <div class="container">
-        <h3 class="purchase primary-background">一站式采购解决方案</h3>
+        <div class="nav-lists">
+            <h3 class="purchase primary-background">一站式采购解决方案</h3>
+            <ul class="service-lists hover">
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon1.png"></span>
+                        <span class="text">模具钢</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon2.png"></span>
+                        <span class="text">模架</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon3.png"></span>
+                        <span class="text">热流道</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon4.png"></span>
+                        <span class="text">标准件</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon5.png"></span>
+                        <span class="text">电极（石墨）</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon6.png"></span>
+                        <span class="text">模具油缸</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon7.png"></span>
+                        <span class="text">刀具</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon8.png"></span>
+                        <span class="text">耗材</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon9.png"></span>
+                        <span class="text">模具加工设备</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="img"><img src="images/icon10.png"></span>
+                        <span class="text">模具招投标</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         <ul class="nav-bar">
             <li><a href="index.html">首页</a></li>
-            <li  class="li-cur"><a href="process.html">我要加工</a></li>
+            <li class="li-cur"><a href="process.html">我要加工</a></li>
             <li><a href="purchase.html">我要采购</a></li>
             <li><a href="purchase_info.html">采购信息</a></li>
             <li><a href="mold_bidding.html">模具招投标</a></li>
@@ -210,21 +270,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="pagination clearfix">
-                    <ul class="clearfix">
-                        <li class="prev-page">上一页</li>
-                        <li class="page-cur">1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li class="next-page">下一页</li>
-                    </ul>
-                    <div class="p-jump">
-                        <span class="text">共<i>1</i>页</span>
-                        <span>
-                            到<input type="text" name="page"/>页
-                        </span>
-                        <span class="confirm">确定</span>
+                <div class="turnpage">
+                    <li><span class="page_noclick">上一页</span></li>
+                    <li class="page-item"><span class="page_cur">1</span></li>
+                    <li class="page_last"><span class="page_noclick">下一页</span></li>
+                    <div class="go_turn_page">
+                        共1页&nbsp; &nbsp; &nbsp;到
+                        <input type="text" name="num" class="turn_to_page" maxlength="8">&nbsp;页<a href="javascript:void(0)" class="go_turn">确定</a>
                     </div>
                 </div>
             </div>

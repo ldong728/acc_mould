@@ -72,8 +72,8 @@ a{color: inherit;}
 
 /*公告头部  header*/
 .header{position: relative;height: 93px;padding: 35px 0;color: #666;background-color: #fff;}
-.header-l{position:absolute;left: 0; top:0; width: 191px;height: 100%;line-height: 93px; box-sizing: border-box;}
-.header-l img{vertical-align: middle;max-height: 100%;max-width: 100%;}
+.header-l{position:absolute;left: 0; top:0; height: 93px; line-height: 93px; box-sizing: border-box;}
+.header-l img{vertical-align: middle;max-height: 100%;}
 .header-m{width: 620px;height: 100%;padding-top: 10px; margin-left: 348px;}
 .header-m .header-search-title{height: 27px;line-height: 27px;}
 .header-m .header-search-title li{float: left;padding: 0 27px;margin-right: 5px;cursor: pointer;color: #444;}
@@ -805,7 +805,7 @@ ul.countNum span.num-9{margin-top: -207px}
 .pc-home .pc-table tr>td:first-child{width: 400px;}
 .pc-home .pc-table tr>td a{display: block;}
 .pc-content .turnpage{margin: 15px 0 ;}
-.turnpage{ margin-top: 70px;margin-bottom: 71px;text-align: center;}
+.turnpage{ margin-top: 30px;margin-bottom: 30px;text-align: center;}
 .turnpage li{ display: inline-block;margin: 0 7.5px;}
 .turnpage li .page_noclick{ display: inline-block; background-color: #f8f8f8;color: #cccccc;border-color: #e9e9e9;}
 .turnpage li .page_button, .turnpage li .page_noclick {width: 69px;height: 37px;line-height: 37px; border: 1px solid #d9d9d9;border-radius: 3px;font-size: 14px;}

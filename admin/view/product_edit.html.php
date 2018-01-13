@@ -52,6 +52,11 @@
                     <td>商品描述：</td>
                     <td colspan="3" id="editor"></td>
                 </tr>
+                <tr>
+                    <td>规格描述：</td>
+                    <td colspan="3" id="size-editor"></td>
+
+                </tr>
                 </tbody>
                 <tfoot class="attr-container">
                 <tr class="attr-template">
@@ -75,22 +80,29 @@
         var imgs={};
         var selectCreator;
         var attrTrCreator;
-        var editor;
+        var detailEditor,sizeEditor;
         $(document).ready(function () {
             if(productInf.product_id){
-               $('.hidde-when-edit').hide();
+               $('.hidde-when-edit').remove();
+                init();
+                initProductInf();
+                registEvent();
+                initImgValues();
+//                $('.hidde-when-edit').find('.product-normal-info').removeClass('product-normal-info');
+            }else{
+                init();
+                initProductInf();
+                initCategory();
+                registEvent();
+                initImgValues();
             }
-            init();
-            initProductInf();
-            initCategory();
-            registEvent();
-            initImgValues();
 
 
         });
 
         function init(){
-            editor=initEditor();
+            detailEditor=initEditor('#editor');
+            sizeEditor=initEditor('#size-editor');
             selectCreator=TableController.prepareElement('.select-template','.option-template');
             attrTrCreator=TableController.prepareElement('.attr-template');
         }
@@ -217,7 +229,8 @@
                 });
                 productInf['img']=imgs;
                 productInf['product_attr']=attrList;
-                productInf['product_detail']=editor.txt.html();
+                productInf['product_detail']=detailEditor.txt.html();
+                productInf['size_detail']=sizeEditor.txt.html();
                 if(!isNull){
                     updateProductInf();
                 }
@@ -285,21 +298,23 @@
         function initProductInf() {
             if (productInf.product_id) {
                 if(productInf.product_attr){
+//                    console.log(productInf.product_attr);
                     attrList=JSON.parse(productInf.product_attr);
+//                    console.log(attrList);
                 }
                 $('.product-normal-info').each(function(k,v){
                     var field=$(v).data('field');
                     v.value=productInf[field];
                 });
                 initAttrInputArea(attrList);
-                editor.txt.html(productInf.product_detail);
+                detailEditor.txt.html(productInf.product_detail);
+                sizeEditor.txt.html(productInf.size_detail);
 //                var imgInf=JSON.parse(productInf.img);
             }
 //            $('.category-select').remove();
         }
 
         function updateProductInf(){
-
             ajaxPost('add_product',productInf,function(back){
                 var backValue=backHandle(back);
                 if(backValue){
@@ -313,9 +328,9 @@
                 }
             });
         }
-        function initEditor() {
+        function initEditor(select) {
             var E = window.wangEditor;
-            var editor = new E('#editor');
+            var editor = new E(select);
             // 或者 var editor = new E( document.getElementById('#editor') )
             editor.customConfig.uploadImgServer='upload.php';
             editor.customConfig.uploadImgParams={

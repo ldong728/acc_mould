@@ -43,7 +43,7 @@ function ajaxPost(className,methodName,ajaxData,callback){
     }else{
         postData={data:ajaxData};
     }
-    $.post('index.php/API'+className+'/'+methodName,postData,callback);
+    $.post('api.php/API/'+className+'/'+methodName,postData,callback);
 }
 function mylog(data){
     console.log(data);
@@ -56,27 +56,22 @@ function signOut(category){
     });
 }
 function prepareElement(){
+    console.log('prepare from main.js');
     var returnData={};
     var classList=[];
     var outArg=arguments;
     $.each(arguments,function(k,v){
-        console.log($(v.toString()));
         if($(v.toString()).length>0){
             returnData[v]=$(v).clone();
         }
         classList.push(v);
     });
-    console.log(returnData);
     $.each(classList,function(k,v){
         $(v).remove();
         for(var i in returnData){
             returnData[i].find(v).remove();
         }
     });
-    console.log(returnData);
-
-    console.log(classList);
-
     return function(jqueryElement){
         var element=jqueryElement;
         if(1==outArg.length){
