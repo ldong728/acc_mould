@@ -36,7 +36,10 @@ var TableController = {
         this.filter.where=filter;
     },
     getList: function (callback) {
+        //console.log('getList');
         var sCallback=callback||this.handleCallback;
+        //console.log()
+        //console.log(sCallback);
         var _=this;
         if (this.methodName) {
             ajaxPost(this.methodName, this.filter, function (back) {
@@ -45,6 +48,7 @@ var TableController = {
                 $(_.totalPageDisplayer).text(backInf.page);
                 $(_.currentPageDiplayer).text(_.filter.page+1);
                 //_.totalCount = backInf.count;
+                console.log(backInf);
                 sCallback(backInf);
             });
         }
@@ -85,18 +89,21 @@ var TableController = {
         var next=nextPageSelector||'#next';
         var prev=prevPageSelector||'#prev';
         $(document).on('click',next,function(){
-           if(_.filter.where.page< _.totalPage-1){
-               _.filter.where.page++;
-               _.getList();
+            //console.log(_.totalPage);
+            //console.log(_.filter.page);
+           if(_.filter.page< _.totalPage-1){
+               _.filter.page++;
+               _.getList(eventFunction);
+               //sEventFunction(_.handleCallback);
            }else{
                console.log('last')
            }
         });
         $(document).on('click',prev,function(){
-           if(_.filter.where.page>0){
-               _.filter.where.page--;
-               //sEventFunction()
-               _.getList();
+           if(_.filter.page>0){
+               _.filter.page--;
+               _.getList(eventFunction);
+               //sEventFunction(_.handleCallback);
            }else{
                console.log('first');
            }

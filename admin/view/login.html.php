@@ -62,7 +62,7 @@
 </head>
 <body>
 
-<a href="http://www.gooduo.net"><div class="logo"></div></a>
+<a href="#"><div class="logo"></div></a>
 <dl class="admin_login">
     <dt>
         <strong>后台管理系统</strong>
@@ -87,7 +87,7 @@
         </dd>
     </form>
     <dd>
-        <p>© 2015-2016 gooduo.net 版权所有</p>
+        <p>© 2017-2018 <a href="http://www.gooduo.net">gooduo.net</a> 版权所有</p>
     </dd>
 </dl>
 </body>

@@ -81,7 +81,7 @@
                     break;
                 case 'search-name':
                     var text=$('.name-search-text').val();
-                    TableController.filter.where[0]='name like "%'+text+'%"';
+                    TableController.filter.where[0]='product_name like "%'+text+'%"';
                     TableController.getList(handleTableContent);
                     break;
                 case 'stock':
@@ -181,7 +181,8 @@
         $('.tr-template').remove();
         $.each(back.list,function(k,v){
             var imgs= JSON.parse(v.img);
-            var attr=JSON.parse(v.product_attr);
+//            var attr=JSON.parse(v.product_attr);
+//            if
             console.log(imgs);
             var element = trElements('.tr-template');
             $.each(element.find('.content'), function (index, value) {

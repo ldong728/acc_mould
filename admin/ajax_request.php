@@ -183,8 +183,8 @@ function company_category_list($data){
 
 function add_product($data)
 {
-    $data['img'] = json_encode($data['img']);
-    $data['product_attr'] = json_encode($data['product_attr']);
+    $data['img'] = isset($data['img'])? json_encode($data['img']):null;
+    $data['product_attr'] =isset($data['product_attr'])? json_encode($data['product_attr']):null;
     try {
         pdoInsertNew('product_tbl', $data, 'update');
     } catch (PDOException $e) {

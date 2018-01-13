@@ -1,5 +1,5 @@
 <style>
-    td {min-width: 150px}
+    td {min-width: 100px}
     table {
         margin-bottom: 30px;
     }
@@ -22,10 +22,10 @@
     <div class="category-container">
         <table class="table sheet category-table">
             <tr class="table-title">
-                <td class="category-name"></td><td>图片</td><td><button class="button add-current">添加分类项</button></td>
+                <td class="category-name"></td><td>图片</td><td>单位</td><td><button class="button add-current">添加分类项</button></td>
             </tr>
             <tr class="sub-category">
-                <td class="sub-category-name"></td><td><img class="img" alt="分类图片"></td><td><button class="button open-attr-edit-view">编辑属性</button><button class="button show-sub">查看子分类</button><button class="button delete-category">删除分类</button></td>
+                <td class="sub-category-name"></td><td><img class="img" alt="分类图片"></td><td class="unit-name"></td><td><button class="button open-attr-edit-view">编辑属性</button><button class="button show-sub">查看子分类</button><button class="button delete-category">删除分类</button></td>
             </tr>
         </table>
     </div>
@@ -51,8 +51,8 @@
                 <input type="hidden" class="attr-content" data-field="category_attr_id">
                 <td><input class="attr-content" data-field="category_attr_name"</td>
                 <td><input type="number" class="attr-content" data-field="attr_pms" maxlength="1" value="7"></td>
-                <td><select class="attr-content" data-field="attr_type"><option value="text">文字</option><option value="number">数字</option><option value="file">文件</option></select></td>
-                <td><input class="attr-content" data-field="default_value"></td>
+                <td><select class="attr-content" data-field="attr_type"><option value="text">文字</option><option value="number">数字</option><option value="file">文件</option><option value="func">公式</option></select></td>
+                <td><input class="attr-content" data-field="value"></td>
                 <td><input class="attr-content" data-field="attr_unit"></td>
                 <td><button class="button delete-attr">删除</button></td>
             </tr>
@@ -244,6 +244,7 @@
     function initCategoryElement(parent,level,v){
         var trElement=elements('.sub-category');
         var nameElement=trElement.find('.sub-category-name');
+        var unitElement=trElement.find('.unit-name');
         var button=trElement.find('.show-sub');
         var imgElement=trElement.find('.img');
         var attrButton=trElement.find('.open-attr-edit-view');
@@ -254,6 +255,12 @@
         nameElement.attr('data-col','category_name');
         nameElement.attr('data-index','category_id');
         nameElement.text(v.category_name);
+        unitElement.addClass('ipt-toggle');
+        unitElement.attr('id',v.category_id);
+        unitElement.attr('data-tbl','category');
+        unitElement.attr('data-col','unit_name');
+        unitElement.attr('data-index','category_id');
+        unitElement.text(v.unit_name);
         imgElement.attr('src', v.img);
         imgElement.attr('id','img'+ v.category_id);
         button.attr('data-parent', v.category_id);
@@ -261,5 +268,21 @@
         attrButton.attr('id','att'+ v.category_id);
         delButton.attr('id','del'+ v.category_id);
         parent.append(trElement);
+    }
+    function temp(){
+        ajaxPost('category_attr_list',{category_id:12},function(back){
+            var backValue=backHandle(back);
+            if(backValue){
+                var calc=null;
+                $.each(backValue,function(k,v){
+                    if('func'==v.attr_type){
+                        calc=eval('('+ v.value+')');
+                    }
+                });
+                console.log(calc);
+                console.log(calc(10,20));
+            }
+
+        });
     }
 </script>

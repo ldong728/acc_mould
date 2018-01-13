@@ -4,13 +4,14 @@
 </script>
 <script type="application/javascript" src="js/ajaxfileupload.js"></script>
 <script type="application/javascript" src="js/tableController.js"></script>
+<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
 <style>
     .img{
         width: 40px;
         height: auto;
     }
     .biger-img{
-        width: 150px;
+        width: 150px;v
         margin-left: 10px;
         height: auto;
     }
@@ -29,11 +30,27 @@
                 </tr>
                 <tr>
                     <td>商品名称：</td>
-                    <td colspan="3"><input class="product-normal-info" data-field="product_name"style="width: 500px"></td>
+                    <td colspan="3"><input class="product-normal-info" data-field="product_name" style="width: 500px"></td>
                 </tr>
                 <tr>
                     <td>商品图片：</td>
                     <td colspan="3"> <img class="img img-upload biger-img" data-key="product-img" data-multiple="1" alt="商品图片（点击上传）"></td>
+                </tr>
+                <tr>
+                    <td>梯度定价：</td>
+                    <td>功能未开启</td>
+                    <td>运费说明：</td>
+                    <td><input class="product-normal-info" data-field="shipping_instr"></td>
+                </tr>
+                <tr>
+                    <td>发货期：</td>
+                    <td><input class="product-normal-info" data-field="delivery_time"></td>
+                    <td>发货地：</td>
+                    <td><input class="product-normal-info" data-field="shipping_place"></td>
+                </tr>
+                <tr>
+                    <td>商品描述：</td>
+                    <td colspan="3" id="editor"></td>
                 </tr>
                 </tbody>
                 <tfoot class="attr-container">
@@ -58,9 +75,10 @@
         var imgs={};
         var selectCreator;
         var attrTrCreator;
+        var editor;
         $(document).ready(function () {
             if(productInf.product_id){
-               $('.hidde-when-edit').remove();
+               $('.hidde-when-edit').hide();
             }
             init();
             initProductInf();
@@ -72,6 +90,7 @@
         });
 
         function init(){
+            editor=initEditor();
             selectCreator=TableController.prepareElement('.select-template','.option-template');
             attrTrCreator=TableController.prepareElement('.attr-template');
         }
@@ -174,7 +193,7 @@
                         $.each(backValue,function(k,v){
                             console.log(v.attr_pms);
                             if([1,3,5,7].indexOf(parseInt(v.attr_pms))>-1){
-                                attrList[v.category_attr_id]={name: v.category_attr_name,type: v.attr_type,value: v.default_value,unit: v.attr_unit};
+                                attrList[v.category_attr_id]=v;
                             }
                         });
                         initAttrInputArea(attrList);
@@ -193,11 +212,12 @@
                 });
                 $('.attr-value').each(function(k,v){
                     var id= $(v).attr('id').slice(3);
-                    var value= v.value;
-                    attrList[id].value=value;
+                    var sValue= v.value;
+                    attrList[id].value=sValue;
                 });
                 productInf['img']=imgs;
                 productInf['product_attr']=attrList;
+                productInf['product_detail']=editor.txt.html();
                 if(!isNull){
                     updateProductInf();
                 }
@@ -251,8 +271,8 @@
             $('.attr-container').empty();
             $.each(attrs,function(k,v){
                 var sTr=attrTrCreator();
-                sTr.find('.name').text(v.name);
-                sTr.find('.unit').text(v.unit||'');
+                sTr.find('.name').text(v.category_attr_name);
+                sTr.find('.unit').text(v.attr_unit||'');
                 sTr.find('.attr-value').attr('id','att'+k);
                 sTr.find('.attr-value').val(v.value||'');
 
@@ -264,12 +284,15 @@
         }
         function initProductInf() {
             if (productInf.product_id) {
-                attrList=JSON.parse(productInf.product_attr);
+                if(productInf.product_attr){
+                    attrList=JSON.parse(productInf.product_attr);
+                }
                 $('.product-normal-info').each(function(k,v){
                     var field=$(v).data('field');
                     v.value=productInf[field];
                 });
                 initAttrInputArea(attrList);
+                editor.txt.html(productInf.product_detail);
 //                var imgInf=JSON.parse(productInf.img);
             }
 //            $('.category-select').remove();
@@ -289,6 +312,17 @@
                     }
                 }
             });
+        }
+        function initEditor() {
+            var E = window.wangEditor;
+            var editor = new E('#editor');
+            // 或者 var editor = new E( document.getElementById('#editor') )
+            editor.customConfig.uploadImgServer='upload.php';
+            editor.customConfig.uploadImgParams={
+                fromContent:1
+            };
+            editor.create();
+            return editor;
         }
 
     </script>

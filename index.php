@@ -8,7 +8,10 @@ if(isset($_GET['img'])){
     $imgPath=$GLOBALS['mypath'].'/'.$_GET['img'];
     if(file_exists($imgPath)){
         include $imgPath;
+    }else{
+        echo 'error';
     }
+    exit;
 }
 
 $href=isset($_GET['href'])?$_GET['href']:'index';
