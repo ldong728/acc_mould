@@ -1,3 +1,7 @@
+<style>
+    .attr-input{display: none; z-index: 99; position: fixed;left: 50%;top: 50%; width: 500px;height: 350px;padding: 30px;box-sizing: border-box; margin-left:  -250px;margin-top: -175px;background-color: #fff;}
+</style>
+
 <div class="home">
     <div class="container">
         <div class="pu-container">
@@ -7,25 +11,21 @@
                     <span>&gt;</span>
                     <li><a href="purchase.html">我要采购</a></li>
                     <span>&gt;</span>
-                    <li><a href="purchase_details.html">螺帽</a></li>
+                    <li><a class="product-inf" data-field="category_name"></a></li>
                 </ul>
                 <p class="number">共找到<span class="light">1234</span>信息</p>
             </div>
             <div class="pu-details">
                 <div class="pu-details-info clearfix">
                     <div class="pd-info-l">
-                        <p class="big-img"><img src="images/lm.jpg"></p>
-                        <ul class="ul-img clearfix">
-                            <li><img src="images/lm.jpg"></li>
-                            <li><img src="images/lm.jpg"></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                        <p class="big-img"><img class="current-img" src="images/lm.jpg"></p>
+                        <ul class="ul-img clearfix img-container">
+                            <li class="img-template"><img class="small-image" src="images/lm.jpg"></li>
                         </ul>
                     </div>
                     <div class="pd-info-r">
                         <div class="pd-info-title clearfix">
-                            <h2>模具加工</h2>
+                            <h2 class="product-inf" data-field="product_name">模具加工</h2>
                             <a href="purchase_demand.html">发布采购需求</a>
                         </div>
                         <ol class="pd-info-number clearfix">
@@ -34,37 +34,37 @@
 
                                 <p class="num">10-99台</p>
                             </li>
-                            <li>
-                                <p class="red">￥95.00</p>
+                            <!--<li>-->
+                                <!--<p class="red">￥95.00</p>-->
 
-                                <p class="num">100-4999台</p>
-                            </li>
-                            <li>
-                                <p class="red">￥90.00</p>
+                                <!--<p class="num">100-4999台</p>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<p class="red">￥90.00</p>-->
 
-                                <p class="num">≥5000台</p>
-                            </li>
+                                <!--<p class="num">≥5000台</p>-->
+                            <!--</li>-->
                         </ol>
                         <ul class="pd-info-content">
-                            <li>
-                                <p class="li-l">规格</p>
+                            <!--<li>-->
+                                <!--<p class="li-l">规格</p>-->
 
-                                <p class="li-r">这里是规格</p>
-                            </li>
+                                <!--<p class="li-r">这里是规格</p>-->
+                            <!--</li>-->
                             <li>
                                 <p class="li-l">发货地</p>
 
-                                <p class="li-r">浙江省宁波市</p>
+                                <p class="li-r product-inf" data-field="shipping_place">浙江省宁波市</p>
                             </li>
                             <li>
                                 <p class="li-l">发货期</p>
 
-                                <p class="li-r"><span class="light">3</span>天以内</p>
+                                <p class="li-r"><span class="light product-inf" data-field="delivery_time">3</span>天以内</p>
                             </li>
                             <li>
                                 <p class="li-l">运费说明</p>
 
-                                <p class="li-r">买家承担</p>
+                                <p class="li-r product-inf" data-field="shipping_instr">买家承担</p>
                             </li>
                             <li>
                                 <p class="li-l">支付方式</p>
@@ -81,7 +81,7 @@
                                         class="plus"><i class="icon icon-plus"></i></span>
                                 </div>
                                 <div class="bottom">
-                                    <button class="add-shop"><i class="icon icon-shopping-cart"></i>加入购物车</button>
+                                    <button class="add-shop add-to-cart"><i class="icon icon-shopping-cart"></i>加入购物车</button>
                                     <a href="purchase_demand.html" class="xj">立即询价</a>
                                     <button type="button" class="contact">联系信息</button>
                                 </div>
@@ -99,9 +99,9 @@
                 </div>
                 <div class="pu-details-parameter">
                     <ul class="clearfix">
-                        <li class="li-cur">商品详情</li>
-                        <li>规格参数</li>
-                        <li>联系方式</li>
+                        <li class="li-cur detail-switch" data-field="product_detail">商品详情</li>
+                        <li class="detail-switch" data-field="size_detail">规格参数</li>
+                        <!--<li>联系方式</li>-->
                     </ul>
                     <div class="parameter-content">
                         <img src="images/lm.jpg">
@@ -189,29 +189,33 @@
         <p>
             <span class="img">
                 <img src="images/co3.png">
-            </span>联系人：尼古拉斯赵四（先生）
+            </span>联系人：陈先生
         </p>
 
         <p>
             <span class="img">
                 <img src="images/co4.png">
-            </span>公&nbsp;&nbsp;&nbsp;司：某某某公司（普通会员）
+            </span>公&nbsp;&nbsp;&nbsp;司：<span class="product-inf" data-field="company_name">某某某公司（普通会员）</span>
         </p>
 
         <p>
             <span class="img">
                 <img src="images/co5.png">
-            </span>地&nbsp;&nbsp;&nbsp;址：浙江省宁波市
+            </span>地&nbsp;&nbsp;&nbsp;址：<span class="product-inf" data-field="company_address">浙江省宁波市</span>
         </p>
     </div>
+</div>
+<div class="attr-input">
+    <div class="calc-value"><span class="attr-name"></span>:<input type="number"><span class="attr-unit"></span></div>
+    <div class="file-value"><span class="attr-name"></span><input type="file" name="file-up" id="file-up"></div>
 </div>
 
 
 <script>
-
+    var bodyHeight = $('body').height();
     $(function () {
 
-        var bodyHeight = $('body').height();
+
         $(document).on('click', '.contact', function () {
             $('.contact-message').show();
             $('body').append('<div class="mask"></div>');
@@ -220,6 +224,7 @@
 
         $(document).on('click', '.mask', function () {
             $('.contact-message').hide();
+            $('.attr-input').hide();
             $('.mask').remove();
         });
 
@@ -232,23 +237,96 @@
 <script>
     var productId=sessionStorage.currentProductId;
     var categoryAttr;
+    var orderAttr={};
+    var productInf;
+    var calFunction={};
+    var inputCreator=prepareElement('.calc-value');
+    var fileCreator=prepareElement('.file-value');
     $(document).ready(function(){
         if(productId){
             initProductInf();
+            registEvent();
         }
     });
+    function registEvent(){
+        $(document).on('click','.detail-switch',function(){
+            console.log('click');
+            $('.detail-switch').removeClass('li-cur');
+            $(this).addClass('li-cur');
+            var field=$(this).data('field');
+            $('.parameter-content').html(productInf[field]);
+        });
+        $(document).on('click','.add-to-cart',function(){
+           $('.attr-input').show();
+            $('body').append('<div class="mask"></div>');
+            $('.mask').height(bodyHeight);
+        });
+    }
     function initProductInf(){
+        var _=this;
         ajaxPost('product','detail',{product_id:productId},function(back){
             var backValue=backHandle(back);
             if(backValue){
                 console.log(backValue);
                 categoryAttr=backValue.attrs;
-                var attr=JSON.parse(backValue.detail.product_attr);
-                console.log(categoryAttr);
-                console.log(attr);
+                productInf=backValue.detail;
+                $('.product-inf').each(function(k,v){
+                    var field=$(this).data('field');
+                    $(v).text(productInf[field]);
+                    $(v).removeAttr('data-field');
+                });
+                $('.parameter-content').html(productInf.product_detail);
+                var img=JSON.parse(productInf.img);
+                $('.current-img').attr('src',img['product-img'][0]);
+                var imgCreator= _.prepareElement('.img-template');
+                for(var i in img['product-img']){
+                    var sImg=imgCreator();
+                    sImg.find('.small-image').attr('src',img['product-img'][i]);
+                    $('.img-container').append(sImg);
+                }
+                setAttrs(_);
+
+//                console.log(categoryAttr);
+//                console.log(attr);
+
             }
         });
 
+    }
+    function setAttrs(){
+        var attr=JSON.parse(productInf.product_attr);
+        for(var i in categoryAttr){
+            if(attr[i])categoryAttr[i]=attr[i];
+            console.log(categoryAttr[i]);
+            if(4==categoryAttr[i].attr_pms){
+                orderAttr[i]=categoryAttr[i];
+                switch(categoryAttr[i].attr_type){
+                    case'number':
+                        var inputElement=inputCreator();
+                        inputElement.find('.attr-name').text(categoryAttr[i].category_attr_name);
+                        inputElement.find('.attr-unit').text(categoryAttr[i].attr_unit);
+                        inputElement.find('input').attr('id',categoryAttr[i].category_attr_id);
+                            $('.attr-input').append(inputElement);
+                        break;
+
+                    case'file':
+                        var fileElement=fileCreator();
+
+                            $('.attr-input').append(fileElement);
+                        break;
+
+                    case 'func':
+                        calFunction=eval('('+categoryAttr[i].value+')');
+                        break;
+
+                    default:
+                        break;
+
+
+
+                }
+            }
+        }
     }
 
 

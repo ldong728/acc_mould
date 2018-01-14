@@ -149,7 +149,7 @@
         </div>
 
         <ul class="nav-bar">
-            <li><a href="index.html">首页</a></li>
+            <li><a href="?href=index">首页</a></li>
             <li class="li-cur"><a href="process.html">我要加工</a></li>
             <li><a href="purchase.html">我要采购</a></li>
             <li><a href="purchase_info.html">采购信息</a></li>
