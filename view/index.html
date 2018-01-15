@@ -376,7 +376,7 @@
                                 <span class="img"><img src="images/icon1.png"></span>
                                 <span class="text category-name"></span>
                             </div>
-                            <div class="li-title-r"><a href="#"> 更多&gt;</a></div>
+                            <div class="li-title-r"><a class="to-purchase" href="#"> 更多&gt;</a></div>
                         </div>
                         <div class="li-item clearfix">
                             <div class="li-item-l">
@@ -696,6 +696,7 @@
     $(document).ready(function() {
         var companyList = new ContentHandler('company_list',companyListHandler);
         companyList.setNumber(10);
+        companyList.setOrder('priority',false);
         companyList.getList();
         var productList = new ContentHandler('product_index_list',productListHandler);
         productList.getList();
@@ -707,6 +708,11 @@
             sessionStorage.currentProductId=productId;
             location.href='?href=purchase_details';
 //            console.log(productId);
+        });
+        $(document).on('click','.to-purchase',function(){
+            var id=$(this).attr('id').slice(3);
+            sessionStorage.currentCategoryId=id;
+            location.href='?href=purchase';
         })
     }
     function companyListHandler(back) {
@@ -736,6 +742,7 @@
                 var element=productCreator();
                 element.find('.category-name').text(v.category_name);
                 element.find('.unit-name').text(v.unit_name);
+                element.find('.to-purchase').attr('id','cat'+ v.category_id);
                 $.each(v.products,function(id,product){
                     var img={};
                     var attr={};

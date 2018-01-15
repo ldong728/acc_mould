@@ -86,61 +86,61 @@
             <h3 class="purchase primary-background">一站式采购解决方案</h3>
             <ul class="service-lists hover">
                 <li>
-                    <a href="#">
+                    <a class="main-category" href="#" id="mct1">
                         <span class="img"><img src="images/icon1.png"></span>
                         <span class="text">模具钢</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class="main-category" href="#" id="mct2">
                         <span class="img"><img src="images/icon2.png"></span>
                         <span class="text">模架</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class='main-category' href="#" id="mct3">
                         <span class="img"><img src="images/icon3.png"></span>
                         <span class="text">热流道</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class='main-category' href="#" id="mct4">
                         <span class="img"><img src="images/icon4.png"></span>
                         <span class="text">标准件</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class='main-category' href="#" id="mct5">
                         <span class="img"><img src="images/icon5.png"></span>
                         <span class="text">电极（石墨）</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class='main-category' href="#" id="mct6">
                         <span class="img"><img src="images/icon6.png"></span>
                         <span class="text">模具油缸</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class='main-category' href="#" id="mct7">
                         <span class="img"><img src="images/icon7.png"></span>
                         <span class="text">刀具</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class='main-category' href="#" id="mct19">
                         <span class="img"><img src="images/icon8.png"></span>
                         <span class="text">耗材</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a class='main-category' href="#" id="mct8">
                         <span class="img"><img src="images/icon9.png"></span>
                         <span class="text">模具加工设备</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="?href=mold_bidding">
                         <span class="img"><img src="images/icon10.png"></span>
                         <span class="text">模具招投标</span>
                     </a>
@@ -150,13 +150,20 @@
 
         <ul class="nav-bar">
             <li><a href="?href=index">首页</a></li>
-            <li class="li-cur"><a href="process.html">我要加工</a></li>
-            <li><a href="purchase.html">我要采购</a></li>
-            <li><a href="purchase_info.html">采购信息</a></li>
-            <li><a href="mold_bidding.html">模具招投标</a></li>
-            <li><a href="forum.html">技术论坛</a></li>
-            <li><a href="training.html">招聘培训</a></li>
-            <li><a href="finance_serve.html">金融服务</a></li>
+            <li class="li-cur"><a href="?href=process">我要加工</a></li>
+            <li><a href="?href=purchase">我要采购</a></li>
+            <li><a href="?href=purchase_info">采购信息</a></li>
+            <li><a href="?href=mold_bidding">模具招投标</a></li>
+            <li><a href="?href=forum">技术论坛</a></li>
+            <li><a href="?href=training">招聘培训</a></li>
+            <li><a href="?href=finance_serve">金融服务</a></li>
         </ul>
     </div>
 </div>
+<script>
+    $('.main-category').click(function(){
+       var categoryId=$(this).attr('id').slice(3);
+        sessionStorage.currentCategoryId=categoryId;
+        location.href='?href=purchase';
+    });
+</script>

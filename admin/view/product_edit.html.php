@@ -336,6 +336,7 @@
             editor.customConfig.uploadImgParams={
                 fromContent:1
             };
+            editor.customConfig.uploadImgShowBase64 = false;
             editor.create();
             return editor;
         }

@@ -16,6 +16,7 @@
             <th>图片</th>
             <th>名称</th>
             <th>供应商</th>
+            <th>优先级(双击修改)</th>
             <th>操作</th>
 
         </tr>
@@ -23,6 +24,8 @@
             <td><img class="img" alt="主图"></td>
             <td class="content" data-field="product_name"></td>
             <td class="content" data-field="company_name"></td>
+            <td class="content priority ipt-toggle" data-field="priority" data-tbl="product" data-col="priority" data-index="product_id"></td>
+
             <td>
                 <button class="button edit" data-type="edit">编辑</button>
                 <button class="button delete" data-type="delete">删除</button>
@@ -64,6 +67,7 @@
 //        TableController.methodName='product_list';
         trElements=TableController.prepareElement('.tr-template');
         TableController.init('product_list',handleTableContent);
+        TableController.setOrder('priority',false);
         TableController.getList();
         TableController.setPageEvent();
         registEvent();
@@ -193,6 +197,7 @@
             element.find('.edit').attr('id', 'edt'+v.product_id);
             element.find('.delete').attr('id', 'del'+v.product_id);
             element.find('.stock').attr('id','stk'+ v.product_id);
+            element.find('.priority').attr('id', v.product_id);
             $('.product-table').append(element);
         });
     }

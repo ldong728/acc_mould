@@ -42,6 +42,11 @@ class TableProvider
         echoBack($this->getList('company_tbl',['company_name','major_business','img'],null,$data,false));
     }
 
+    public function product_list($data){
+        $back=$this->getList('product_tbl',null,'product_tbl',$data);
+        echoBack($back);
+    }
+
 //    private function
 
     private function echoBackNormalData($data){

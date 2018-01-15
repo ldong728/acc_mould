@@ -11,6 +11,7 @@
             <th>名称</th>
             <th>地址</th>
             <th>联系电话</th>
+            <th>优先级(双击修改)</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -19,6 +20,7 @@
             <td class="content" data-field="company_name"></td>
             <td class="content" data-field="company_address"></td>
             <td class="content" data-field="company_tel"></td>
+            <td class="content proirity ipt-toggle" data-field="priority" data-tbl="company" data-col="priority" data-index="company_id"></td>
             <td>
                 <button class="button edit" data-type="edit">编辑</button>
                 <button class="button delete" data-type="delete">删除</button>
@@ -50,6 +52,7 @@
 //        TableController.methodName = 'company_list';
         TableController.init('company_list', backDataHandle);
         TableController.setPageEvent();
+        TableController.setOrder('priority',false);
         TableController.getList();
 
 
@@ -88,6 +91,7 @@
 //                    console.log(value);
 //                    delete value.data-field;
             });
+            element.find('.proirity').attr('id', v.company_id);
             element.find('.edit').attr('id', 'edt' + v.company_id);
             element.find('.delete').attr('id', 'del' + v.company_id);
             $('.company-table').append(element);

@@ -12,6 +12,13 @@ class Product {
 //        $this->userId=API::userVerify();
     }
 
+    public function category_list(){
+        $query=pdoQuery('category_tbl',null,null,null);
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        echoBack($query->fetchAll());
+//        echoBack(pdoQuery(''))
+    }
+
     public function detail($data){
         $productId=$data['product_id'];
         $product=pdoQuery('product_detail_view',null,['product_id'=>$productId],'limit 1');
