@@ -108,8 +108,9 @@
 <script>
     $(document).ready(function(){
         if(sessionStorage.companyInf){
-            $('.name').text(sessionStorage.companyInf.name||'');
-            $('.tel').text(sessionStorage.companyInf.tel||'');
+            var inf=JSON.parse(sessionStorage.companyInf);
+            $('.name').text(inf.name||'');
+            $('.tel').text(inf.tel||'');
         }
     });
 

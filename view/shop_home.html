@@ -206,7 +206,7 @@
                     })
                 }
             }
-            sessionStorage.companyInf={name:backValue.company_name,tel:backValue.company_tel};
+            sessionStorage.companyInf=JSON.stringify({name:backValue.company_name,tel:backValue.company_tel});
             setSlide();
         });
     }
