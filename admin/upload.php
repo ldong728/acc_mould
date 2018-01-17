@@ -45,7 +45,6 @@ if(isset($_SESSION[DOMAIN]['login'])&&DOMAIN==$_SESSION[DOMAIN]['login']) {
         echo json_encode($backData);
         exit;
     }
-
 }
 function compactImg($path){
     mylog('too big');

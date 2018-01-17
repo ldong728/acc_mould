@@ -1,134 +1,13 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>采购信息-模具集成服务平台</title>
-    <meta name="description" content="描述内容">
-    <meta name="keyword" content="关键字1，关键字2">
-    <link href="css/main.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-</head>
-<body class="bg-f8">
-
-<div class="entrance">
-    <div class="container">
-        <ul class="entrance-l clearfix">
-            <li>欢迎访问模具集成服务平台！</li>
-            <li>
-                <p class="li-login light">
-                    <a href="#">[请登录]</a>
-                    <a href="#">[免费注册]</a>
-                </p>
-
-            </li>
-        </ul>
-        <ul class="entrance-r clearfix">
-            <li>
-                <div class="entrance-li-show li-account clearfix">
-                    <a href="#">我的账户</a>
-                    <i class="icon icon-angle-down"></i>
-                </div>
-                <div class="entrance-li-none account-set"></div>
-            </li>
-            <li>
-                <div class="entrance-li-show li-shop-cart clearfix">
-                    <a href="#">购物车<span class="number">0</span></a>
-                    <i class="icon icon-angle-down"></i>
-                </div>
-                <div class="entrance-li-none shop-cart-lists"></div>
-            </li>
-            <li>
-                <div class="entrance-li-show li-vip">
-                    <a href="#">VIP专属入口</a>
-                </div>
-            </li>
-            <li>
-                <div class="entrance-li-show li-supplier">
-                    <a href="#">供应商入口</a>
-                </div>
-            </li>
-            <li>
-                <div class="entrance-li-show li-customer-server">
-                    <a href="#">客服中心</a>
-                </div>
-            </li>
-            <li>
-                <p class="li-tel light">
-                    <i class="icon icon-phone"></i> <span>客服：400-888-888</span>
-                </p>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div class="header">
-    <div class="container">
-        <div class="header-l">
-            <img src="images/logo.png" alt="logo">
-        </div>
-        <div class="header-m">
-            <ul class="header-search-title clearfix">
-                <li class="li-cur">加工</li>
-                <li>采购</li>
-            </ul>
-            <div class="search-form">
-                <form method="post" action="#">
-                    <i class="icon icon-search"></i>
-                    <input type="text" placeholder="请输入关键字" name="skw">
-                    <button type="button">搜 索</button>
-                </form>
-            </div>
-            <div class="search-keywords">
-                <h4 class="title">热门搜索：</h4>
-                <p class="text">
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                    <a href="#">关键字</a>
-                </p>
-            </div>
-        </div>
-        <div class="header-r">
-            <p class="wx-code">
-                <img src="images/wx-code.jpg" alt="微信二维码">
-            </p>
-            <p class="wx-text">关注官方微信</p>
-        </div>
-    </div>
-</div>
-
-<div class="nav">
-    <div class="container">
-        <h3 class="purchase primary-background">一站式采购解决方案</h3>
-        <ul class="nav-bar">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="process.html">我要加工</a></li>
-            <li><a href="purchase.html">我要采购</a></li>
-            <li><a href="purchase_info.html">采购信息</a></li>
-            <li class="li-cur"><a href="mold_bidding.html">模具招投标</a></li>
-            <li><a href="forum.html">技术论坛</a></li>
-            <li><a href="training.html">招聘培训</a></li>
-            <li><a href="finance_serve.html">金融服务</a></li>
-        </ul>
-    </div>
-</div>
-
 <div class="home">
     <div class="container">
         <div class="pu-container">
             <div class="pu-breadcrumbs clearfix">
                 <ul class="clearfix">
-                    <li><a href="index.html">首页</a></li>
+                    <li><a href="?href=index">首页</a></li>
                     <span>&gt;</span>
-                    <li><a href="purchase_info.html">采购信息</a></li>
+                    <li><a href="?href=purchase_info">采购信息</a></li>
                     <span>&gt;</span>
-                    <li><a href="purchase_info.html">这里是采购标题</a></li>
+                    <li><a href="?href=purchase_info">这里是采购标题</a></li>
                 </ul>
                 <p class="number">共找到<span class="light">1234</span>信息</p>
             </div>
@@ -141,7 +20,7 @@
                     </p>
                 </div>
                 <div class="pu-company-r">
-                    <a href="#" class="clearfix">
+                    <a href="?href=bidding_inquiry" class="clearfix">
                         <img src="images/text1.png">
                         <span class="cur-color">我也要询价</span>
                     </a>
@@ -246,7 +125,7 @@
                                     <p><span>交货地址：</span>广州测试地址</p>
                                 </div>
                                 <div class="li-b">
-                                    <button type="button" class="cur-background">我要报价</button>
+                                    <button type="button" class="cur-background"><a href="?href=bidding_inquiry_details">我要报价</a> </button>
                                 </div>
                             </div>
                             <div class="li">
@@ -258,7 +137,7 @@
                                     <p><span>交货地址：</span>广州测试地址</p>
                                 </div>
                                 <div class="li-b">
-                                    <button type="button" class="cur-background">我要报价</button>
+                                    <button type="button" class="cur-background"><a href="?href=bidding_inquiry_details">我要报价</a> </button>
                                 </div>
                             </div>
                             <div class="li">
@@ -270,7 +149,7 @@
                                     <p><span>交货地址：</span>广州测试地址</p>
                                 </div>
                                 <div class="li-b">
-                                    <button type="button" class="cur-background">我要报价</button>
+                                    <button type="button" class="cur-background"><a href="?href=bidding_inquiry_details">我要报价</a> </button>
                                 </div>
                             </div>
                             <div class="li">
@@ -282,7 +161,7 @@
                                     <p><span>交货地址：</span>广州测试地址</p>
                                 </div>
                                 <div class="li-b">
-                                    <button type="button" class="cur-background">我要报价</button>
+                                    <button type="button" class="cur-background"><a href="?href=bidding_inquiry_details">我要报价</a> </button>
                                 </div>
                             </div>
                         </div>

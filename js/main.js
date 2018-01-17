@@ -56,7 +56,6 @@ function signOut(category){
     });
 }
 function prepareElement(){
-    console.log('prepare from main.js');
     var returnData={};
     var classList=[];
     var outArg=arguments;

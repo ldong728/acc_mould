@@ -173,6 +173,8 @@
         categoryElementCreator=prepareElement('.category-template')
         initCategory(function(){
             currentCategoryList=getAllSubCategory(currentCategoryList);
+            currentCategoryList.push(currentCategory);
+            console.log(currentCategoryList);
             tableHandler=new ContentHandler('product_list',setProductList);
             tableHandler.setPageEvent('.next-page','.prev-page');
             tableHandler.setFilter({category:currentCategoryList});
@@ -202,7 +204,8 @@
             var categoryId=$(this).attr('id').slice(3);
             currentCategory=categoryId;
             currentCategoryList=getAllSubCategory(currentCategory);
-            tableHandler.setFilter({category:categoryId});
+            currentCategoryList.push(currentCategory);
+            tableHandler.setFilter({category:currentCategoryList});
             tableHandler.getList();
         });
     }
@@ -217,7 +220,7 @@
                categoryList[v.category_id]=v;
 //                console.log(v);
                 if(0== v.p_category){
-                    console.log(v);
+//                    console.log(v);
                     var element=categoryElementCreator();
                     element.attr('id','cat'+ v.category_id);
                     element.text(v.category_name);

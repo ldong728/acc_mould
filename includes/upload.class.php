@@ -55,7 +55,7 @@ class uploader
             $this->config = array(
                 "savePath" => filePath ,             //存储文件夹
                 "maxSize" => maxSize,                   //允许的文件最大尺寸，单位KB
-                "allowFiles" => array(".jpg" , ".jpeg",'png','docx','doc','xls','xlsx','pdf')  //允许的文件格式
+                "allowFiles" => array(".jpg" , ".jpeg",'png','.docx','.doc','.xls','.xlsx','.pdf','.rar','.zip','.7z')  //允许的文件格式
             );
         }else{
             $this->config=$config;

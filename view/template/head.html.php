@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/contentHandler.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/animate.js"></script>
+    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
     <script>
         $(function () {
             index_animate.nav();
