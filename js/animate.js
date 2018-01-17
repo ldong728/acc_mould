@@ -6,8 +6,13 @@
 var index_animate = {
     nav: function () {
         $('.nav-lists').hover(function () {
-            //console.log($(this).children('.hover'));
-            $(this).children('.hover').slideToggle();
-        })
+            var nav_hover = $(this).children('.hover');
+            // console.log(nav_hover.css('display'));
+            if (nav_hover.css('display') == "none"){
+                nav_hover.slideDown();
+            }else {
+                nav_hover.slideUp();
+            }
+        });
     }
 }

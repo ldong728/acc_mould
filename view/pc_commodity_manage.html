@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>个人中心-模具集成服务平台</title>
-    <meta name="description" content="描述内容">
-    <meta name="keyword" content="关键字1，关键字2">
+    <title>商品管理-个人中心-模具集成服务平台</title>
+    <meta name="description" content="Cell Phone, Phones,mobile phone,Cell Phone suppliers">
+    <meta name="keywords" content="Cell Phone, Phones,mobile phone,Cell Phone suppliers">
     <link href="css/main.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
@@ -67,9 +67,7 @@
 <div class="header pc-header">
     <div class="container">
         <div class="header-l">
-            <a href="index.html">
-                <img src="images/pc-logo.png" alt="logo">
-            </a>
+            <img src="images/pc-logo.png" alt="logo">
         </div>
     </div>
 </div>
@@ -81,7 +79,7 @@
                 <li>
                     <h3 class="aside-title">我的发布<i class="icon icon-angle-right"></i></h3>
                     <ol>
-                        <li class="li-cur"><a href="#">加工需求</a></li>
+                        <li><a href="#">加工需求</a></li>
                         <li><a href="#">采购需求</a></li>
                         <li><a href="#">招标需求</a></li>
                         <li><a href="#">询价需求</a></li>
@@ -102,7 +100,7 @@
                         <li><a href="#">我的订单</a></li>
                         <li><a href="#">收货地址</a></li>
                         <li><a href="#">店铺订单</a></li>
-                        <li><a href="pc_commodity_manage.html">商品管理</a></li>
+                        <li class="li-cur"><a href="pc_commodity_manage.html">商品管理</a></li>
                         <li><a href="#">收到的询价</a></li>
                     </ol>
                 </li>
@@ -125,175 +123,68 @@
             </ul>
         </div>
         <div class="pc-content">
-            <ul class="clearfix">
-                <li class="li-cur">加工需求</li>
-                <li>采购需求</li>
-                <li>招标需求</li>
-                <li>询价需求</li>
-            </ul>
-            <div class="pc-table">
-                <table width="100%" cellspacing="0" cellpadding="0" border="0">
+            <div class="pc-commodity-search">
+                <label>商品名称<input type="text" placeholder="货品名称/订单号"></label>
+                <label>商品编号<input type="text" placeholder="卖家公司名称"><button type="button" class="search-btn">搜索</button></label>
+                <button type="button" class="add-commodity">+ 新增商品</button>
+            </div>
+            <div class="pc-commodity-table">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <thead>
                     <tr>
-                        <td>标题</td>
-                        <td>发布日期</td>
-                        <td>截止日期</td>
-                        <td>报价数</td>
+                        <td>商品名称</td>
+                        <td>规格</td>
+                        <td>单位</td>
+                        <td>单价（元）</td>
+                        <td>库存</td>
+                        <td>销量</td>
                         <td>操作</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>这里是加工标题-点击跳转到《发布加工需求-2》页面</td>
-                        <td>2018-01-01</td>
-                        <td>2018-05-01</td>
-                        <td>3</td>
-                        <td><a href="#" class="cur-color">查看详细</a></td>
+                        <td>
+                            <div class="td-l"><img src="./images/pc-p.jpg"></div>
+                            <div class="td-r">
+                                <div class="name">热流道</div>
+                                <div class="name-num">编号：01234</div>
+                            </div>
+                        </td>
+                        <td>30*10cm</td>
+                        <td>千克</td>
+                        <td>100.00</td>
+                        <td>1000</td>
+                        <td>15462</td>
+                        <td>
+                            <a class="cur-color" href="pc_commodity_manage_edit.html">编辑</a>
+                            <a href="#">删除</a>
+                        </td>
                     </tr>
                     <tr>
-                        <td>这里是加工标题-点击跳转到《发布加工需求-2》页面</td>
-                        <td>2018-01-01</td>
-                        <td>2018-05-01</td>
-                        <td>3</td>
-                        <td><a href="#" class="cur-color">查看详细</a></td>
-                    </tr>
-                    <tr>
-                        <td>这里是加工标题-点击跳转到《发布加工需求-2》页面</td>
-                        <td>2018-01-01</td>
-                        <td>2018-05-01</td>
-                        <td>3</td>
-                        <td><a href="#" class="cur-color">查看详细</a></td>
-                    </tr>
-                    <tr>
-                        <td>这里是加工标题-点击跳转到《发布加工需求-2》页面</td>
-                        <td>2018-01-01</td>
-                        <td>2018-05-01</td>
-                        <td>3</td>
-                        <td><a href="#" class="cur-color">查看详细</a></td>
-                    </tr>
-                    <tr>
-                        <td>这里是加工标题-点击跳转到《发布加工需求-2》页面</td>
-                        <td>2018-01-01</td>
-                        <td>2018-05-01</td>
-                        <td>3</td>
-                        <td><a href="#" class="cur-color">查看详细</a></td>
-                    </tr>
-                    <tr>
-                        <td>这里是加工标题-点击跳转到《发布加工需求-2》页面</td>
-                        <td>2018-01-01</td>
-                        <td>2018-05-01</td>
-                        <td>3</td>
-                        <td><a href="#" class="cur-color">查看详细</a></td>
+                        <td>
+                            <div class="td-l"><img src="./images/pc-p.jpg"></div>
+                            <div class="td-r">
+                                <div class="name">热流道</div>
+                                <div class="name-num">编号：01234</div>
+                            </div>
+                        </td>
+                        <td>30*10cm</td>
+                        <td>千克</td>
+                        <td>100.00</td>
+                        <td>1000</td>
+                        <td>15462</td>
+                        <td>
+                            <a class="cur-color" href="pc_commodity_manage_edit.html">编辑</a>
+                            <a href="#">删除</a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="pc-details-table">
-                <div class="top-table">
-                    <table width="100%" cellpadding="0" cellspacing="0" border="1" borderColor="#ddd">
-                        <tr>
-                            <td>标题</td>
-                            <td colspan="3">上海大众公司 汽车模具招标</td>
-                        </tr>
-                        <tr>
-                            <td>发布日期</td>
-                            <td>2018.01.01</td>
-                            <td>截止日期</td>
-                            <td>2018.01.01</td>
-                        </tr>
-                        <tr>
-                            <td>开模次数</td>
-                            <td>3</td>
-                            <td>图纸</td>
-                            <td><span class="cur-color">图纸.rar</span></td>
-                        </tr>
-                        <tr>
-                            <td>模具钢材要求及产品材料要求</td>
-                            <td colspan="3">这里是要求</td>
-                        </tr>
-                        <tr>
-                            <td>技术要求</td>
-                            <td colspan="3">这里是要求</td>
-                        </tr>
-                        <tr>
-                            <td>备注</td>
-                            <td colspan="3">这里是备注</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="bottom-table">
-                    <h3 class="pc-inquiry-title">已收到报价</h3>
-                    <table width="100%" cellspacing="0" cellpadding="0" border="1" bordercolor="#ddd">
-                        <thead>
-                        <tr>
-                            <td>报价时间</td>
-                            <td>报价厂家</td>
-                            <td>报价（报价+运费）</td>
-                            <td>报价单</td>
-                            <td>所在地区</td>
-                            <td>联系人</td>
-                            <td>联系电话</td>
-                            <td>操作</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州汽车公司</td>
-                            <td>￥20000</td>
-                            <td><i class="icon icon-arrow-circle-o-down cur-color"></i></td>
-                            <td>广东省 广州市</td>
-                            <td>王大锤</td>
-                            <td>1580000000</td>
-                            <td><span class="pay">去支付</span></td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州汽车公司</td>
-                            <td>￥20000</td>
-                            <td><i class="icon icon-arrow-circle-o-down cur-color"></i></td>
-                            <td>广东省 广州市</td>
-                            <td>王大锤</td>
-                            <td>1580000000</td>
-                            <td><span class="pay">去支付</span></td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州汽车公司</td>
-                            <td>￥20000</td>
-                            <td><i class="icon icon-arrow-circle-o-down cur-color"></i></td>
-                            <td>广东省 广州市</td>
-                            <td>王大锤</td>
-                            <td>1580000000</td>
-                            <td><span class="pay">去支付</span></td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州汽车公司</td>
-                            <td>￥20000</td>
-                            <td><i class="icon icon-arrow-circle-o-down cur-color"></i></td>
-                            <td>广东省 广州市</td>
-                            <td>王大锤</td>
-                            <td>1580000000</td>
-                            <td><span class="pay">去支付</span></td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州汽车公司</td>
-                            <td>￥20000</td>
-                            <td><i class="icon icon-arrow-circle-o-down cur-color"></i></td>
-                            <td>广东省 广州市</td>
-                            <td>王大锤</td>
-                            <td>1580000000</td>
-                            <td><span class="pay">去支付</span></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
             <div class="turnpage">
                 <li><span class="page_noclick">上一页</span></li>
                 <li class="page-item"><span class="page_cur">1</span></li>
+                <li class="page-item"><span>2</span></li>
                 <li class="page_last"><span class="page_noclick">下一页</span></li>
                 <div class="go_turn_page">
                     共1页&nbsp; &nbsp; &nbsp;到
@@ -301,7 +192,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -379,5 +269,6 @@
         <p class="copyright">&copy;2010-2017 Acc+Mould.All rights reserved. 浙ICP备100000000号</p>
     </div>
 </div>
+
 </body>
 </html>

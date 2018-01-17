@@ -23,7 +23,12 @@ if(file_exists($href)){
         }
     }
     include $GLOBALS['mypath']."/view/template/head.html.php";
-    include $GLOBALS['mypath']."/view/template/entrance.html.php";
+    if(isset($_GET['static'])){
+        include $GLOBALS['mypath']."/view/template/entrance_static.html.php";
+    }else{
+        include $GLOBALS['mypath']."/view/template/entrance.html.php";
+    }
+
     include $href;
     include $GLOBALS['mypath']."/view/template/foot.html.php";
 

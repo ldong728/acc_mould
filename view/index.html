@@ -67,7 +67,7 @@
             <div class="index-supplier">
                 <h2 class="section-title"><span>优质供应商</span></h2>
                 <ul class="supplier-box clearfix company-intro">
-                    <li class="clearfix company-intro-template">
+                    <li class="clearfix company-intro-template to-company" style="cursor: pointer">
                         <div class="supplier-img-wrapper"><img class="company_img" src="" alt=""></div>
                         <div class="supplier-text">
                             <h5 class="content" data-field="company_name"></h5>
@@ -713,7 +713,12 @@
             var id=$(this).attr('id').slice(3);
             sessionStorage.currentCategoryId=id;
             location.href='?href=purchase';
-        })
+        });
+        $(document).on('click','.to-company',function(){
+           var id=$(this).attr('id').slice(3);
+            sessionStorage.currentCompanyId=id;
+            location.href='?href=shop_home&static=1';
+        });
     }
     function companyListHandler(back) {
         var _=this;
@@ -723,6 +728,7 @@
         $.each(back, function (k, v) {
             var allImg=JSON.parse(v.img);
             var element = companyLiCreator();
+            element.attr('id','com'+ v.company_id);
             element.find('.content').each(function(id,subElement){
                 var field=$(subElement).data('field');
                 $(subElement).removeAttr('data-field');

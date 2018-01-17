@@ -122,7 +122,9 @@
                         <!--<li>联系方式</li>-->
                     </ul>
                     <div class="parameter-content">
-                        <img src="images/lm.jpg">
+                        <iframe class="detail-container">
+
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -275,6 +277,7 @@
             $('.detail-switch').removeClass('li-cur');
             $(this).addClass('li-cur');
             var field=$(this).data('field');
+//            $('.detail-container').attr('src','api.php/API/Product/')
             $('.parameter-content').html(productInf[field]);
         });
         $(document).on('click','.add-to-cart',function(){

@@ -1,0 +1,27 @@
+<div class="sh-home">
+    <div class="container">
+        <div class="row sh-home-ct clearfix">
+            <div class="sh-focus" id="shc-slide">
+                <div class="li">
+                    <img src="images/ct1.jpg" alt="证书">
+                </div>
+                <div class="li">
+                    <img src="images/ct1.jpg" alt="证书">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link href="slick/slick.css" rel="stylesheet">
+<script src="slick/slick.min.js"></script>
+<script>
+    $('#shc-slide').slick({
+        autoplay:false,
+        arrows:true,
+        prevArrow:'<span class="slick-prev icon icon-angle-left"></span>',
+        nextArrow:'<span class="slick-next icon icon-angle-right"></span>',
+        dots:false,
+    });
+</script>

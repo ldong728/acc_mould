@@ -121,7 +121,7 @@ a{color: inherit;}
 
 .service-box{position: absolute;top: 0;width: 100%;height:390px;}
 .nav-lists{position: absolute;left: 0;top: 0;width: 210px;}
-.service-lists{position: relative; z-index: 9999; float: left; width: 210px;height:390px;padding: 10px 0; color: #fff; background-color: rgba(50,62,87,.6);box-sizing: border-box;}
+.service-lists{position: relative; z-index: 99999; float: left; width: 210px;height:390px;padding: 10px 0; color: #fff; background-color: rgba(50,62,87,.6);box-sizing: border-box;}
 .service-lists li{height: 37px;line-height: 37px;}
 .service-lists li:hover{background-color: #fe9094;}
 .service-lists li a{display: block;height: 36px;padding: 0 18px;box-sizing: border-box;}
@@ -668,8 +668,8 @@ ul.countNum span.num-9{margin-top: -207px}
 .pu-details .pu-details-parameter ul{background-color: #eee;}
 .pu-details .pu-details-parameter ul li{ cursor: pointer;float: left;width: 120px;height: 40px;text-align: center;  box-sizing: border-box;border-top: 1px solid transparent; line-height: 40px;}
 .pu-details .pu-details-parameter ul li.li-cur,.pu-details .pu-details-parameter ul li:hover{border-top-color: #00a2ca;color: #00a2ca;background-color: #fff;}
-.pu-details .pu-details-parameter .parameter-content{padding: 20px;height: 540px;box-sizing: border-box;}
-
+.pu-details .pu-details-parameter .parameter-content{padding: 20px;min-height: 540px;box-sizing: border-box;}
+.pu-details .pu-details-parameter .parameter-content img{max-width: 350px;max-height: 350px;}
 .contact-message{display: none; z-index: 99; position: fixed;left: 50%;top: 50%; width: 500px;height: 350px;padding: 30px;box-sizing: border-box; margin-left:  -250px;margin-top: -175px;background-color: #fff;}
 .contact-message h2{position: relative; text-align: center;font-size: 18px;margin-bottom: 40px;}
 .contact-message h2 i{font-weight: 500;position: absolute;right: -30px;top:-30px;padding: 10px;cursor: pointer;color: #666;font-size: 20px;}
@@ -886,7 +886,7 @@ ul.countNum span.num-9{margin-top: -207px}
 
 /*店铺首页  shop_home*/
 .sh-header{padding: 0;height: auto;}
-.sh-header .sh-header-top{height: 95px;line-height: 95px;}
+.sh-header .sh-header-top{height: 140px;line-height: 140px;padding: 20px 0;box-sizing: border-box;}
 .sh-header .header-m{float: right;margin-top: 5px;width: 380px;font-size: 12px;}
 .sh-header .header-m .header-search-title li { float: left;  padding: 0 18px;  margin-right: 5px; ; cursor: pointer;}
 .sh-header  .header-m .search-form input[type=text]{width: 300px;border-width: 1px;height: 37px;:}
@@ -957,13 +957,34 @@ ul.countNum span.num-9{margin-top: -207px}
 .ssg-box .ssg-form button:active{background-color: #0091b9;}
 .ssg-box .ssg-lists{}
 .ssg-box .ssg-lists .nav{height: 40px;margin: 0 30px;background-color: #f8f8f8;}
-.ssg-box .ssg-lists .nav li{float: left;width: 130px;text-align: center;line-height: 40px;border-right: 1px solid #ddd;box-sizing: border-box;}
+.ssg-box .ssg-lists .nav li{float: left;width: 130px;text-align: center;line-height: 40px;border-right: 1px solid #ddd;box-sizing: border-box;cursor: pointer;}
 .ssg-box .ssg-lists .nav li:last-child{border-right: 0;}
 .ssg-box .ssg-lists .nav li i{margin-left: 10px;}
 .ssg-box .sh-home-lists ul{padding: 30px;}
 .ssg-box .sh-home-lists ul li{margin-bottom: 20px;}
 .ssg-box .sh-home-lists ul li:nth-of-type(5n+5){margin-right: 0;}
 .ssg-box .turnpage{margin-top: 0;margin-bottom: 0; padding-bottom: 50px;}
+
+/*shop_contact_us 联系我们*/
+.sh-home-contact{padding: 60px;}
+.sh-home-contact .sh-hc-left{float: left; width: 55%;}
+.sh-home-contact .sh-hc-right{float: right; width: 45%;text-align: right;height: 290px;line-height: 290px;}
+.sh-home-contact .sh-hc-left p{line-height: 2.5;}
+.sh-home-contact .sh-hc-left .title{display: inline-block;width: 60px;text-align:justify;text-align-last:justify;}
+.sh-home-contact .sh-hc-left .title:after{content:'';overflow:hidden;width:100%;height:0;  }
+.sh-home-contact .sh-hc-left .text{margin-left: 20px;}
+.sh-home-contact .sh-hc-right img{max-width: 445px;max-height: 290px;vertical-align: middle;}
+.sh-home-contact .sh-hc-left .img{display: inline-block;width: 20px;text-align: center;}
+.sh-home-contact .sh-hc-left .img img{vertical-align: middle;}
+
+/*shop_certifications 资质证书*/
+.sh-home-ct{}
+.sh-home-ct .sh-focus{width: 800px;height: 500px;margin: 60px auto; border: 1px solid #ddd; box-sizing: border-box;}
+.sh-home-ct .sh-focus .li{text-align: center;}
+.sh-focus .slick-slide img{display: inline;}
+.sh-focus .slick-arrow{display: block!important;height: 100px;border-radius: 0;line-height: 100px;margin-top: -50px;}
+.sh-focus .slick-prev{left: 0;}
+.sh-focus .slick-next{right: 0;}
 
 .density-mask{position: fixed;display: none; left: 0;top: 0;bottom: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,.5);z-index: 999;}
 .density-mask .densitybox{position: relative;left: 0;right: 0;top: 50%;margin: 0 auto;margin-top: -200px; width: 500px;height: 300px;background-color: #fff;text-align: center;padding: 3%;box-sizing: border-box;border-radius: 10px;}

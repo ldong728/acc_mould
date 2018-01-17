@@ -39,11 +39,11 @@ class TableProvider
 
     public function company_list($data){
 //        mylog($data);
-        echoBack($this->getList('company_tbl',['company_name','major_business','img'],null,$data,false));
+        echoBack($this->getList('company_tbl',['company_id','company_name','major_business','img'],null,$data,false));
     }
 
     public function product_list($data){
-        $back=$this->getList('product_tbl',null,'product_tbl',$data);
+        $back=$this->getList('product_detail_view',null,'product_tbl',$data,false);
         echoBack($back);
     }
 

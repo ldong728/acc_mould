@@ -5,7 +5,7 @@
             <li>
                 <p class="li-login light">
                     <a href="#">[请登录]</a>
-                    <a href="login.html">[免费注册]</a>
+                    <a href="?href=login">[免费注册]</a>
                 </p>
             </li>
         </ul>
@@ -17,7 +17,7 @@
                 </div>
                 <dl>
                     <dt></dt>
-                    <dd><a href="personal_center.html">个人中心</a></dd>
+                    <dd><a href="?href=personal_center">个人中心</a></dd>
                 </dl>
             </li>
             <li>
@@ -128,15 +128,15 @@
                     </a>
                 </li>
                 <li>
-                    <a class='main-category' href="#" id="mct19">
-                        <span class="img"><img src="images/icon8.png"></span>
-                        <span class="text">耗材</span>
-                    </a>
-                </li>
-                <li>
                     <a class='main-category' href="#" id="mct8">
                         <span class="img"><img src="images/icon9.png"></span>
                         <span class="text">模具加工设备</span>
+                    </a>
+                </li>
+                <li>
+                    <a class='main-category' href="#" id="mct19">
+                        <span class="img"><img src="images/icon8.png"></span>
+                        <span class="text">耗材</span>
                     </a>
                 </li>
                 <li>

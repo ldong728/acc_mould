@@ -29,9 +29,16 @@ class API {
         include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
         include_once $GLOBALS['mypath'] . '/methods/Product.php';
         global $postData;
-        $device=new Product();
+        $product=new Product();
+        $product->$methodType($postData);
+    }
+    public function Company($methodType){
+        include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
+        include_once $GLOBALS['mypath'] . '/methods/Company.php';
+        global $postData;
+        $company=new Company();
 //        $user=new User();
-        $device->$methodType($postData);
+        $company->$methodType($postData);
     }
     public function Mall($methodType){
         include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
