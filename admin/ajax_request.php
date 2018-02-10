@@ -146,7 +146,7 @@ function add_company($data)
     $companyInf['img'] = json_encode($companyInf['img']);
     pdoTransReady();
     try {
-        $newId = pdoInsertNew('company_tbl', $companyInf, 'update');
+        $newId = pdoInsert('company_tbl', $companyInf, 'update');
         if (isset($companyInf['company_id']) && $companyInf['company_id']) {
             pdoDelete('company_category_tbl', ['company' => $companyInf['company_id']]);
             $newId = $companyInf['company_id'];
@@ -186,7 +186,7 @@ function add_product($data)
     $data['img'] = isset($data['img'])? json_encode($data['img']):null;
     $data['product_attr'] =isset($data['product_attr'])? json_encode($data['product_attr']):null;
     try {
-        pdoInsertNew('product_tbl', $data, 'update');
+        pdoInsert('product_tbl', $data, 'update');
     } catch (PDOException $e) {
         mylog($e->getMessage());
 

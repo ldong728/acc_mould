@@ -64,21 +64,30 @@ class API {
 
     public static function userVerify(){
         if(isset($_SESSION['user'])){
-            return $_SESSION['user']['user_level'];
+            return $_SESSION['user']['user_id'];
         }else{
             echoBack(null,101,'用户未登录');
             exit;
         }
 
     }
-    private function getSessionFromClint(){
-        global $postData;
-        if(isset($_GET['user_session'])&&$_GET['user_session']){
-            API::$userSession=$_GET['user_session'];
-        }else if(isset($postData['user_session'])&&$postData['user_session']){
-            API::$userSession=$postData['user_session'];
+    public static function companyVerify(){
+        static::userVerify();
+        if(isset($_SESSION['user']['company'])){
+            return $_SESSION['user']['company'];
+        }else{
+            echoBack(null,102,'企业用户信息不全');
+            exit;
         }
     }
+//    private function getSessionFromClint(){
+//        global $postData;
+//        if(isset($_GET['user_session'])&&$_GET['user_session']){
+//            API::$userSession=$_GET['user_session'];
+//        }else if(isset($postData['user_session'])&&$postData['user_session']){
+//            API::$userSession=$postData['user_session'];
+//        }
+//    }
     
     
     

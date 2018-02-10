@@ -1,5 +1,6 @@
 <?php
 /*20160512 支持事务操作
+ *20180208 insert操作使用预处理方式
  *
  */
 
@@ -9,7 +10,6 @@ try {
     $pdo = new PDO('mysql:host='.DB_IP.';dbname=' . DB_NAME, DB_USER,DB_PSW);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->exec('SET NAMES "utf8"');
-//    $pdo->q
 } catch (PDOException $e) {
     $error = 'Unable to connect to the database server.' . $e->getMessage();
     include 'error.html.php';
@@ -23,11 +23,7 @@ function exeNew($s) {
         $GLOBALS['pdo']->exec($s);
         return $GLOBALS['pdo']->lastInsertId();
     }catch(PDOException $e){
-//        echo $e->getMessage();
         throw $e;
-//        $error = 'exeError' . $e->getMessage();
-//        include 'error.html.php';
-//        exit();
     }
 }
 function pdoQueryNew($tableName,$fields,$filter,$append){
@@ -169,7 +165,14 @@ function joinQuery($joinType,$fields,$tables,$joinField,$where,$group){
     }
 
 }
-function pdoInsert($tableName,$value,$str=''){
+
+/**
+ * 插入数据，已作废
+ * @param $tableName
+ * @param $value
+ * @param string $str
+ */
+function pdoInsertTemp($tableName,$value,$str=''){
     $sql='INSERT INTO '.$tableName.' SET ';
     $j = 0;
     $valueCount=count($value);
@@ -200,16 +203,13 @@ function pdoInsert($tableName,$value,$str=''){
     }
 
 }
-function pdoInsertNew($tableName,$value,$str=''){
+function pdoInsert($tableName,$value,$str=''){
     $sql='INSERT INTO '.$tableName.' SET ';
-    $j = 0;
-    $valueCount=count($value);
     $data='';
     foreach ($value as $k => $v) {
-        $data .= $k . '=' . '"' . addslashes($v) . '"';
-        if ($j < $valueCount - 1) $data = $data . ',';
-        $j++;
+        $data.="$k=:$k,";
     }
+    $data=trim($data,',');
     if(trim($str)=='ignore'){
         $sql=preg_replace('/INTO/',$str,$sql);
         $sql.=$data;
@@ -218,18 +218,10 @@ function pdoInsertNew($tableName,$value,$str=''){
     }else{
         $sql=$sql.$data.$str;
     }
-//    mylog($sql);
-    try {
-        $GLOBALS['pdo']->exec($sql);
-        return $GLOBALS['pdo']->lastInsertId();
-
-    }catch (PDOException $e) {
-//        $error = 'Unable to insert to the database server.' . $e->getMessage();
-//        return $error;
-//        exit();
-        throw $e;
-    }
-
+    mylog($sql);
+    $p=$GLOBALS['pdo']->prepare($sql);
+    $p->execute($value);
+    return $GLOBALS['pdo']->lastInsertId();
 }
 function pdoUpdate($tableName,array $value,array $where,$str=''){
     $sql='UPDATE '.$tableName.' SET ';

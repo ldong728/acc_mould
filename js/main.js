@@ -25,14 +25,17 @@ function loading(){
 function stopLoading(){
     $('.loading').hide();
 }
-function backHandle(data){
+function backHandle(data,onSeccess,onError){
     var re=eval('('+data+')');
     if(0==re.error_code){
         var state= null==re.data?0:re.data;
         //console.mylog(state);
+        if(onSeccess)onSeccess(state);
         return state;
     }else{
-        console.log('error: '+re.errmsg);
+        console.log(re);
+        if(onError)onError(re.error_code,re.message);
+        console.log('error: '+re.message);
         return false;
     }
 }
@@ -80,7 +83,7 @@ function prepareElement(){
     }
 }
 function setUploadEvent(jqueryElementSelect,success,error){
-    if($(jqueryElementSelect).attr('id')&&$(jqueryElementSelect).attr('id')==$(jqueryElementSelect).attr('id')){
+    if($(jqueryElementSelect).attr('id')&&$(jqueryElementSelect).attr('id')==$(jqueryElementSelect).attr('name')){
         $(document).on('change',jqueryElementSelect,function(){
             var elementId=this.id;
             $.ajaxFileUpload({

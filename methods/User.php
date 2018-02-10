@@ -19,8 +19,8 @@ class User
         $password = $data['user_password'];
         $code = $data['code'];
 //        $deviceToken = $data['device_token'];
-        $userType=$data['user_type'];
-        $query = pdoQuery('user_tbl', ['user_id'], ['tel' => $tel], 'limit 1')->fetch();
+        $userType=isset($data['user_type'])?$data['user_type']:1;
+        $query = pdoQuery('user_tbl', ['user_id'], ['user_tel' => $tel], 'limit 1')->fetch();
         if (!$query) {
             $codeQuery=pdoQuery('user_code_tbl',null,['tel'=>$tel,'code'=>$code],'limit 1')->fetch();
             if($codeQuery){
@@ -31,7 +31,6 @@ class User
                     $id = pdoInsert('user_tbl', ['user_tel' => addslashes($tel), 'user_password' => sha1($password),'user_type'=>$userType,'user_level'=>1],'ignore');
                     if ($id) {
                         $_SESSION['user']=['user_id'=>$id,'user_tel' =>$tel,'user_type'=>$userType,'user_level'=>1];
-
                         echoBack('ok');
                     } else {
                         echoBack(null, 106, '数据库错误');
@@ -49,20 +48,33 @@ class User
 
     public function login($data)
     {
-        $filter = ['tel' => $data['user_tel'], 'password' => $data['user_password']];
+        $verify=strtolower($data['verify']);
+        if($verify!=$_SESSION['rand']){
+            echoBack(null, 403, '验证码错误');
+            return;
+        }
+        $filter = ['user_tel' => $data['user_tel'], 'user_password' => sha1($data['user_password'])];
         $query = pdoQuery('user_tbl',['user_id','user_tel','user_type','user_level'], $filter, 'limit 1');
         $query->setFetchMode(PDO::FETCH_ASSOC);
         $query=$query->fetch();
         if ($query) {
             $_SESSION['user']=$query;
-
+            $companyQuery=pdoQuery('company_tbl',['company_id','company_name'],['user'=>$query['user_id']],'limit 1');
+            $companyQuery->setFetchMode(PDO::FETCH_ASSOC);
+            $companyQuery=$companyQuery->fetch();
+            if($companyQuery)$_SESSION['user']['company']=$companyQuery;
+            echoBack('ok');
 //            $userSession = getRandStr(20);
 //            pdoUpdate('user_tbl', ['user_session' => $userSession, 'session_creating_time' => time(), 'device_token' => $deviceToken], ['user_id' => $query['user_id']], ' limit 1');
 //            echoBack(null, 0, '登陆成功', $userSession);
         } else {
             echoBack(null, 403, '登录失败');
         }
+    }
 
+    public function get_company_inf(){
+        $inf=API::companyVerify();
+        echoBack($inf);
     }
 
     public function info_modify($data)
@@ -82,7 +94,7 @@ class User
     public function code($data){
 //        mylog(json_encode($data));
         $phoneNumber=$data['account'];
-        $userInf=pdoQuery('user_tbl',['user_id'],['tel'=>$phoneNumber],'limit 1')->fetch();
+        $userInf=pdoQuery('user_tbl',['user_id'],['user_tel'=>$phoneNumber],'limit 1')->fetch();
         $needNewCode=false;
         if(!$userInf){
             $code=pdoQuery('user_code_tbl',null,['tel'=>$phoneNumber],'limit 1')->fetch();
@@ -96,12 +108,16 @@ class User
             echoBack(null,106,'用户已注册');
         }
         if($needNewCode){
-            include_once $GLOBALS['mypach'].'/tools/VerifySms.php';
+            include_once $GLOBALS['mypath'].'/methods/VerifySms.php';
             $code=(string)rand(100000,999999);
             pdoInsert('user_code_tbl',['tel'=>$phoneNumber,'code'=>$code,'create_time'=>time()],'update');
 //            echoBack('hahahaha');
             $smsSender=new VerifySms();
             $back=$smsSender->sendCode($phoneNumber,$code);
+
+//            mylog($back);
+            echoBack(null,0,'验证码发送成功');
+            return;
             if($back->isSucceed()){
                 mylog('messageId: '.$back->getMessageId());
                 echoBack(null,0,'验证码发送成功');
@@ -109,6 +125,10 @@ class User
                 echoBack(null,100,'验证码发送失败，请稍后重试');
             }
         }
+    }
+    public function sign_out(){
+        session_unset();
+        echoBack('ok');
     }
 
 

@@ -55,7 +55,9 @@
     <div class="sh-header-top">
         <div class="container">
             <div class="header-l">
+                <a href="?href=index">
                 <img src="images/logo.png" alt="logo">
+                    </a>
             </div>
             <div class="header-m">
                 <ul class="header-search-title clearfix">
@@ -96,23 +98,27 @@
 <div class="sh-nav">
     <div class="container">
         <ul class="clearfix">
-            <li class="li-cur"><a href="?href=shop_home&static=1">店铺主页</a></li>
-            <li><a href="?href=shop_company_profile&static=1">公司简介</a></li>
-            <li><a href="?href=shop_supply_goods&static=1">供应商品</a></li>
-            <li><a href="?href=shop_contact_us&static=1">资质证书</a></li>
-            <li><a href="?href=shop_contact_us$static=1">联系方式</a></li>
+            <li class="company-nav" id="shop_home"><a href="?href=shop_home&static=1">店铺主页</a></li>
+            <li class="company-nav" id="shop_company_profile"><a href="?href=shop_company_profile&static=1">公司简介</a></li>
+            <li class="company-nav" id="shop_supply_goods"><a href="?href=shop_supply_goods&static=1">供应商品</a></li>
+            <li class="company-nav" id="shop_certifications"><a href="?href=shop_certifications&static=1">资质证书</a></li>
+            <li class="company-nav" id="shop_contact_us"><a href="?href=shop_contact_us&static=1">联系方式</a></li>
         </ul>
     </div>
 </div>
 
 <script>
+    var currentStaticPage="<?=$_GET['href']?>";
+    var companyInf=null;
     $(document).ready(function(){
         if(sessionStorage.companyInf){
-            var inf=JSON.parse(sessionStorage.companyInf);
-            $('.name').text(inf.name||'');
-            $('.tel').text(inf.tel||'');
+            companyInf=JSON.parse(sessionStorage.companyInf);
+            $('.name').text(companyInf.name||'');
+            $('.tel').text(companyInf.tel||'');
         }
+        $('#'+currentStaticPage).addClass('li-cur');
     });
+
 
 
 </script>

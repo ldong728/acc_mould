@@ -1,7 +1,7 @@
 
 <div class="sh-home">
     <div class="container">
-        <div class="row scp-content clearfix">
+        <div class="row scp-content clearfix company-content" data-field="introduction">
             广州恒誉模型科技有限公司是一家以专业设计生产铝型材、模具的直销厂家，成立于1999年，经过十八年上下一心的艰苦和努力及技术的不断改良,现年产量达10000多套模具及20000多吨铝材拥有多台先进的铝材生产机械设备. 目前公司生产挤压工业铝材，散热器铝材，太阳花铝材，淋浴房铝材，摄像头铝材，LED灯管铝材，外壳铝 材等各种铝制品型材，司内配有氧化，喷涂，电泳生产线，可生产喷砂氧化，磨砂氧化，纯碱砂氧化，银白氧化，电泳黑珍珠，电泳香槟色，电泳白砂，喷砂亮银，抛光氧化，拉丝各色氧化，喷涂各色处理，金色处理，及各种短件氧化加工。我司也有机械设备可冲压、精切、车削,钻孔，CNC加工等 “质量高于一切”，我们将一如既往的以精湛的技术、卓越的品质、专业的服务与客户共创双赢。
         </div>
         <div class="row scp-table">
@@ -15,28 +15,58 @@
                         <td>成立时间</td>
                         <td>1993年03月26日</td>
                         <td>主营产品服务</td>
-                        <td>铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材</td>
+                        <td class="company-content" data-field="major_business">铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材</td>
                         <td>主营行业</td>
-                        <td>铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材</td>
+                        <td class="company-content" data-field="test">铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材铝及铝合金材</td>
                     </tr>
                     <tr>
                         <td>注册资金</td>
-                        <td>人民币180万元</td>
+                        <td class="company-content" data-field="registered_capital">人民币180万元</td>
                         <td>是否提供加工定制</td>
                         <td>是</td>
                         <td>经营模式</td>
-                        <td>生产厂家</td>
+                        <td class="company-content" data-field="business_model">生产厂家</td>
                     </tr>
                     <tr>
                         <td>注册地址</td>
-                        <td>广东省广州市越秀区南路创举大厦10楼</td>
+                        <td class="company-content" data-field="company_address">广东省广州市越秀区南路创举大厦10楼</td>
                         <td>厂房面积</td>
-                        <td>80000平方米</td>
+                        <td class="company-content" data-field="area_size">80000平方米</td>
                         <td>员工人数</td>
-                        <td>501-1000人</td>
+                        <td class="company-content" data-field="company_employee_count">501-1000人</td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
 </div>
+        <script>
+            $(document).ready(function(){
+                $('.company-content').each(function(k,v){
+                    var type=v.localName;
+                    var field=$(v).data('field');
+                    if(companyInf[field]){
+                        $(v).text(companyInf[field]);
+                    }
+
+                    $(v).removeAttr('data-field');
+                });
+//                var imgs=JSON.parse(backValue.img);
+//                if(imgs['company-img']){
+//                    $('.company-img-container').empty();
+//                    $.each(imgs['company-img'],function(k,v){
+//                        var imgElement=imgCreator();
+//                        imgElement.attr('src',v);
+//                        $('.company-img-container').append(imgElement);
+//                    });
+//                }
+//                if(imgs['honor-img']){
+//                    $('.honor-img-container').empty();
+//                    $.each(imgs['honor-img'],function(k,v){
+//                        var liElement=imgLiCreator();
+//                        liElement.find('img').attr('src',v);
+//                        $('.honor-img-container').append(liElement);
+//                    })
+//                }
+            });
+        </script>

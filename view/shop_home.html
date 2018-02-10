@@ -161,7 +161,6 @@
 </script>
 <script>
     var companyId=sessionStorage.currentCompanyId||0;
-    var companyInf=null;
     var productCreator,imgCreator,imgLiCreator;
     var productHandler;
     $(document).ready(function(){
@@ -187,6 +186,7 @@
                    var type=v.localName;
                     var field=$(v).data('field');
                     $(v).text(backValue[field]);
+                    $(v).removeAttr('data-field');
                 });
                 var imgs=JSON.parse(backValue.img);
                 if(imgs['company-img']){
@@ -206,7 +206,7 @@
                     })
                 }
             }
-            sessionStorage.companyInf=JSON.stringify({name:backValue.company_name,tel:backValue.company_tel});
+            sessionStorage.companyInf=JSON.stringify(backValue);
             setSlide();
         });
     }

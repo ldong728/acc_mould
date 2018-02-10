@@ -78,13 +78,13 @@ function ajaxBack($data=null,$errcode=0,$errmsg='ok'){
     return json_encode($back,JSON_UNESCAPED_UNICODE);
 }
 
-function echoBack($data=null,$errcode=0,$errmsg='ok',$userSession=false){
+function echoBack($data=null,$errcode=0,$errmsg='ok',$isEnd=true){
 
     $back=array('success'=>!((bool)$errcode),'error_code'=>$errcode,'message'=>$errmsg);
-    if($userSession)$back['user_session']=$userSession;
     if(isset($_GET['callback']))$back['callback']=$_GET['callback'];
     if($data)$back['data']=$data;
     echo json_encode($back,JSON_UNESCAPED_UNICODE);
+    if($isEnd)exit;
     return;
 }
 

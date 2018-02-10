@@ -3,10 +3,17 @@
         <ul class="entrance-l clearfix">
             <li>欢迎访问模具集成服务平台！</li>
             <li>
-                <p class="li-login light">
-                    <a href="#">[请登录]</a>
-                    <a href="?href=login">[免费注册]</a>
-                </p>
+                <?php if(isset($_SESSION['user'])):?>
+                    <p class="li-login light">
+                        欢迎您，用户<?=$_SESSION['user']['user_tel']?>
+                        <a href="#" class="sign-out">退出</a>
+                    </p>
+                <?php else:?>
+                    <p class="li-login light">
+                        <a href="?href=login">[请登录]</a>
+                        <a href="?href=regist">[免费注册]</a>
+                    </p>
+                <?php endif?>
             </li>
         </ul>
         <ul class="entrance-r clearfix">
@@ -166,4 +173,9 @@
         sessionStorage.currentCategoryId=categoryId;
         location.href='?href=purchase';
     });
+    $('.sign-out').click(function(){
+        ajaxPost('User','sign_out',{},function(back){
+            location.href='?href=index';
+        })
+    })
 </script>

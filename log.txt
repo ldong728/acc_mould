@@ -1,27 +1,38 @@
-2018.01.09.16:58:39:D:\xampp\htdocs\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0}
-2018.01.09.17:01:46:D:\xampp\htdocs\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.09.17:02:06:D:\xampp\htdocs\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.10.09:16:00:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.10.09:16:16:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.10.10:59:59:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.10.15:55:55:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.11.08:45:55:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.11.13:50:07:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.11.21:38:22:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.12.09:58:49:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.12.10:18:52:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.12.10:18:55:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.12.10:19:37:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.12.21:38:33:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:26:37:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:26:45:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:26:46:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:26:46:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:28:44:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:28:51:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:28:53:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.10:28:55:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.13:08:46:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.13:08:47:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.13:08:59:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
-2018.01.13.14:19:59:D:\WebTest\PhpTest\acc_mould\methods\TableProvider.php28:is array: {order: ,orderby: ,page: 0,number: 10}
+2018.02.08.14:29:14:D:\xampp\htdocs\acc_mould\includes\db.inc.php222:INSERT INTO user_tbl SET user_tel=":user_tel"user_type=":user_type"user_level=":user_level"user_password=":user_password" on DUPLICATE KEY update user_tel=":user_tel"user_type=":user_type"user_level=":user_level"user_password=":user_password"
+2018.02.08.14:31:51:D:\xampp\htdocs\acc_mould\includes\db.inc.php223:INSERT INTO user_tbl SET user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password on DUPLICATE KEY update user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password
+2018.02.08.14:39:03:D:\xampp\htdocs\acc_mould\includes\db.inc.php223:INSERT INTO user_tbl SET user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password on DUPLICATE KEY update user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password
+2018.02.08.14:39:46:D:\xampp\htdocs\acc_mould\includes\db.inc.php219:INSERT INTO user_tbl SET user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password on DUPLICATE KEY update user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password
+2018.02.08.14:40:03:D:\xampp\htdocs\acc_mould\includes\db.inc.php219:INSERT INTO user_tbl SET user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password on DUPLICATE KEY update user_tel=:user_tel,user_type=:user_type,user_level=:user_level,user_password=:user_password
+2018.02.09.14:36:45:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php48A.tmp
+2018.02.09.14:36:45:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/0786f2d280ecb54cd0f0185be2d070c9.jpg
+2018.02.09.14:36:45:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.15:07:33:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php393F.tmp
+2018.02.09.15:07:33:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/3553ab583eec1fe2b76a49637f7d614a.jpg
+2018.02.09.15:07:33:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.15:47:36:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\phpE506.tmp
+2018.02.09.15:47:36:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/29d5f5566968ba07da6464e78cffedfc.jpg
+2018.02.09.15:47:36:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.15:47:45:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php89C.tmp
+2018.02.09.15:47:45:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/c86e4b577d5ff606497758a8137cbb39.jpg
+2018.02.09.15:47:45:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.16:06:00:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\phpBC9D.tmp
+2018.02.09.16:06:00:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/de06059f2355fec3b2962e8b40373863.jpg
+2018.02.09.16:06:00:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.17:00:26:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT INTO company_tbl SET data=:data on DUPLICATE KEY update data=:data
+2018.02.09.17:03:18:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT INTO company_tbl SET data=:data on DUPLICATE KEY update data=:data
+2018.02.09.17:19:25:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT INTO company_tbl SET company_id=:company_id,user=:user,company_name=:company_name,company_address=:company_address,company_province=:company_province,company_city=:company_city,company_area=:company_area,company_tel=:company_tel,company_employee_count=:company_employee_count,company_legal_rep=:company_legal_rep,registered_capital=:registered_capital,major_business=:major_business,business_model=:business_model,area_size=:area_size,introduction=:introduction,img=:img,priority=:priority on DUPLICATE KEY update company_id=:company_id,user=:user,company_name=:company_name,company_address=:company_address,company_province=:company_province,company_city=:company_city,company_area=:company_area,company_tel=:company_tel,company_employee_count=:company_employee_count,company_legal_rep=:company_legal_rep,registered_capital=:registered_capital,major_business=:major_business,business_model=:business_model,area_size=:area_size,introduction=:introduction,img=:img,priority=:priority
+2018.02.09.17:19:35:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT INTO company_tbl SET company_id=:company_id,user=:user,company_name=:company_name,company_address=:company_address,company_province=:company_province,company_city=:company_city,company_area=:company_area,company_tel=:company_tel,company_employee_count=:company_employee_count,company_legal_rep=:company_legal_rep,registered_capital=:registered_capital,major_business=:major_business,business_model=:business_model,area_size=:area_size,introduction=:introduction,img=:img,priority=:priority on DUPLICATE KEY update company_id=:company_id,user=:user,company_name=:company_name,company_address=:company_address,company_province=:company_province,company_city=:company_city,company_area=:company_area,company_tel=:company_tel,company_employee_count=:company_employee_count,company_legal_rep=:company_legal_rep,registered_capital=:registered_capital,major_business=:major_business,business_model=:business_model,area_size=:area_size,introduction=:introduction,img=:img,priority=:priority
+2018.02.09.17:21:45:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php1500.tmp
+2018.02.09.17:21:45:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/d5afa9c35e3f07d665f881ddc6cc9b35.jpg
+2018.02.09.17:21:45:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.17:21:47:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php1E09.tmp
+2018.02.09.17:21:47:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/bab4044c230ac949fe01657b2eaf2454.jpg
+2018.02.09.17:21:47:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.17:21:49:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT INTO company_tbl SET company_name=:company_name,registered_capital=:registered_capital,company_address=:company_address,major_business=:major_business,business_model=:business_model,area_size=:area_size,company_employee_count=:company_employee_count,introduction=:introduction,img=:img on DUPLICATE KEY update company_name=:company_name,registered_capital=:registered_capital,company_address=:company_address,major_business=:major_business,business_model=:business_model,area_size=:area_size,company_employee_count=:company_employee_count,introduction=:introduction,img=:img
+2018.02.09.17:23:20:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php877D.tmp
+2018.02.09.17:23:20:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/de06059f2355fec3b2962e8b40373863.jpg
+2018.02.09.17:23:20:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.17:23:22:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php8F8D.tmp
+2018.02.09.17:23:22:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/f6f5e316dfa881394c6e6bb078800246.jpg
+2018.02.09.17:23:22:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT ignore file_tbl SET file_md5=:file_md5,file_type=:file_type,file_size=:file_size,file_original_name=:file_original_name,file_url=:file_url
+2018.02.09.17:23:23:D:\xampp\htdocs\acc_mould\includes\db.inc.php221:INSERT INTO company_tbl SET company_name=:company_name,registered_capital=:registered_capital,company_address=:company_address,major_business=:major_business,business_model=:business_model,area_size=:area_size,company_employee_count=:company_employee_count,introduction=:introduction,img=:img,user=:user on DUPLICATE KEY update company_name=:company_name,registered_capital=:registered_capital,company_address=:company_address,major_business=:major_business,business_model=:business_model,area_size=:area_size,company_employee_count=:company_employee_count,introduction=:introduction,img=:img,user=:user

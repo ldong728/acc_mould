@@ -1,0 +1,97 @@
+<!--<div class="login-header">-->
+    <!--<div class="container">-->
+        <!--<div class="login-header-l">-->
+            <!--<img src="images/logo.png" alt="logo">-->
+        <!--</div>-->
+        <!--<h1 class="login-header-l">-->
+            <!--欢迎注册-->
+        <!--</h1>-->
+        <!--<h2 class="login-header-r">-->
+            <!--我有账号，<a href="#" class="cur-color">马上登陆 &gt;</a>-->
+        <!--</h2>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="login-main">
+    <div class="container">
+        <div class="login-main-form">
+            <form method="post" action="#" class="login-form">
+                <ul width="100%" cellpadding="0" cellspacing="0">
+                    <li class="clearfix">
+                        <label for="phone-num">手机号码</label>
+                        <input type="text" name="phone" id="phone-num" placeholder="请输入手机号" maxlength="11">
+                    </li>
+                    <li class="clearfix">
+                        <label for="v-code">手机验证码</label>
+                        <input type="text" name="phone" id="v-code" placeholder="请输入手机验证码">
+                        <button type="button" class="button get-code-button">获取短信验证码</button>
+                    </li>
+                    <li class="clearfix">
+                        <label for="set-pwd">设置密码</label>
+                        <input type="text" name="phone" id="set-pwd" placeholder="请输入密码">
+                    </li>
+                </ul>
+                <p class="read">
+                    <input type="checkbox" name="checkbox" id="checked" checked>
+                    <label for="checked" class="label">我已经阅读并同意《服务条款》</label>
+                </p>
+                <div class="login-btn">
+                    <!--<button type="button" class="btn">确认提交注册</button>-->
+                    <a href="#" class="btn regist-button">确认提交注册</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+        <script>
+
+            registEvent();
+            function registEvent(){
+                $(document).on('click','.get-code-button',function(){
+                    var phone=$('#phone-num').val();
+                    console.log(phone);
+                    if(phone){
+                        ajaxPost('User','code',{account:phone},function(back){
+                            var time = 60;
+                            var codeBtn = $(".get-code-button");
+                            codeBtn.attr('disabled',"disabled");
+                            codeBtn.addClass("msgs1");
+                            //倒计时
+                            codeBtn.html(time + "秒");
+                            console.log(back);
+                            var t = setInterval(function () {
+                                time--;
+                                codeBtn.html(time + "秒");
+                                if (time == 0) {
+                                    clearInterval(t);
+                                    codeBtn.html("重新获取");
+                                    // validCode=true;
+                                    codeBtn.removeAttr('disabled');
+                                    codeBtn.removeClass('msgs1');
+                                }
+                            },1000)
+                        });
+                    }else{
+
+                    }
+
+                });
+                $(document).on('click','.regist-button',function(){
+                    var tel=$('#phone-num').val();
+                    var password=$('#set-pwd').val();
+                    var code=$('#v-code').val();
+                    if(tel&&password&&code){
+                        ajaxPost('User','regist',{user_tel:tel,user_password:password,code:code},function(back){
+                            console.log(back);
+                            var backValue=backHandle(back);
+                            if(backValue){
+                                location.href='?href=index';
+                            }
+                        });
+                    }
+                });
+            }
+
+
+        </script>
