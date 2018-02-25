@@ -74,7 +74,7 @@ class API {
     public static function companyVerify(){
         static::userVerify();
         if(isset($_SESSION['user']['company'])){
-            return $_SESSION['user']['company'];
+            return $_SESSION['user']['company']['company_id'];
         }else{
             echoBack(null,102,'企业用户信息不全');
             exit;

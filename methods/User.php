@@ -68,6 +68,7 @@ class User
 //            pdoUpdate('user_tbl', ['user_session' => $userSession, 'session_creating_time' => time(), 'device_token' => $deviceToken], ['user_id' => $query['user_id']], ' limit 1');
 //            echoBack(null, 0, '登陆成功', $userSession);
         } else {
+//            mylog('faile');
             echoBack(null, 403, '登录失败');
         }
     }

@@ -11,12 +11,18 @@
                 <div class="service-box-r">
                     <div class="member">
                         <p class="avatar-wrapper"></p>
+                        <?php if(isset($_SESSION['user'])):?>
+                        <p class="member-info">Hi，用户<?=$_SESSION['user']['user_tel']?>，您好</p>
+                        <p class="member-text">欢迎来到模具集成服务平台</p>
+                        <?php else:?>
                         <p class="member-info">Hi，您好</p>
                         <p class="member-text">欢迎来到模具集成服务平台</p>
                         <div class="button clearfix">
-                            <button type="button" class="btn-cur">登录</button>
-                            <button type="button">注册</button>
+                            <button type="button" class="btn-cur to-login">登录</button>
+                            <button type="button" class="to-regist">注册</button>
                         </div>
+                        <?php endif ?>
+
                     </div>
                     <div class="message">
                         <div class="message-t">
@@ -719,6 +725,12 @@
             sessionStorage.currentCompanyId=id;
             location.href='?href=shop_home&static=1';
         });
+        $(document).on('click', '.to-login',function(){
+            location.href='?href=login'
+        })
+        $(document).on('click', '.to-regist',function(){
+            location.href='?href=regist'
+        })
     }
     function companyListHandler(back) {
         var _=this;

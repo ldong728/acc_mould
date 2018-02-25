@@ -18,6 +18,18 @@ class Product {
         echoBack($query->fetchAll());
 //        echoBack(pdoQuery(''))
     }
+    public function own_category_list(){
+        $companyId=API::companyVerify();
+        $categoryList=pdoQueryNew('company_category_tbl',['category'],['company'=>$companyId],null);
+//        $cateogoryList->setFetchMode(PDO::FETCH_ASSOC);
+        $where=[];
+        foreach ($categoryList as $row) {
+            $where['category_id'][]=$row['category'];
+        }
+//        $where=$categoryList?['category_id'=>$categoryList]:null;
+        $categoryQuery=pdoQueryNew('category_tbl',null,$where,null)->fetchAll();
+        echoBack($categoryQuery);
+    }
 
     public function detail($data){
         $productId=$data['product_id'];
@@ -33,6 +45,42 @@ class Product {
 
         echoBack(['detail'=>$product,'attrs'=>$categoryAttr]);
 
+    }
+    function category_attr_list($data)
+    {
+        $category = $data['category_id'];
+        $back = pdoQuery('category_attr_tbl', null, ['category' => $category], null);
+        $back->setFetchMode(PDO::FETCH_ASSOC);
+        echoBack($back->fetchAll());
+
+    }
+    function get_product($data){
+        $companyId=API::companyVerify();
+        $id=(int)$data['id'];
+        $query=pdoQuery('product_tbl',null,['product_id'=>$id,'company'=>$companyId],'limit 1')->fetch(PDO::FETCH_ASSOC);
+        echoBack($query);
+    }
+    function add_product($data){
+        $userId=API::userVerify();
+        $companyId=API::companyVerify();
+        $data['img'] = isset($data['img'])? json_encode($data['img']):null;
+        $data['product_attr'] =isset($data['product_attr'])? json_encode($data['product_attr']):null;
+        $data['company']=$companyId;
+        $data['user']=$userId;
+        try {
+            pdoInsert('product_tbl', $data, 'update');
+        } catch (PDOException $e) {
+            mylog($e->getMessage());
+
+        }
+        echoBack('ok');
+//        mylog($data);
+    }
+    function delete_product($data){
+        $company=API::companyVerify();
+        $id=$data['id'];
+        pdoDelete('product_tbl',['product_id'=>$id,'company'=>$company],'limit 1');
+        echoBack('ok');
     }
 
 } 

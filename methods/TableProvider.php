@@ -46,6 +46,13 @@ class TableProvider
         $back=$this->getList('product_detail_view',null,'product_tbl',$data,false);
         echoBack($back);
     }
+    public function own_product_list($data){
+//        $userId=API::userVerify();
+        $companyId=API::companyVerify();
+        $data['where']['company']=$companyId;
+        $back=$this->getList('product_detail_view',null,'product_tbl',$data,false);
+        echoBack($back);
+    }
 
 //    private function
 

@@ -218,7 +218,7 @@ function pdoInsert($tableName,$value,$str=''){
     }else{
         $sql=$sql.$data.$str;
     }
-    mylog($sql);
+//    mylog($sql);
     $p=$GLOBALS['pdo']->prepare($sql);
     $p->execute($value);
     return $GLOBALS['pdo']->lastInsertId();

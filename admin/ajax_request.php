@@ -142,7 +142,7 @@ function add_category($data)
 function add_company($data)
 {
     $companyInf = $data['company_inf'];
-    $companyCategory = $data['company_category'];
+    $companyCategory = isset($data['company_category'])?$data['company_category']:[];
     $companyInf['img'] = json_encode($companyInf['img']);
     pdoTransReady();
     try {
