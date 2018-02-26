@@ -127,7 +127,7 @@ class VerifySms{
         // 可选，设置模板参数, 假如模板中存在变量需要替换则为必填项
         $request->setTemplateParam(json_encode(array(  // 短信模板中字段的值
             "code"=>''.$code,
-            "product"=>"牛魔王模具集成服务平台"
+            "product"=>"牛模王模具集成服务平台"
         ), JSON_UNESCAPED_UNICODE));
 
         // 可选，设置流水号

@@ -1,236 +1,187 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>新增编辑-商品管理-交易管理</title>
-    <meta name="description" content="Cell Phone, Phones,mobile phone,Cell Phone suppliers">
-    <meta name="keywords" content="Cell Phone, Phones,mobile phone,Cell Phone suppliers">
-    <link href="css/main.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-</head>
-<body class="bg-f8">
-
-<div class="entrance">
-    <div class="container">
-        <ul class="entrance-l clearfix">
-            <li>欢迎访问模具集成服务平台！</li>
-            <li>
-                <p class="li-login light">
-                    <a href="#">[请登录]</a>
-                    <a href="login.html">[免费注册]</a>
-                </p>
-
-            </li>
-        </ul>
-        <ul class="entrance-r clearfix">
-            <li>
-                <div class="entrance-li-show li-account clearfix">
-                    <a href="#">我的账户</a>
-                    <i class="icon icon-angle-down"></i>
-                </div>
-                <dl>
-                    <dt></dt>
-                    <dd><a href="personal_center.html">个人中心</a></dd>
-                </dl>
-            </li>
-            <li>
-                <div class="entrance-li-show li-shop-cart clearfix">
-                    <a href="#">购物车<span class="number">0</span></a>
-                    <i class="icon icon-angle-down"></i>
-                </div>
-                <div class="entrance-li-none shop-cart-lists"></div>
-            </li>
-            <li>
-                <div class="entrance-li-show li-vip">
-                    <a href="#">VIP专属入口</a>
-                </div>
-            </li>
-            <li>
-                <div class="entrance-li-show li-supplier">
-                    <a href="#">供应商入口</a>
-                </div>
-            </li>
-            <li>
-                <div class="entrance-li-show li-customer-server">
-                    <a href="#">客服中心</a>
-                </div>
-            </li>
-            <li>
-                <p class="li-tel light">
-                    <i class="icon icon-phone"></i> <span>客服：400-888-888</span>
-                </p>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div class="header pc-header">
-    <div class="container">
-        <div class="header-l">
-            <img src="images/pc-logo.png" alt="logo">
-        </div>
-    </div>
-</div>
-
+<script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+        <style>
+            .submit{
+                display: block;text-align: center; height: 40px;line-height: 40px; width: 100%;font-size: 16px; color: #fff;border: 0; background-color: #00c1de;
+            }
+        </style>
 <div class="pc-home clearfix">
     <div class="container">
-        <div class="pc-aside">
-            <ul>
-                <li>
-                    <h3 class="aside-title">我的发布<i class="icon icon-angle-right"></i></h3>
-                    <ol>
-                        <li><a href="personal_center.html">加工需求</a></li>
-                        <li><a href="#">采购需求</a></li>
-                        <li><a href="#">招标需求</a></li>
-                        <li><a href="#">询价需求</a></li>
-                    </ol>
-                </li>
-                <li>
-                    <h3 class="aside-title">报价管理<i class="icon icon-angle-right"></i></h3>
-                    <ol>
-                        <li><a href="#">加工报价</a></li>
-                        <li><a href="#">采购报价</a></li>
-                        <li><a href="#">我的投标</a></li>
-                        <li><a href="#">询价报价</a></li>
-                    </ol>
-                </li>
-                <li>
-                    <h3 class="aside-title">交易管理<i class="icon icon-angle-right"></i></h3>
-                    <ol>
-                        <li><a href="#">我的订单</a></li>
-                        <li><a href="#">收货地址</a></li>
-                        <li><a href="#">店铺订单</a></li>
-                        <li class="li-cur"><a href="pc_commodity_manage.html">商品管理</a></li>
-                        <li><a href="#">收到的询价</a></li>
-                    </ol>
-                </li>
-                <li>
-                    <h3 class="aside-title">店铺管理<i class="icon icon-angle-right"></i></h3>
-                    <ol>
-                        <li><a href="pc_company_profile.html">企业简介</a></li>
-                        <li><a href="pc_contact_us.html">联系方式</a></li>
-                    </ol>
-                </li>
-                <li>
-                    <h3 class="aside-title">账号管理<i class="icon icon-angle-right"></i></h3>
-                    <ol>
-                        <li><a href="#">基本信息</a></li>
-                        <li><a href="#">企业信息</a></li>
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="#">系统消息</a></li>
-                    </ol>
-                </li>
-            </ul>
-        </div>
+        <?php include '/view/template/user_center_left.html.php'?>
         <div class="pc-content">
             <div class="pc-commodity-edit">
                 <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                    <tr>
-                        <td>商品名称</td>
-                        <td><input type="text" name="name"></td>
-                    </tr>
-                    <tr>
-                        <td>规格</td>
-                        <td><input type="text" name="gg"></td>
-                    </tr>
-                    <tr>
-                        <td>单位</td>
-                        <td><input type="text" name="dw"></td>
-                    </tr>
-                    <tr>
-                        <td>阶梯价格</td>
-                        <td>
-                            <ul class="ul-price">
-                                <li>
-                                    <input type="text" name="pr1-s" class="li-input" placeholder="请输入起始数量"> <span class="li-span">-</span>
-                                    <input type="text" name="pr1-o" class="li-input" placeholder="请输入结尾数量"> <span class="li-span li-span-2">件</span>
-                                    <input type="text" name="pr1-r" class="li-input" placeholder="请输入价格"> <span class="li-span">元</span>
-                                </li>
-                                <li>
-                                    <input type="text" name="pr2-s" class="li-input" placeholder="请输入起始数量"> <span class="li-span">-</span>
-                                    <input type="text" name="pr2-o" class="li-input" placeholder="请输入结尾数量"> <span class="li-span li-span-2">件</span>
-                                    <input type="text" name="pr2-r" class="li-input" placeholder="请输入价格"> <span class="li-span">元</span>
-                                </li>
-                                <li>
-                                    <input type="text" name="pr3-s" class="li-input" placeholder="请输入起始数量"> <span class="li-span">-</span>
-                                    <input type="text" name="pr3-o" class="li-input" placeholder="请输入结尾数量"> <span class="li-span li-span-2">件</span>
-                                    <input type="text" name="pr3-r" class="li-input" placeholder="请输入价格"> <span class="li-span">元</span>
-                                </li>
-                            </ul>
-                            <span class="red">*例：1-99件  100.00元</span>
+                    <tr class="category-tr">
+                        <td>类型：</td>
+                        <td class="category-container"><select class="select-template product-normal-info" data-field="product_name">
+                            <option class="option-template">可发布类型选择</option>
+                        </select>
                         </td>
                     </tr>
+                    <!--<tr>-->
+                        <!--<td>商品名称</td>-->
+                        <!--<td><input type="text" name="name"></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>规格</td>-->
+                        <!--<td><input type="text" name="gg"></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>单位</td>-->
+                        <!--<td><input type="text" name="dw"></td>-->
+                    <!--</tr>-->
+                    <!--<tr class="attr-template">-->
+                        <!--<td><span class="name"></span>：</td>-->
+                        <!--<td ><span class="value-input"><input class="attr-value"></span><span class="unit"></span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>阶梯价格</td>-->
+                        <!--<td>-->
+                            <!--<ul class="ul-price">-->
+                                <!--<li>-->
+                                    <!--<input type="text" name="pr1-s" class="li-input" placeholder="请输入起始数量"> <span-->
+                                        <!--class="li-span">-</span>-->
+                                    <!--<input type="text" name="pr1-o" class="li-input" placeholder="请输入结尾数量"> <span-->
+                                        <!--class="li-span li-span-2">件</span>-->
+                                    <!--<input type="text" name="pr1-r" class="li-input" placeholder="请输入价格"> <span-->
+                                        <!--class="li-span">元</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<input type="text" name="pr2-s" class="li-input" placeholder="请输入起始数量"> <span-->
+                                        <!--class="li-span">-</span>-->
+                                    <!--<input type="text" name="pr2-o" class="li-input" placeholder="请输入结尾数量"> <span-->
+                                        <!--class="li-span li-span-2">件</span>-->
+                                    <!--<input type="text" name="pr2-r" class="li-input" placeholder="请输入价格"> <span-->
+                                        <!--class="li-span">元</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<input type="text" name="pr3-s" class="li-input" placeholder="请输入起始数量"> <span-->
+                                        <!--class="li-span">-</span>-->
+                                    <!--<input type="text" name="pr3-o" class="li-input" placeholder="请输入结尾数量"> <span-->
+                                        <!--class="li-span li-span-2">件</span>-->
+                                    <!--<input type="text" name="pr3-r" class="li-input" placeholder="请输入价格"> <span-->
+                                        <!--class="li-span">元</span>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                            <!--<span class="red">*例：1-99件  100.00元</span>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>库存</td>-->
+                        <!--<td><input type="text" name="num" class="li-input"></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>发货地</td>-->
+                        <!--<td><input type="text" name="addr" placeholder="默认获取地址"></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>发货期</td>-->
+                        <!--<td><input type="text" name="day" class="li-input"><span class="li-span-margin">天以内</span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td style="vertical-align: top">运费说明</td>-->
+                        <!--<td><textarea rows="3"></textarea></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>产品图</td>-->
+                        <!--<td>-->
+                            <!--<div class="file-top">-->
+                                <!--<input type="button" name="up-img"><span class="li-span-margin">每张图片建议不超过2M</span>-->
+                                <!--<a href="#">上传</a>-->
+                            <!--</div>-->
+                            <!--<ul class="file-bottom clearfix">-->
+                                <!--<li>-->
+                                    <!--<p class="f-b-img"><img src="#"></p>-->
+                                    <!--<a href="#" class="f-b-reset">删除</a>-->
+                                    <!--<a href="#" class="lager"><i class="icon icon-search"></i> </a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<p class="f-b-img"><img src="#"></p>-->
+                                    <!--<a href="#" class="f-b-reset">删除</a>-->
+                                    <!--<a href="#" class="lager"><i class="icon icon-search"></i> </a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<p class="f-b-img"><img src="#"></p>-->
+                                    <!--<a href="#" class="f-b-reset">删除</a>-->
+                                    <!--<a href="#" class="lager"><i class="icon icon-search"></i> </a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<p class="f-b-img"><img src="#"></p>-->
+                                    <!--<a href="#" class="f-b-reset">删除</a>-->
+                                    <!--<a href="#" class="lager"><i class="icon icon-search"></i> </a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<p class="f-b-img"><img src="#"></p>-->
+                                    <!--<a href="#" class="f-b-reset">删除</a>-->
+                                    <!--<a href="#" class="lager"><i class="icon icon-search"></i> </a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</td>-->
+                    <!--</tr>-->
                     <tr>
-                        <td>库存</td>
-                        <td><input type="text" name="num" class="li-input"></td>
+                        <td>商品名称：</td>
+                        <td ><input class="product-normal-info" data-field="product_name" style="width: 500px"></td>
                     </tr>
                     <tr>
-                        <td>发货地</td>
-                        <td><input type="text" name="addr" placeholder="默认获取地址"></td>
-                    </tr>
-                    <tr>
-                        <td>发货期</td>
-                        <td><input type="text" name="day" class="li-input"><span class="li-span-margin">天以内</span></td>
-                    </tr>
-                    <tr>
-                        <td style="vertical-align: top">运费说明</td>
-                        <td><textarea rows="3"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>产品图</td>
+                        <td>商品图片：</td>
                         <td>
                             <div class="file-top">
-                                <input type="file" name="up-img"><span class="li-span-margin">每张图片建议不超过2M</span>
+                                <input type="button" name="up-img" class="upload-button" data-key="product-img" data-multiple="1"><span class="li-span-margin">每张图片建议不超过1M，大小为512*512，格式为jpg或png</span>
                                 <a href="#">上传</a>
                             </div>
-                            <ul class="file-bottom clearfix">
-                                <li>
-                                    <p class="f-b-img"><img src="#"></p>
-                                    <a href="#" class="f-b-reset">删除</a>
-                                    <a href="#" class="lager"><i class="icon icon-search"></i> </a>
-                                </li>
-                                <li>
-                                    <p class="f-b-img"><img src="#"></p>
-                                    <a href="#" class="f-b-reset">删除</a>
-                                    <a href="#" class="lager"><i class="icon icon-search"></i> </a>
-                                </li>
-                                <li>
-                                    <p class="f-b-img"><img src="#"></p>
-                                    <a href="#" class="f-b-reset">删除</a>
-                                    <a href="#" class="lager"><i class="icon icon-search"></i> </a>
-                                </li>
-                                <li>
-                                    <p class="f-b-img"><img src="#"></p>
-                                    <a href="#" class="f-b-reset">删除</a>
-                                    <a href="#" class="lager"><i class="icon icon-search"></i> </a>
-                                </li>
-                                <li>
-                                    <p class="f-b-img"><img src="#"></p>
-                                    <a href="#" class="f-b-reset">删除</a>
-                                    <a href="#" class="lager"><i class="icon icon-search"></i> </a>
+                            <ul class="file-bottom clearfix product-img">
+                                <li class="li-template">
+                                    <p class="f-b-img"><img class="image" src="#"></p>
+                                    <a class="f-b-reset delete-img" style="cursor: pointer">删除</a>
+                                    <a class="lager larger-img" style="cursor: pointer"><i class="icon icon-search"></i> </a>
                                 </li>
                             </ul>
                         </td>
+                        <!--<td > <img class="img img-upload biger-img" data-key="product-img" data-multiple="1" alt="商品图片（点击上传）"></td>-->
                     </tr>
                     <tr>
-                        <td style="vertical-align: top">规格参数</td>
-                        <td><textarea rows="10"></textarea></td>
+                        <td>梯度定价：</td>
+                        <td>功能未开启</td>
                     </tr>
                     <tr>
-                        <td style="vertical-align: top">商品详情</td>
-                        <td><textarea rows="10"></textarea></td>
+                        <td>运费说明：</td>
+                        <td><input class="product-normal-info" data-field="shipping_instr"></td>
                     </tr>
+                    <tr>
+                        <td>发货期：</td>
+                        <td><input class="product-normal-info" data-field="delivery_time"></td>
+                    </tr>
+                    <tr>
+                        <td>发货地：</td>
+                        <td><input class="product-normal-info" data-field="shipping_place"></td>
+                    </tr>
+                    <tr>
+                        <td>商品描述：</td>
+                        <td id="editor"></td>
+                    </tr>
+                    <tr>
+                        <td>规格描述：</td>
+                        <td id="size-editor"></td>
+
+                    </tr>
+                    </tbody>
+                    <tfoot class="attr-container">
+                    <tr class="attr-template">
+                        <td><span class="name"></span>：</td>
+                        <td ><span class="value-input"><input class="attr-value"></span><span class="unit"></span></td>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
             <div class="turnpage">
-                <li><span class="page_noclick">上一页</span></li>
-                <li class="page-item"><span class="page_cur">1</span></li>
-                <li class="page-item"><span>2</span></li>
-                <li class="page_last"><span class="page_noclick">下一页</span></li>
-                <div class="go_turn_page">
-                    共1页&nbsp; &nbsp; &nbsp;到
-                    <input type="text" name="num" class="turn_to_page" maxlength="8">&nbsp;页<a href="javascript:void(0)" class="go_turn">确定</a>
-                </div>
+                <button class="submit" id="submit">提交</button>
+                <!--<li><span class="page_noclick">上一页</span></li>-->
+                <!--<li class="page-item"><span class="page_cur">1</span></li>-->
+                <!--<li class="page-item"><span>2</span></li>-->
+                <!--<li class="page_last"><span class="page_noclick">下一页</span></li>-->
+                <!--<div class="go_turn_page">-->
+                <!--共1页&nbsp; &nbsp; &nbsp;到-->
+                <!--<input type="text" name="num" class="turn_to_page" maxlength="8">&nbsp;页<a href="javascript:void(0)" class="go_turn">确定</a>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
@@ -277,6 +228,7 @@
             </div>
             <div class="wx-code">
                 <p class="img"><img src="images/wx-code.jpg" alt=""></p>
+
                 <p class="text">关注官方微信</p>
             </div>
         </div>
@@ -296,20 +248,335 @@
         </div>
     </div>
 </div>
+<input type="file" class="files" id="product_files" name="product_files" style="display: none">
 
-<div class="footer">
-    <div class="container">
-        <p class="footer-t">
-            <a href="#">网站首页</a>
-            <a href="#">关于我们</a>
-            <a href="#">联系方式</a>
-            <a href="#">使用协议</a>
-            <a href="#">版权隐私</a>
-            <a href="#">广告服务</a>
-        </p>
-        <p class="copyright">&copy;2010-2017 Acc+Mould.All rights reserved. 浙ICP备100000000号</p>
-    </div>
-</div>
+<script>
+//    console.log(getUrlParam('abc'));
+//    getCategory();
+//    var id = getUrlParam('id');
+//    if (id) {
+//        getProductInf(id);
+//    }
+//
+//    function getProductInf(id) {
+//
+//    }
+//
+//    function getCategory() {
+//        ajaxPost('Product', 'own_category_list', {}, function (data) {
+//            console.log(data);
+//            var backValue = backHandle(data);
+//            console.log(backValue);
+//        });
+//    }
+    //            var id=
+</script>
+<script>
+var productInf={};
+var attrList = {};
+var currentImg = null;
+var imgs = {};
+var selectCreator;
+var attrTrCreator;
+var imgElementCreator;
+var detailEditor, sizeEditor;
+$(document).ready(function () {
+    var id = getUrlParam('id');
+    if (id) {
+        $('.category-tr').remove();
+        ajaxPost('Product','get_product',{id:id},function(back){
+           console.log(back);
+            var backValue=backHandle(back);
+            productInf=backValue;
+            initElementAndEditor();
+            initProductInf();
+            registEvent();
+            initImgValues();
+            initUpload();
+            initImgs();
+        });
+//        getProductInf(id);
+//        $('.hidde-when-edit').remove();
+//        initElementAndEditor();
+//        initProductInf();
+//        registEvent();
+//        initImgValues();
+//                $('.hidde-when-edit').find('.product-normal-info').removeClass('product-normal-info');
+    } else {
+        initElementAndEditor();
+        initProductInf();
+        initCategory();
+        registEvent();
+        initImgValues();
+        initUpload();
+    }
 
-</body>
-</html>
+
+});
+function getProductInf(id) {
+
+}
+
+function initElementAndEditor() {
+    detailEditor = initEditor('#editor');
+    sizeEditor = initEditor('#size-editor');
+    selectCreator=prepareElement('.select-template','.option-template');
+    imgElementCreator=prepareElement('.li-template');
+//    selectCreator=prepareElement('.select-template');
+
+    attrTrCreator =prepareElement('.attr-template');
+}
+function initCategory() {
+    ajaxPost('Product', 'own_category_list', {}, function (back) {
+        var backValue = backHandle(back);
+        if (backValue) {
+            var categorySelector = selectCreator('.select-template');
+            var emptyOption = selectCreator('.option-template');
+            categorySelector.removeClass('select-template');
+            categorySelector.addClass('category-select');
+            categorySelector.addClass('product-normal-info');
+            categorySelector.attr('data-field', 'category');
+            emptyOption.val(0);
+            emptyOption.text('请选择类别');
+            emptyOption.attr('disabled', '1');
+            emptyOption.attr('selected', '1');
+            categorySelector.append(emptyOption);
+            var pList = [];
+            $.each(backValue, function (k, v) {
+                if (v.p_category) {
+                    pList.push(v.cateogry_id);
+                    categorySelector.find('#cat' + v.p_category).remove();
+                }
+                if (pList.indexOf(v.category_id) < 0) {
+                    var cateOption = selectCreator('.option-template');
+                    cateOption.attr('id', 'cat' + v.category_id);
+                    cateOption.val(v.category_id);
+                    cateOption.text(v.category_name);
+                    categorySelector.append(cateOption);
+                }
+            });
+            $('.category-container').append(categorySelector);
+        }
+    });
+//            initProductInf();
+}
+function initCompany(id) {
+    $('.company-container').empty();
+    ajaxPost('company_category_list', {category: id}, function (back) {
+        var backValue = backHandle(back);
+        if (backValue) {
+            var categorySelector = selectCreator('.select-template');
+            var emptyOption = selectCreator('.option-template');
+            categorySelector.removeClass('select-template');
+            categorySelector.addClass('company-select');
+            categorySelector.addClass('product-normal-info');
+            categorySelector.attr('data-field', 'company');
+            emptyOption.val(0);
+            emptyOption.text('请选择供应商');
+            emptyOption.attr('disabled', '1');
+            emptyOption.attr('selected', '1');
+            categorySelector.append(emptyOption);
+            var pList = [];
+            $.each(backValue, function (k, v) {
+                var cateOption = selectCreator('.option-template');
+//                            cateOption.attr('id','com'+ v.category_id);
+                cateOption.val(v.company);
+                cateOption.text(v.company_name);
+                categorySelector.append(cateOption);
+            });
+            $('.company-container').html(categorySelector);
+        }
+    });
+}
+function initImgValues() {
+    var imgInf = {};
+    if (productInf.product_id) {
+        imgInf = JSON.parse(productInf.img) || {};
+        console.log(imgInf);
+        imgs = imgInf;
+    }
+    $('.image').each(function (k, v) {
+        var key = $(v).data('key');
+        var multiple = parseInt($(v).data('multiple'));
+        if (imgInf[key]) {//有图片的情况
+            if (multiple) {
+                $.each(imgInf[key], function (id, imgUrl) {
+                    var singleImg = $(v).clone();
+                    singleImg.attr('src', imgUrl);
+                    $(v).before(singleImg);
+                });
+            } else {
+                $(v).attr('src', imgInf[key]);
+            }
+        } else {
+            console.log(key);
+            imgs[key] = multiple ? [] : null;
+        }
+
+    });
+}
+function registEvent() {
+    $(document).on('change', '.category-select', function () {
+        var id = $(this).val();
+//        console.log(id);
+        ajaxPost('Product','category_attr_list', {category_id: id}, function (back) {
+            console.log(back);
+            var backValue = backHandle(back);
+            if (backValue) {
+                attrList = {};
+                $.each(backValue, function (k, v) {
+                    console.log(v.attr_pms);
+                    if ([1, 3, 5, 7].indexOf(parseInt(v.attr_pms)) > -1) {
+                        attrList[v.category_attr_id] = v;
+                    }
+                });
+                initAttrInputArea(attrList);
+            }
+        });
+//        initCompany(id);
+    });
+    $(document).on('click','.delete-img',function(){
+        var key=$(this).data('key');
+        var value=$(this).data('value');
+        imgs[key].splice(imgs[key].indexOf(value),1);
+        initImgs();
+
+    });
+    $(document).on('click','.upload-button',function(){
+        currentImg=$(this).data('key');
+        console.log(currentImg);
+        $('#product_files').click();
+    });
+    $(document).on('click', '#submit', function () {
+        var isNull = false;
+        $('.product-normal-info').each(function (k, v) {
+            var field = $(v).data('field');
+            if ('product_name' == field && !v.value) {
+                isNull = true;
+            }
+            productInf[field] = v.value;
+        });
+        $('.attr-value').each(function (k, v) {
+            var id = $(v).attr('id').slice(3);
+            var sValue = v.value;
+            attrList[id].value = sValue;
+        });
+        productInf['img'] = imgs;
+        productInf['product_attr'] = attrList;
+        productInf['product_detail'] = detailEditor.txt.html();
+        productInf['size_detail'] = sizeEditor.txt.html();
+        console.log(productInf);
+        if (!isNull) {
+            updateProductInf();
+        }
+    });
+//    $(document).on('click', '.img-upload', function () {
+//        currentImg = $(this);
+//        var multiple = parseInt($(this).data('multiple'));
+//        var key = $(this).data('key');
+//        if (multiple) {
+//            if ($(this).attr('src')) {
+//                imgs[key].splice(imgs[key].indexOf($(this).attr('src')), 1);
+//                $(this).remove();
+//            } else {
+//                $('#img-file').click();
+//            }
+//        } else {
+//            $('#img-file').click();
+//        }
+//
+//    });
+}
+function initAttrInputArea(attrs) {
+    $('.attr-container').empty();
+    $.each(attrs, function (k, v) {
+        var sTr = attrTrCreator();
+        sTr.find('.name').text(v.category_attr_name);
+        sTr.find('.unit').text(v.attr_unit || '');
+        sTr.find('.attr-value').attr('id', 'att' + k);
+        sTr.find('.attr-value').val(v.value || '');
+
+        $('.attr-container').append(sTr);
+
+    });
+
+
+}
+function initProductInf() {
+    if (productInf.product_id) {
+        if (productInf.product_attr) {
+//                    console.log(productInf.product_attr);
+            attrList = JSON.parse(productInf.product_attr);
+//                    console.log(attrList);
+        }
+        $('.product-normal-info').each(function (k, v) {
+            var field = $(v).data('field');
+            v.value = productInf[field];
+        });
+        initAttrInputArea(attrList);
+        detailEditor.txt.html(productInf.product_detail);
+        sizeEditor.txt.html(productInf.size_detail);
+//                var imgInf=JSON.parse(productInf.img);
+    }
+//            $('.category-select').remove();
+}
+
+function updateProductInf() {
+    ajaxPost('Product','add_product', productInf, function (back) {
+        var backValue = backHandle(back);
+        if (backValue) {
+            location.href='?href=pc_commodity_manage';
+            if (productInf.product_id) {
+//                var href = getHref('product_list');
+//                location.href = href;
+            } else {
+                location.reload(true);
+//                        showToast('更改成功');
+            }
+        }
+    });
+}
+function initEditor(select) {
+    var E = window.wangEditor;
+    var editor = new E(select);
+    // 或者 var editor = new E( document.getElementById('#editor') )
+    editor.customConfig.uploadImgServer = 'api.php/API/Upload/img_in_content';
+    editor.customConfig.uploadImgParams = {
+        fromContent: 1
+    };
+    editor.customConfig.uploadImgShowBase64 = false;
+    editor.create();
+    return editor;
+}
+function initUpload(){
+    setUploadEvent('#product_files',uploadSuccess,uploadFail);
+    function uploadSuccess(back){
+        console.log(back);
+        var url='?img='+back.url;
+        if(imgs[currentImg])imgs[currentImg].push(url);
+        else imgs[currentImg]=[url];
+        initImgs();
+    }
+    function uploadFail(back){
+        console.error(back);
+    }
+}
+function initImgs(){
+    $('.li-template').remove();
+    $.each(imgs,function(key,v){
+        if("object"==typeof v){
+            $.each(v,function(id,url){
+                var element=imgElementCreator();
+                element.find('img').attr('src',url);
+                element.find('.delete-img').attr('data-value',url);
+                element.find('.delete-img').attr('data-key',key);
+                element.find('.larger-img').attr('data-value',url);
+                $('.'+key).append(element);
+            });
+        }
+    });
+}
+
+</script>
+
+

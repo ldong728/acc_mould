@@ -61,6 +61,14 @@ class API {
         include_once $GLOBALS['mypath'] . '/methods/Upload.php';
         $upload=new Upload($methodType);
     }
+    public function Process($methodType){
+        mylog('Process');
+        include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
+        include_once $GLOBALS['mypath'] . '/methods/Process.php';
+        global $postData;
+        $process=new Process();
+        $process->$methodType($postData);
+    }
 
     public static function userVerify(){
         if(isset($_SESSION['user'])){
@@ -74,7 +82,7 @@ class API {
     public static function companyVerify(){
         static::userVerify();
         if(isset($_SESSION['user']['company'])){
-            return $_SESSION['user']['company'];
+            return $_SESSION['user']['company']['company_id'];
         }else{
             echoBack(null,102,'企业用户信息不全');
             exit;

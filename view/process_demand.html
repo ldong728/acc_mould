@@ -43,28 +43,29 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">工序</td>
-                                    <td>
-                                        <span class="span-cur">电火花加工-选择状态</span>
-                                        <span>锯加工</span>
-                                        <span>铣加工</span>
-                                        <span>装饰纹加工</span>
-                                        <span>抛光加工</span>
-                                        <span>钳工加工</span>
-                                        <span>电火花加工加工</span>
-                                        <span>锯加工</span>
-                                        <span>铣加工</span>
-                                        <span>装饰纹加工</span>
-                                        <span>抛光加工</span>
-                                        <span>钳工加工</span>
+                                    <td class="step-container">
+                                        <span class="step-template step-select span-cur">电火花加工-选择状态</span>
+                                        <!--<span>锯加工</span>-->
+                                        <!--<span>铣加工</span>-->
+                                        <!--<span>装饰纹加工</span>-->
+                                        <!--<span>抛光加工</span>-->
+                                        <!--<span>钳工加工</span>-->
+                                        <!--<span>电火花加工加工</span>-->
+                                        <!--<span>锯加工</span>-->
+                                        <!--<span>铣加工</span>-->
+                                        <!--<span>装饰纹加工</span>-->
+                                        <!--<span>抛光加工</span>-->
+                                        <!--<span>钳工加工</span>-->
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>图纸</td>
                                     <td>
                                         <div class="td-l">
-                                            <input type="file" name="file">
-                                            <div class="btn">上传图片</div>
+                                            <!--<input type="button" name="file">-->
+                                            <div class="btn upload-button" style="cursor: pointer">上传图纸</div>
                                         </div>
+                                        <div class="uploaded"></div>
                                         <div class="td-text">
                                             <p>*3D模型2D图纸BOM工艺说明以压缩包的形式上传</p>
                                             <p>*零售图、数量、材质、表面处理要求请在附近中注明</p>
@@ -106,9 +107,53 @@
                             <!--<a href="process_immediately.html" class="submit">提交需求</a>-->
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+<input type="file" class="files" id="process_file" name="process_file" style="display: none">
+        <script>
+            var processInf={};
+            var stepCreator;
+            $(document).ready(function(){
+               initView();
+                getSteps();
+                registEvent();
+                setUpload();
+            });
+
+            function registEvent(){
+                $(document).on('click','.step-select',function(){
+                    $(this).toggleClass('span-cur');
+                });
+                $(document).on('click','.upload-button',function(){
+                    $('#process_file').click();
+                })
+            }
+
+            function initView(){
+                stepCreator=prepareElement('.step-template');
+
+            }
+
+            function getSteps(){
+                ajaxPost('Process','get_process_step',{},function(back){
+                    var backValue=backHandle(back);
+                    $.each(backValue,function(k,v){
+                        var stepElement=stepCreator();
+                        stepElement.text(v.process_step_name);
+                        stepElement.removeClass('span-cur')
+                        $('.step-container').append(stepElement);
+                    });
+//                    console.log(backValue);
+                });
+            }
+            function setUpload(){
+                setUploadEvent('#process_file',function(data){
+                    $('.uploaded').text(data.originalName);
+                    processInf.attachment=data.url;
+                    console.log(data);
+                });
+            }
+        </script>

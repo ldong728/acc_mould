@@ -11,12 +11,18 @@
                 <div class="service-box-r">
                     <div class="member">
                         <p class="avatar-wrapper"></p>
+                        <?php if(isset($_SESSION['user'])):?>
+                        <p class="member-info">Hi，用户<?=$_SESSION['user']['user_tel']?>，您好</p>
+                        <p class="member-text">欢迎来到模具集成服务平台</p>
+                        <?php else:?>
                         <p class="member-info">Hi，您好</p>
                         <p class="member-text">欢迎来到模具集成服务平台</p>
                         <div class="button clearfix">
-                            <button type="button" class="btn-cur">登录</button>
-                            <button type="button">注册</button>
+                            <button type="button" class="btn-cur to-login">登录</button>
+                            <button type="button" class="to-regist">注册</button>
                         </div>
+                        <?php endif ?>
+
                     </div>
                     <div class="message">
                         <div class="message-t">
@@ -392,35 +398,35 @@
                                 <li>
                                     <a class="to-detail" id="href1">
                                     <div class="li-item-r-t">
-                                        <h4 id="name2">长祥特钢S136</h4>
-                                        <p class="purple-color price">￥<span id="price2">136.00</span>/<span class="unit-name"></span></p>
+                                        <h4 id="name1">长祥特钢S136</h4>
+                                        <p class="purple-color price">￥<span id="price1">136.00</span>/<span class="unit-name"></span></p>
                                     </div>
-                                    <p class="img"><img id="img2" src="images/purchase-r.jpg"></p>
+                                    <p class="img"><img id="img1" src="images/purchase-r.jpg"></p>
                                         </a>
                                 </li>
                                 <li>
                                     <a class="to-detail" id="href2">
                                     <div class="li-item-r-t">
-                                        <h4 id="name3">长祥特钢S136</h4>
-                                        <p class="purple-color price">￥<span id="price3">136.00</span>/<span class="unit-name"></span></p>
+                                        <h4 id="name2">长祥特钢S136</h4>
+                                        <p class="purple-color price">￥<span id="price2">136.00</span>/<span class="unit-name"></span></p>
                                     </div>
-                                    <p class="img"><img id="img3" src="images/purchase-r.jpg"></p>
+                                    <p class="img"><img id="img2" src="images/purchase-r.jpg"></p>
                                         </a>
                                 </li><li>
                                 <a class="to-detail" id="href3">
+                                <div class="li-item-r-t">
+                                    <h4 id="name3">长祥特钢S136</h4>
+                                    <p class="purple-color price">￥<span id="price3">136.00</span>/<span class="unit-name"></span></p>
+                                </div>
+                                <p class="img"><img id="img3" src="images/purchase-r.jpg"></p>
+                                    </a>
+                            </li><li>
+                                <a class="to-detail" id="href4">
                                 <div class="li-item-r-t">
                                     <h4 id="name4">长祥特钢S136</h4>
                                     <p class="purple-color price">￥<span id="price4">136.00</span>/<span class="unit-name"></span></p>
                                 </div>
                                 <p class="img"><img id="img4" src="images/purchase-r.jpg"></p>
-                                    </a>
-                            </li><li>
-                                <a class="to-detail" id="href4">
-                                <div class="li-item-r-t">
-                                    <h4 id="name1">长祥特钢S136</h4>
-                                    <p class="purple-color price">￥<span id="price1">136.00</span>/<span class="unit-name"></span></p>
-                                </div>
-                                <p class="img"><img id="img1" src="images/purchase-r.jpg"></p>
                                     </a>
                             </li>
                             </ul>
@@ -719,6 +725,12 @@
             sessionStorage.currentCompanyId=id;
             location.href='?href=shop_home&static=1';
         });
+        $(document).on('click', '.to-login',function(){
+            location.href='?href=login'
+        })
+        $(document).on('click', '.to-regist',function(){
+            location.href='?href=regist'
+        })
     }
     function companyListHandler(back) {
         var _=this;

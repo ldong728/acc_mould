@@ -28,7 +28,7 @@
                     <li class="clearfix">
                         <label for="set-pwd">输入验证码</label>
                         <input type="password" name="phone" id="verify" placeholder="请输入验证码">
-                        <img src="image.php">
+                        <img class="verify-img" src="image.php">
                     </li>
                 </ul>
 
@@ -61,6 +61,9 @@
                     location.reload(true);
                 }
             });
+        });
+        $(document).on('click','.verify-img',function(){
+           $(this).attr('src','image.php');
         });
     }
 
