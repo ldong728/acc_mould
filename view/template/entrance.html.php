@@ -1,7 +1,7 @@
 <div class="entrance">
     <div class="container">
         <ul class="entrance-l clearfix">
-            <li>欢迎访问模具集成服务平台！</li>
+            <li>欢迎访问全球一站式模具采购服务平台！</li>
             <li>
                 <?php if(isset($_SESSION['user'])):?>
                     <p class="li-login light">
@@ -51,7 +51,7 @@
             </li>
             <li>
                 <p class="li-tel light">
-                    <i class="icon icon-phone"></i> <span>客服：400-888-888</span>
+                    <i class="icon icon-phone"></i> <span>客服：400-181-6600</span>
                 </p>
             </li>
         </ul>
@@ -80,7 +80,7 @@
         </div>
         <div class="header-r">
             <p class="wx-code">
-                <img src="images/wx-code.jpg" alt="微信二维码">
+                <img src="images/wx-code.png" alt="微信二维码">
             </p>
             <p class="wx-text">关注官方微信</p>
         </div>
@@ -90,7 +90,7 @@
 <div class="nav">
     <div class="container">
         <div class="nav-lists">
-            <h3 class="purchase primary-background">一站式采购解决方案</h3>
+            <h3 class="purchase primary-background">一站式模具采购解决方案</h3>
             <ul class="service-lists hover">
                 <li>
                     <a class="main-category" href="#" id="mct1">
@@ -119,7 +119,7 @@
                 <li>
                     <a class='main-category' href="#" id="mct5">
                         <span class="img"><img src="images/icon5.png"></span>
-                        <span class="text">电极（石墨）</span>
+                        <span class="text">电极</span>
                     </a>
                 </li>
                 <li>
@@ -157,17 +157,20 @@
 
         <ul class="nav-bar">
             <li><a href="?href=index">首页</a></li>
-            <li class="li-cur"><a href="?href=process">我要加工</a></li>
+            <li><a href="?href=process">我要加工</a></li>
             <li><a href="?href=purchase">我要采购</a></li>
             <li><a href="?href=purchase_info">采购信息</a></li>
             <li><a href="?href=mold_bidding">模具招投标</a></li>
-            <li><a href="?href=forum">技术论坛</a></li>
-            <li><a href="?href=training">招聘培训</a></li>
-            <li><a href="?href=finance_serve">金融服务</a></li>
+            <li ><a href="http://tuiguang.accmould.cn/">全球招商</a></li>
+            <!--            <li><a href="?href=forum">技术论坛</a></li>-->
+<!--            <li><a href="?href=training">招聘培训</a></li>-->
+<!--            <li><a href="?href=finance_serve">金融服务</a></li>-->
         </ul>
     </div>
 </div>
 <script>
+//    var href=getUrlParam('href');
+//    $('.'+href).addClass('li-cur');
     $('.main-category').click(function(){
        var categoryId=$(this).attr('id').slice(3);
         sessionStorage.currentCategoryId=categoryId;

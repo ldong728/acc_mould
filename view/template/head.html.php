@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>牛魔王模具集成服务平台</title>
+    <title>牛模王模具集成服务平台</title>
     <meta name="description" content="描述内容">
     <meta name="keyword" content="关键字1，关键字2">
     <link href="css/main.css" type="text/css" rel="stylesheet">

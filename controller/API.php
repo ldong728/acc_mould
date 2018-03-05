@@ -62,11 +62,25 @@ class API {
         $upload=new Upload($methodType);
     }
     public function Process($methodType){
-        mylog('Process');
         include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
         include_once $GLOBALS['mypath'] . '/methods/Process.php';
         global $postData;
         $process=new Process();
+        $process->$methodType($postData);
+    }
+    public function Purchase($methodType){
+        include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
+        include_once $GLOBALS['mypath'] . '/methods/Purchase.php';
+        global $postData;
+        $purchase=new Purchase();
+        $purchase->$methodType($postData);
+    }
+    public function Bidding($methodType){
+        mylog('Bidding');
+        include_once $GLOBALS['mypath'] . '/includes/db.inc.php';
+        include_once $GLOBALS['mypath'] . '/methods/Bidding.php';
+        global $postData;
+        $process=new Bidding();
         $process->$methodType($postData);
     }
 

@@ -1,12 +1,19 @@
 <div class="entrance">
     <div class="container">
         <ul class="entrance-l clearfix">
-            <li>欢迎访问模具集成服务平台！</li>
+            <li>欢迎访问全球一站式模具采购服务平台！</li>
             <li>
-                <p class="li-login light">
-                    <a href="#">[请登录]</a>
-                    <a href="?href=login">[免费注册]</a>
-                </p>
+                <?php if(isset($_SESSION['user'])):?>
+                    <p class="li-login light">
+                        欢迎您，用户<?=$_SESSION['user']['user_tel']?>
+                        <a href="#" class="sign-out">退出</a>
+                    </p>
+                <?php else:?>
+                    <p class="li-login light">
+                        <a href="?href=login">[请登录]</a>
+                        <a href="?href=regist">[免费注册]</a>
+                    </p>
+                <?php endif?>
             </li>
         </ul>
         <ul class="entrance-r clearfix">
@@ -44,10 +51,11 @@
             </li>
             <li>
                 <p class="li-tel light">
-                    <i class="icon icon-phone"></i> <span>客服：400-888-888</span>
+                    <i class="icon icon-phone"></i> <span>客服：400-181-6600</span>
                 </p>
             </li>
         </ul>
+
     </div>
 </div>
 

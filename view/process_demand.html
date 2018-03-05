@@ -1,5 +1,7 @@
+<script type="text/javascript" src="js/laydate.js"></script>
 <div class="home">
     <div class="h-demand-style"></div>
+
     <div class="h-demand-container">
         <div class="container">
             <div class="h-breadcrumbs clearfix">
@@ -34,12 +36,12 @@
                     </div>
                 </div>
                 <div class="pd-form">
-                    <form method="post" action="#">
+                    <!--<form method="post" action="#">-->
                         <div class="li">
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>标题</td>
-                                    <td><input type="text" name="title"></td>
+                                    <td><input type="text" name="title" class="content" data-field="process_need_title"></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">工序</td>
@@ -74,7 +76,7 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">备注</td>
-                                    <td><textarea cols="" rows="5" name="area1"></textarea></td>
+                                    <td><textarea cols="" rows="5" name="area1" class="content" data-field="remark"></textarea></td>
                                 </tr>
                             </table>
                         </div>
@@ -82,11 +84,11 @@
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td style="vertical-align: top;">技术要求</td>
-                                <td><textarea cols="" rows="5" name="area2"></textarea></td>
+                                <td><textarea cols="" rows="5" name="area2" class="content" data-field="requires"></textarea></td>
                             </tr>
                             <tr>
                                 <td style="vertical-align: top;">详细说明</td>
-                                <td><textarea cols="" rows="5" name="area2"></textarea></td>
+                                <td><textarea cols="" rows="5" name="area2" class="content" data-field="detail"></textarea></td>
                             </tr>
                         </table>
                         </div>
@@ -94,19 +96,19 @@
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>交货地址</td>
-                                    <td><input type="text" name="addrss"/></td>
+                                    <td><input type="text" name="addrss" class="content key-value" data-field="address"/></td>
                                 </tr>
                                 <tr>
-                                    <td>有效日期</td>
-                                    <td><input type="text" name="times"/></td>
+                                    <td>有效期至</td>
+                                    <td><input type="text" name="times" id="times" class="content key-value" data-field="end_time" readonly/></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="hd-submit">
-                            <input type="submit" value="提交需求" name="submit" class="submit">
+                            <input type="submit" value="提交需求" name="submit" class="submit submit-button">
                             <!--<a href="process_immediately.html" class="submit">提交需求</a>-->
                         </div>
-                    </form>
+                    <!--</form>-->
                 </div>
             </div>
         </div>
@@ -117,6 +119,21 @@
             var processInf={};
             var stepCreator;
             $(document).ready(function(){
+                ajaxPost('User','get_company_inf',{},function(back){
+                    console.log(back);
+                    var backValue=backHandle(back,function(value){
+
+                    },function(errCode,errMsg){
+                        switch(errCode){
+                            case 101:
+                                location.href='?href=login';
+                                break;
+                            case 102:
+                                location.href='?href=pc_company_profile'
+                        }
+//               console.log(errMsg);
+                    })
+                });
                initView();
                 getSteps();
                 registEvent();
@@ -129,12 +146,48 @@
                 });
                 $(document).on('click','.upload-button',function(){
                     $('#process_file').click();
-                })
+                });
+                $(document).on('click','.submit-button',function(){
+                    var submitError=false;
+                    processInf.process_steps='';
+                    $('.span-cur').each(function(k,v){
+                        processInf.process_steps+=(','+$(v).text());
+                    });
+                    $('.content').each(function(k,v){
+
+                        var field=$(v).data('field');
+                        var keyValue=$(v).hasClass('key-value');
+                        if(field){
+                            processInf[field]=$(v).val();
+                            if((!processInf[field])&&keyValue)submitError='信息不完整';
+                        }
+                    });
+                    if(''==processInf.process_steps)submitError='工序未选择';
+                    if(!submitError){
+                        ajaxPost('Process','add_process_need',processInf,function(back){
+                           var backValue=backHandle(back);
+
+                            if(backValue){
+                                location.href='?href=process'
+                            }else{
+                                alert('发布失败，请稍后再试')
+                            }
+                        });
+                    }else{
+                        alert(submitError);
+                    }
+                    console.log(processInf);
+                });
             }
 
             function initView(){
                 stepCreator=prepareElement('.step-template');
-
+                laydate({
+                    elem:'#times',
+                    format: 'YYYY-MM-DD hh:mm:ss',
+                    show:true,
+                    start:laydate.now()
+                });
             }
 
             function getSteps(){

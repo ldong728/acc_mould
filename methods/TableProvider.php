@@ -43,7 +43,7 @@ class TableProvider
     }
 
     public function product_list($data){
-        $back=$this->getList('product_detail_view',null,'product_tbl',$data,false);
+        $back=$this->getList('product_detail_view',null,'product_tbl',$data,true);
         echoBack($back);
     }
     public function own_product_list($data){
@@ -51,6 +51,24 @@ class TableProvider
         $companyId=API::companyVerify();
         $data['where']['company']=$companyId;
         $back=$this->getList('product_detail_view',null,'product_tbl',$data,false);
+        echoBack($back);
+    }
+    public function process_need_list_index($data){
+//        if($data['where']['end_time']
+        $back=$this->getList('process_need_index_view',null,'process_need_tbl',$data,false);
+        echoBack($back);
+    }
+    public function process_need_list($data){
+        $back=$this->getList('process_need_list_view',null,'process_need_tbl',$data);
+        echoBack($back);
+    }
+    public function purchase_list($data){
+        $back=$this->getList('purchase_tbl',null,'purchase_tbl',$data);
+        echoBack($back);
+    }
+
+    public function bidding_list_index($data){
+        $back=$this->getList('bidding_index_view',null,null,$data,false);
         echoBack($back);
     }
 

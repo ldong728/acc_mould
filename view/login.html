@@ -11,22 +11,33 @@
 <!--</h2>-->
 <!--</div>-->
 <!--</div>-->
-
+<style>
+    input[type=password] {
+        padding: 5px;
+        width: 200px;
+        border: 0;
+    }
+    input[type=tel] {
+        padding: 5px;
+        width: 260px;
+        border: 0;
+    }
+</style>
 <div class="login-main">
     <div class="container">
         <div class="login-main-form">
             <form method="post" action="#" class="login-form">
                 <ul width="100%" cellpadding="0" cellspacing="0">
                     <li class="clearfix">
-                        <label for="phone-num">手机号码</label>
+                        <label for="phone-num">手机号码:</label>
                         <input type="tel" name="phone" id="phone-num" placeholder="请输入手机号" maxlength="11">
                     </li>
                     <li class="clearfix">
-                        <label for="set-pwd">输入密码</label>
+                        <label for="set-pwd">密码:</label>
                         <input type="password" name="phone" id="set-pwd" placeholder="请输入密码">
                     </li>
                     <li class="clearfix">
-                        <label for="set-pwd">输入验证码</label>
+                        <label for="set-pwd">验证码:</label>
                         <input type="password" name="phone" id="verify" placeholder="请输入验证码">
                         <img class="verify-img" src="image.php">
                     </li>
@@ -65,6 +76,11 @@
         });
         $(document).on('click','.verify-img',function(){
            $(this).attr('src','image.php');
+        });
+        $(document).on('keypress','input',function(event){
+            if(13==event.keyCode){
+               $('.sign-in').click();
+            }
         });
     }
 

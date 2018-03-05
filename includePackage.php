@@ -27,7 +27,7 @@ define('PASSWORD','admin');
 define("PRO","http://");
 
 
-//define('DOMAIN',"/acc_mould");//测试服务器
+//define('DOMAIN',"");//测试服务器
 //define('DB_IP','localhost');
 //define("DB_NAME","acc_mould_db");
 //define("DB_USER","acc_mould_user");

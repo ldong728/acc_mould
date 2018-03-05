@@ -1,3 +1,4 @@
+<script type="text/javascript" src="js/laydate.js"></script>
 <div class="home">
     <div class="p-demand-style"></div>
     <div class="h-demand-container">
@@ -7,9 +8,9 @@
                 <ol class="h-b-r clearfix">
                     <li><a href="?href=index">首页</a></li>
                     <span><i class="icon icon-angle-right"></i></span>
-                    <li><a href="?href=process">个人中心</a></li>
+                    <li><a href="?href=purchase">个人中心</a></li>
                     <span><i class="icon icon-angle-right"></i></span>
-                    <li><a href="?href=process_demand">发布加工需求</a></li>
+                    <li><a href="?href=purchase_demand">发布加工需求</a></li>
                 </ol>
             </div>
             <div class="h-pd-content">
@@ -39,15 +40,17 @@
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>标题</td>
-                                    <td><input type="text" name="title"></td>
+                                    <td><input type="text" name="title" class="content key-value" data-field="purchase_title"></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: middle;">采购清单</td>
                                     <td>
                                         <div class="td-l">
-                                            <input type="file" name="file1">
-                                            <div class="btn">上传采购单</div>
+                                            <!--<input type="file" name="file1">-->
+                                            <div class="btn upload-button" data-file="purchase_list_file">上传采购单</div>
+
                                         </div>
+                                        <div class="list-uploaded"></div>
                                         <div class="td-text">
                                             <p>*请上传商品采购详细清单（可以是excel、word、图片等格式），包含商品名称、规格、采购数量等信息</p>
                                         </div>
@@ -57,9 +60,10 @@
                                     <td style="vertical-align: middle;">图纸</td>
                                     <td>
                                         <div class="td-l">
-                                            <input type="file" name="file">
-                                            <div class="btn">上传图片</div>
+                                            <!--<input type="file" name="file">-->
+                                            <div class="btn upload-button" data-file="purchase_file">上传图片</div>
                                         </div>
+                                        <div class="uploaded"></div>
                                         <div class="td-text">
                                             <p>*若涉及到图纸说明请以压缩的形式打包上传；没有涉及可不传</p>
                                         </div>
@@ -67,21 +71,21 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">备注</td>
-                                    <td><textarea cols="" rows="5" name="area1"></textarea></td>
+                                    <td><textarea cols="" rows="5" name="area1" class="content key-value" data-field="remark"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td>交货地址</td>
-                                    <td><input type="text" name="address"></td>
+                                    <td><input type="text" name="address" class="content" data-field="address"></td>
                                 </tr>
                                 <tr>
                                     <td>有效日期</td>
-                                    <td><input type="text" name="times"></td>
+                                    <td><input type="text" name="times" id="times" class="content" data-field="end_time"></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="hd-submit">
                             <!--<input type="submit" value="提交需求" name="submit" class="submit">-->
-                            <a href="process_immediately.html" class="submit">提交需求</a>
+                            <a class="submit submit-button">提交需求</a>
                         </div>
                     </form>
 
@@ -90,3 +94,87 @@
         </div>
     </div>
 </div>
+<input type="file" class="files" id="purchase_list_file" name="purchase_list_file" style="display: none">
+<input type="file" class="files" id="purchase_file" name="purchase_file" style="display: none">
+<script>
+    var purchaseInf={};
+    var stepCreator;
+    $(document).ready(function(){
+        ajaxPost('User','get_company_inf',{},function(back){
+            console.log(back);
+            var backValue=backHandle(back,function(value){
+
+            },function(errCode,errMsg){
+                switch(errCode){
+                    case 101:
+                        location.href='?href=login';
+                        break;
+                    case 102:
+                        location.href='?href=pc_company_profile'
+                }
+//               console.log(errMsg);
+            })
+        });
+        initView();
+        registEvent();
+        setUpload();
+    });
+
+    function registEvent(){
+        $(document).on('click','.step-select',function(){
+            $(this).toggleClass('span-cur');
+        });
+        $(document).on('click','.upload-button',function(){
+            var file=$(this).data('file');
+            $('#'+file).click();
+        });
+        $(document).on('click','.submit-button',function(){
+            var submitError=false;
+            $('.content').each(function(k,v){
+                var field=$(v).data('field');
+                var keyValue=$(v).hasClass('key-value');
+                if(field){
+                    purchaseInf[field]=$(v).val();
+                    if((!purchaseInf[field])&&keyValue)submitError='信息不完整';
+                }
+            });
+            if(!submitError){
+                ajaxPost('Purchase','add_purchase',purchaseInf,function(back){
+                    var backValue=backHandle(back);
+
+                    if(backValue){
+                        location.href='?href=purchase'
+                    }else{
+                        alert('发布失败，请稍后再试')
+                    }
+                });
+            }else{
+                alert(submitError);
+            }
+            console.log(purchaseInf);
+        });
+    }
+
+    function initView(){
+        stepCreator=prepareElement('.step-template');
+        laydate({
+            elem:'#times',
+            format: 'YYYY-MM-DD hh:mm:ss',
+            show:true,
+            start:laydate.now()
+        });
+    }
+
+    function setUpload(){
+        setUploadEvent('#purchase_file',function(data){
+            $('.uploaded').text(data.originalName);
+            purchaseInf.attachment=data.url;
+            console.log(data);
+        });
+        setUploadEvent('#purchase_list_file',function(data){
+            $('.list-uploaded').text(data.originalName);
+            purchaseInf.list_attachment=data.url;
+            console.log(data);
+        });
+    }
+</script>

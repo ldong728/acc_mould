@@ -1,5 +1,5 @@
 <script>
-    sessionStorage.currentProductId=<?=$_SESSION['user']['company']['company_id']?>;
+    sessionStorage.currentCompanyId=<?=$_SESSION['user']['company']['company_id']?>;
 </script>
 <div class="pc-aside">
     <ul>
@@ -34,7 +34,7 @@
         <li>
             <h3 class="aside-title">店铺管理<i class="icon icon-angle-right"></i></h3>
             <ol>
-                <li><a href="?href=purchase_details">我的店铺</a></li>
+                <li><a href="?href=shop_home&static=1">我的店铺</a></li>
                 <li><a href="?href=pc_company_profile">企业简介</a></li>
                 <li><a href="?href=pc_contact_us">联系方式</a></li>
             </ol>

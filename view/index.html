@@ -13,10 +13,11 @@
                         <p class="avatar-wrapper"></p>
                         <?php if(isset($_SESSION['user'])):?>
                         <p class="member-info">Hi，用户<?=$_SESSION['user']['user_tel']?>，您好</p>
-                        <p class="member-text">欢迎来到模具集成服务平台</p>
+                        <p class="member-text">欢迎访问一站式模具采购服务平台</p>
+                        <p class="member-text">共享平台 省钱省心省时间</p>
                         <?php else:?>
                         <p class="member-info">Hi，您好</p>
-                        <p class="member-text">欢迎来到模具集成服务平台</p>
+                        <p class="member-text">欢迎来到一站式模具采购服务平台</p>
                         <div class="button clearfix">
                             <button type="button" class="btn-cur to-login">登录</button>
                             <button type="button" class="to-regist">注册</button>
@@ -109,65 +110,15 @@
                                         <li>发布时间</li>
                                     </ul>
                                 </div>
-                                <div class="tbody">
-                                    <a href="#">
+                                <div class="tbody process-need-container">
+                                    <a href="#" class="process-need-template">
                                         <ul>
-                                            <li>加工4号这里是加工内容这...</li>
-                                            <li>装饰纹加工 剖光加工...</li>
-                                            <li>广州飞机公司</li>
-                                            <li>越秀男路创举...</li>
-                                            <li>2017.17.29</li>
-                                            <li>11.11</li>
-                                        </ul>
-                                    </a>
-                                    <a href="#">
-                                        <ul>
-                                            <li>加工4号这里是加工内容这...</li>
-                                            <li>装饰纹加工 剖光加工...</li>
-                                            <li>广州飞机公司</li>
-                                            <li>越秀男路创举...</li>
-                                            <li>2017.17.29</li>
-                                            <li>11.11</li>
-                                        </ul>
-                                    </a>
-                                    <a href="#">
-                                        <ul>
-                                            <li>加工4号这里是加工内容这...</li>
-                                            <li>装饰纹加工 剖光加工...</li>
-                                            <li>广州飞机公司</li>
-                                            <li>越秀男路创举...</li>
-                                            <li>2017.17.29</li>
-                                            <li>11.11</li>
-                                        </ul>
-                                    </a>
-                                    <a href="#">
-                                        <ul>
-                                            <li>加工4号这里是加工内容这...</li>
-                                            <li>装饰纹加工 剖光加工...</li>
-                                            <li>广州飞机公司</li>
-                                            <li>越秀男路创举...</li>
-                                            <li>2017.17.29</li>
-                                            <li>11.11</li>
-                                        </ul>
-                                    </a>
-                                    <a href="#">
-                                        <ul>
-                                            <li>加工4号这里是加工内容这...</li>
-                                            <li>装饰纹加工 剖光加工...</li>
-                                            <li>广州飞机公司</li>
-                                            <li>越秀男路创举...</li>
-                                            <li>2017.17.29</li>
-                                            <li>11.11</li>
-                                        </ul>
-                                    </a>
-                                    <a href="#">
-                                        <ul>
-                                            <li>加工4号这里是加工内容这...</li>
-                                            <li>装饰纹加工 剖光加工...</li>
-                                            <li>广州飞机公司</li>
-                                            <li>越秀男路创举...</li>
-                                            <li>2017.17.29</li>
-                                            <li>11.11</li>
+                                            <li class="process-content" data-field="process_need_title"></li>
+                                            <li class="process-content" data-field="process_steps"></li>
+                                            <li class="process-content" data-field="company_name"></li>
+                                            <li class="process-content" data-field="company_address"></li>
+                                            <li class="process-content" data-field="end_time"></li>
+                                            <li  class="process-content" data-field="start_time"></li>
                                         </ul>
                                     </a>
                                 </div>
@@ -284,40 +235,19 @@
                             <div class="el-item-title">
                                 <h2 class="primary">最新招标</h2>
                             </div>
-                            <div class="el-bidding-box">
-                                <div class="el-bidding-item clearfix">
+                            <div class="el-bidding-box bidding-container">
+                                <div class="el-bidding-item clearfix bidding-template">
                                     <div class="item-l">
-                                        <h4 class="title">这里是招标项目名称招标3号</h4>
-                                        <p class="item-claim">项目要求：<span>招标3号要求</span></p>
-                                        <p class="times">有效日期：<span>2017.11.18</span></p>
+                                        <h4 class="title bidding-content" data-field="bidding_title"></h4>
+                                        <p class="item-claim">项目要求：<span class="bidding-content" data-field="requires"></span></p>
+                                        <p class="times">有效日期：<span  class="bidding-content" data-field="end_time"></span></p>
                                     </div>
                                     <div class="item-r">
                                         <a href="#" class="btn btn-primary">我要投标</a>
-                                        <p class="times">发布日期:<span>2017.10.01</span></p>
+                                        <p class="times">发布日期:<span class="bidding-content" data-field="start_time"></span></p>
                                     </div>
                                 </div>
-                                <div class="el-bidding-item clearfix">
-                                    <div class="item-l">
-                                        <h4 class="title">这里是招标项目名称招标3号</h4>
-                                        <p class="item-claim">项目要求：<span>招标3号要求</span></p>
-                                        <p class="times">有效日期：<span>2017.11.18</span></p>
-                                    </div>
-                                    <div class="item-r">
-                                        <a href="#" class="btn btn-primary">我要投标</a>
-                                        <p class="times">发布日期:<span>2017.10.01</span></p>
-                                    </div>
-                                </div>
-                                <div class="el-bidding-item clearfix">
-                                    <div class="item-l">
-                                        <h4 class="title">这里是招标项目名称招标这里是招标项目名称招标这里是招标项目名称招标这里是招标项目名称招标3号</h4>
-                                        <p class="item-claim">项目要求：<span>招标3号要求</span></p>
-                                        <p class="times">有效日期：<span>2017.11.18</span></p>
-                                    </div>
-                                    <div class="item-r">
-                                        <a href="#" class="btn btn-primary">我要投标</a>
-                                        <p class="times">发布日期:<span>2017.10.01</span></p>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                         <div class="el-item el-bidding">
@@ -389,7 +319,7 @@
                                 <a class="to-detail" id="href0">
                                 <div class="li-item-l-t">
                                     <h3 class="purple-color" id="name0">长祥特钢S136</h3>
-                                    <p class="text">￥<span id="price0">136.00</span>/<span class="unit-name"></span></p>
+                                    <p class="text">￥<span id="price0">0.00</span>/<span class="unit-name"></span></p>
                                 </div>
                                 <p class="img"><img id="img0" src="images/purchase-l.jpg"></p>
                                 </a>
@@ -399,7 +329,7 @@
                                     <a class="to-detail" id="href1">
                                     <div class="li-item-r-t">
                                         <h4 id="name1">长祥特钢S136</h4>
-                                        <p class="purple-color price">￥<span id="price1">136.00</span>/<span class="unit-name"></span></p>
+                                        <p class="purple-color price">￥<span id="price1">0.00</span>/<span class="unit-name"></span></p>
                                     </div>
                                     <p class="img"><img id="img1" src="images/purchase-r.jpg"></p>
                                         </a>
@@ -408,7 +338,7 @@
                                     <a class="to-detail" id="href2">
                                     <div class="li-item-r-t">
                                         <h4 id="name2">长祥特钢S136</h4>
-                                        <p class="purple-color price">￥<span id="price2">136.00</span>/<span class="unit-name"></span></p>
+                                        <p class="purple-color price">￥<span id="price2">0.00</span>/<span class="unit-name"></span></p>
                                     </div>
                                     <p class="img"><img id="img2" src="images/purchase-r.jpg"></p>
                                         </a>
@@ -416,7 +346,7 @@
                                 <a class="to-detail" id="href3">
                                 <div class="li-item-r-t">
                                     <h4 id="name3">长祥特钢S136</h4>
-                                    <p class="purple-color price">￥<span id="price3">136.00</span>/<span class="unit-name"></span></p>
+                                    <p class="purple-color price">￥<span id="price3">0.00</span>/<span class="unit-name"></span></p>
                                 </div>
                                 <p class="img"><img id="img3" src="images/purchase-r.jpg"></p>
                                     </a>
@@ -424,7 +354,7 @@
                                 <a class="to-detail" id="href4">
                                 <div class="li-item-r-t">
                                     <h4 id="name4">长祥特钢S136</h4>
-                                    <p class="purple-color price">￥<span id="price4">136.00</span>/<span class="unit-name"></span></p>
+                                    <p class="purple-color price">￥<span id="price4">0.00</span>/<span class="unit-name"></span></p>
                                 </div>
                                 <p class="img"><img id="img4" src="images/purchase-r.jpg"></p>
                                     </a>
@@ -527,7 +457,7 @@
     <div class="index-server-box">
         <div class="container">
             <div class="index-brand">
-                <h2 class="index-brand-title">合作品牌<span>信任我们的一些客户</span></h2>
+                <h2 class="index-brand-title">战略合作品牌<span>信任我们的一些客户</span></h2>
                 <div class="brand-box">
                     <a href="#">
                         <img src="images/i-p1.png">
@@ -561,72 +491,7 @@
     </div>
 </div>
 
-<div class="site-footer">
-    <div class="footer-link clearfix">
-        <div class="container clearfix">
-            <div class="footer-link-l">
-                <dl>
-                    <dt>购物指南</dt>
-                    <dd><a href="#">快捷支付</a></dd>
-                    <dd><a href="#">交付选项</a></dd>
-                    <dd><a href="#">卖家保护</a></dd>
-                    <dd><a href="#">新用户指南</a></dd>
-                </dl>
-                <dl>
-                    <dt>商家服务</dt>
-                    <dd><a href="#">商家入驻</a></dd>
-                    <dd><a href="#">商家中心</a></dd>
-                    <dd><a href="#">物流服务</a></dd>
-                    <dd><a href="#">运营服务</a></dd>
-                </dl>
-                <dl>
-                    <dt>平台保障</dt>
-                    <dd><a href="#">客服中心</a></dd>
-                    <dd><a href="#">交易服务协议</a></dd>
-                    <dd><a href="#">接收我们的调查</a></dd>
-                    <dd><a href="#">组织&技术支持</a></dd>
-                    <dd><a href="#">报告侵犯知识产权</a></dd>
-                </dl>
-                <dl>
-                    <dt>合作伙伴推广</dt>
-                    <dd><a href="#">合作伙伴关系</a></dd>
-                    <dd><a href="#">开放平台</a></dd>
-                    <dd><a href="#">网站合作</a></dd>
-                </dl>
-                <dl>
-                    <dt>联系我们</dt>
-                    <dd>咨询热线：400-0000-0000</dd>
-                    <dd>邮箱：accmould@163.com</dd>
-                    <dd>工作时间：周一至周五 9:00～17:00</dd>
-                </dl>
-            </div>
-            <div class="wx-code">
-                <p class="img"><img src="images/wx-code.jpg" alt=""></p>
-                <p class="text">关注官方微信</p>
-            </div>
-            <div class="to-top">
-                <a href="javascript:void(0)" onclick="$('html, body').animate({scrollTop: 0}, 800);">
-                    <i class="icon icon-angle-up"></i>
-                    <p>TOP</p>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="footer-friend-link">
-        <div class="container">
-            <span>友情链接：</span>
-            <a href="#">Acc+Mould Group</a>
-            <a href="#">China mold network</a>
-            <a href="#">China's technology network</a>
-            <a href="#">Juhuasuan</a>
-            <a href="#">boc.cn</a>
-            <a href="#">icbc.com.cn</a>
-            <a href="#">abchina.com Acc+Mould Cloud</a>
-            <a href="#">YunOS</a>
-            <a href="#">AliTeleco</a>
-        </div>
-    </div>
-</div>
+
 
 
 <link href="slick/slick.css" rel="stylesheet">
@@ -705,7 +570,16 @@
         companyList.setOrder('priority',false);
         companyList.getList();
         var productList = new ContentHandler('product_index_list',productListHandler);
+
         productList.getList();
+
+        var processNeedList=new ContentHandler('process_need_list_index',processListHandler);
+        processNeedList.setNumber(6);
+        processNeedList.getList();
+
+        var biddingList=new ContentHandler('bidding_list_index',biddingListHandler);
+        biddingList.setNumber(3);
+        biddingList.getList();
         registEvent();
     });
     function registEvent(){
@@ -775,18 +649,35 @@
                     element.find('#href'+id).attr('data-pid',product.product_id);
                     for(var i in attr){
                         if(attr[i].attr_name="价格"){
-                            element.find('#price'+id).text(attr[i].value||'168.00');
+                            element.find('#price'+id).text(attr[i].value||'0.00');
                         }
                     }
                 });
                 $('.product-container').append(element);
             }
-
-
-
         });
-
-
-
+    }
+    function processListHandler(back){
+        var processNeedCreator=prepareElement('.process-need-template');
+        $.each(back,function(k,v){
+            var processContent=processNeedCreator();
+            processContent.find('.process-content').each(function(id,element){
+                var field=$(element).data('field');
+                $(element).text(v[field]);
+            });
+            $('.process-need-container').append(processContent);
+        })
+    }
+    function biddingListHandler(back){
+        var biddingCreator=prepareElement('.bidding-template');
+        $.each(back,function(k,v){
+            var biddingContent=biddingCreator();
+            biddingContent.find('.bidding-content').each(function(id,element){
+                console.log(element);
+                var field=$(element).data('field');
+                $(element).text(v[field]);
+            });
+            $('.bidding-container').append(biddingContent)
+        });
     }
 </script>
