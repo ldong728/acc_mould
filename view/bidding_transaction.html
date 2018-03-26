@@ -1,14 +1,14 @@
 <div class="home">
-    <div class="h-process-container mold-bidding">
+    <div class="h-process-container mold-process">
         <div class="h-process-content pu-container">
             <div class="container">
                 <div class="pu-breadcrumbs clearfix">
-                    <ul class="clearfix">
-                        <li><a href="?href=index">首页</a></li>
-                        <span>&gt;</span>
-                        <li><a href="?href=mold_bidding">模具招投标</a></li>
-                    </ul>
-                    <p class="number">共找到<span class="light">1234</span>信息</p>
+                    <!--<ul class="clearfix">-->
+                        <!--<li><a href="?href=index">首页</a></li>-->
+                        <!--<span>&gt;</span>-->
+                        <!--<li><a href="?href=mold_bidding">模具招投标</a></li>-->
+                    <!--</ul>-->
+                    <!--<p class="number">共找到<span class="light">1234</span>信息</p>-->
                 </div>
                 <div class="mold-bidding-nav">
                     <ul class="clearfix">
@@ -16,26 +16,26 @@
                         <li class="li-cur"><a href="?href=bidding_transaction">询价交易</a> </li>
                     </ul>
                 </div>
-                <div class="pu-filter">
-                    <div class="pu-filter-item clearfix">
-                        <p class="title">产品类型：</p>
-                        <p class="text">
-                            <span>全部</span>
-                            <span class="cur-color">模具钢</span>
-                            <span>模架</span>
-                            <span>热流道</span>
-                            <span>标准件</span>
-                            <span>电极（石墨）</span>
-                            <span>模具油缸</span>
-                            <span>刀具</span>
-                            <span>耗材</span>
-                            <span>模具加工设备</span>
-                        </p>
-                    </div>
-                    <div class="pu-filter-item clearfix">
-                        <p class="title">地区：</p>
-                        <p class="text">
-                            <span>全部</span>
+                <!--<div class="pu-filter">-->
+                    <!--<div class="pu-filter-item clearfix">-->
+                        <!--<p class="title">产品类型：</p>-->
+                        <!--<p class="text">-->
+                            <!--<span>全部</span>-->
+                            <!--<span class="cur-color">模具钢</span>-->
+                            <!--<span>模架</span>-->
+                            <!--<span>热流道</span>-->
+                            <!--<span>标准件</span>-->
+                            <!--<span>电极（石墨）</span>-->
+                            <!--<span>模具油缸</span>-->
+                            <!--<span>刀具</span>-->
+                            <!--<span>耗材</span>-->
+                            <!--<span>模具加工设备</span>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="pu-filter-item clearfix">-->
+                        <!--<p class="title">地区：</p>-->
+                        <!--<p class="text">-->
+                            <!--<span>全部</span>-->
                             <!--<span>北京市</span>-->
                             <!--<span>天津市</span>-->
                             <!--<span class="cur-color">河北省</span>-->
@@ -54,110 +54,61 @@
                             <!--<span>辽宁省</span>-->
                             <!--<span>辽宁省</span>-->
                             <!--<span>辽宁省</span>-->
-                        </p>
-                    </div>
-                </div>
-                <div class="pu-nav">
-                    <ul class="clearfix">
-                        <li class="cur-color">
-                            <a href="#">
-                                发布时间
-                                <i class="icon icon-angle-down"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                价格
-                                <i class="icon icon-angle-down"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                所在地区
-                                <i class="icon icon-angle-down"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="h-p-lists">
-                    <div class="h-p-item m-b">
+                        <!--</p>-->
+                    <!--</div>-->
+            <!--</div>-->
+                <!--<div class="pu-nav">-->
+                    <!--<ul class="clearfix">-->
+                        <!--<li class="cur-color">-->
+                            <!--<a href="#">-->
+                                <!--发布时间-->
+                                <!--<i class="icon icon-angle-down"></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--价格-->
+                                <!--<i class="icon icon-angle-down"></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">-->
+                                <!--所在地区-->
+                                <!--<i class="icon icon-angle-down"></i>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <div class="h-p-lists bidding-inquiry-container">
+                    <div class="h-p-item m-b bidding-inquiry-template">
                         <div class="li item-l">
-                            <p class="item-l-text">加工4号这里是加工内容</p>
-                            <p class="font-size-12 times">发布日期：2017-12-18</p>
-                            <p class="font-size-12 primary">广州测试公司</p>
+                            <p class="item-l-text bidding-content" data-field="bidding_inquiry_title"></p>
+                            <p class="font-size-12 times">发布日期：<i class="bidding-content" data-field="start_time"></i></p>
+                            <p class="font-size-12 primary bidding-content" data-field="company_name"></p>
                         </div>
                         <div class="li item-r">
                             <div class="item-r-l">
-                                <p class="status"><span>已报价</span></p>
-                                <p><span>有效日期：</span>2017.12.31</p>
-                                <p><span>剩余：</span><span class="light">20</span>天</p>
+                                <p class="status"><span class="bidding-type">询价中</span></p>
+                                <p><span>有效日期：</span><i class="bidding-content" data-field="end_time"></i> </p>
+                                <p><span>剩余：</span><span class="light"><i class="days"></i></span>天</p>
                             </div>
                         </div>
                         <div class="li item-m">
-                            <p class="left">已有<span class="light">5</span>家报名</p>
+                            <p class="left">已有<span class="light count"></span>家报名</p>
                             <div class="item-r-r">
-                                <a href="bidding_inquiry_details.html">我要报价</a>
+                                <a class="bidding-action" style="cursor: pointer">我要报价</a>
                             </div>
                         </div>
 
                     </div>
-                    <div class="h-p-item m-b">
-                        <div class="li item-l">
-                            <p class="item-l-text">加工4号这里是加工内容</p>
-                            <p class="font-size-12 times">发布日期：2017-12-18</p>
-                            <p class="font-size-12 primary">广州测试公司</p>
-                        </div>
-                        <div class="li item-r">
-                            <div class="item-r-l">
-                                <p class="status"><span class="carry-out">已结束</span></p>
-                                <p><span>有效日期：</span>2017.12.31</p>
-                                <p><span>剩余：</span><span class="light">20</span>天</p>
-                            </div>
-                        </div>
-                        <div class="li item-m">
-                            <p class="left">已有<span class="light">5</span>家报名</p>
-                            <div class="item-r-r">
-                                <a href="#" class="over">我要报价</a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="h-p-item m-b">
-                        <div class="li item-l">
-                            <p class="item-l-text">加工4号这里是加工内容</p>
-                            <p class="font-size-12 times">发布日期：2017-12-18</p>
-                            <p class="font-size-12 primary">广州测试公司</p>
-                        </div>
-                        <div class="li item-r">
-                            <div class="item-r-l">
-                                <p class="status"><span class="primary">未报价</span></p>
-                                <p><span>有效日期：</span>2017.12.31</p>
-                                <p><span>剩余：</span><span class="light">20</span>天</p>
-                            </div>
-                        </div>
-                        <div class="li item-m">
-                            <p class="left">已有<span class="light">5</span>家报名</p>
-                            <div class="item-r-r">
-                                <a href="#">我要报价</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="pagination clearfix">
-                    <ul class="clearfix">
-                        <li class="prev-page">上一页</li>
-                        <li class="page-cur">1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li class="next-page">下一页</li>
-                    </ul>
-                    <div class="p-jump">
-                        <span class="text">共<i>1</i>页</span>
-                        <span>
-                            到<input type="text" name="page"/>页
-                        </span>
-                        <span class="confirm">确定</span>
+                <div class="turnpage">
+                    <li><span class="page_noclick prev-page">上一页</span></li>
+                    <li class="page-item"><span class="page_cur current-page">1</span></li>
+                    <li class="page_last"><span class="page_noclick next-page">下一页</span></li>
+                    <div class="go_turn_page">
+                        共1页&nbsp; &nbsp; &nbsp;到
+                        <input type="text" name="num" class="turn_to_page page-input" maxlength="8">&nbsp;页<a href="javascript:void(0)" class="go_turn page-jump">确定</a>
                     </div>
                 </div>
             </div>
@@ -165,7 +116,46 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function(){
+        var tableHandler=new ContentHandler('bidding_inquiry_list',biddingListHandler);
+        tableHandler.setNumber(10);
+        tableHandler.setPageEvent('.next-page','.prev-page');
+        tableHandler.getList();
+    });
 
+    function registEvent(){
+        $(document).on('click','.page-jump',function(){
+            var toPage=parseInt($('.page-input').val());
+            if(toPage-1>0&&toPage-1<tableHandler.totalPage){
+                tableHandler.setPage(toPage-1);
+                tableHandler.getList();
+//                        location.href='#product-container';
+            }
+        });
+    }
+    function biddingListHandler(back){
+        var time=new Date();
+        console.log(back);
+        var _=this;
+        var biddingNeedCreator=prepareElement('.bidding-inquiry-template');
+        $.each(back,function(k,v){
+            var biddingContent=biddingNeedCreator();
+            biddingContent.find('.bidding-content').each(function(id,element){
+                var field=$(element).data('field');
+                $(element).text(v[field]);
+            });
+            if(v.end_time_unix*1000<time.getTime()){
+                biddingContent.find('.bidding-type').text('已完成');
+                biddingContent.find('.bidding-type').addClass('carry-out');
+                biddingContent.find('.bidding-action').text('查看详情');
+                biddingContent.find('.bidding-action').addClass('carry-out');
 
-</body>
-</html>
+            }
+            biddingContent.find('.bidding-action').attr('href','?href=bidding_inquiry_details&id='+ v.bidding_inquiry_id);
+            biddingContent.find('.count').text(v.count||'0');
+
+            $('.bidding-inquiry-container').append(biddingContent);
+        });
+    }
+</script>

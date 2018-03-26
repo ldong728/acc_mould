@@ -8,7 +8,7 @@
 
 include_once '/includes/helpers.inc.php';
 session_start();
-$str=getRandStr(5);
+$str=getRandStr(5,'0123456789');
 $_SESSION['rand']=strtolower($str);
 $img_handle = Imagecreate(80, 20);  //图片大小80X20
 $back_color = ImageColorAllocate($img_handle, 255, 255, 255); //背景颜色（白色）

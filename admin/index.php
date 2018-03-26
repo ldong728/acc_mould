@@ -94,6 +94,9 @@ function product_edit(){
 function product_list(){
     printAdminView('product_list.html.php','商品列表');
 }
+function user_list(){
+    printAdminView('user_list.html.php','用户列表');
+}
 
 
 

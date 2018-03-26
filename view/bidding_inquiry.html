@@ -1,62 +1,134 @@
+<script type="text/javascript" src="js/laydate.js"></script>
 <div class="home">
-    <div class="h-f-bg b-inquiry-style"></div>
+    <div class="h-f-bg b-inquiry-style" style="background: url(images/bi1.jpg) center 0 no-repeat;"></div>
     <div class="h-demand-container">
         <div class="container">
             <div class="h-pd-content">
                 <div class="pd-form">
-                    <form method="post" action="#">
                         <div class="li p-li">
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>标题</td>
-                                    <td><input type="text" name="title"></td>
+                                    <td><input type="text" name="title" class="content" data-field="bidding_inquiry_title"></td>
                                 </tr>
                                 <tr>
                                     <td>报名截止时间</td>
-                                    <td><input type="text" name="time"></td>
+                                    <td><input type="text" name="time" id="times" class="content" data-field="end_time" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>开模次数</td>
-                                    <td><input type="text" name="num"></td>
+                                    <td><input type="text" name="num"class="content" data-field="modul_count"></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: middle;">图纸</td>
                                     <td>
                                         <div class="td-l">
-                                            <input type="file" name="file">
-                                            <div class="btn">上传图片</div>
+                                            <input type="button" name="file" >
+                                            <div class="btn upload-button" style="cursor: pointer">上传图片</div>
                                         </div>
                                         <div class="td-text">
+                                            <p class="uploaded"></p>
                                             <p>*若涉及到图纸说明请以压缩的形式打包上传；没有涉及可不传</p>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>产品类型</td>
-                                    <td><input type="text" name="style"></td>
+                                    <td><input type="text" name="style" class="content" data-field="product_type"></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">模具钢材要求及产品材料要求</td>
-                                    <td><textarea cols="" rows="5" name="area1"></textarea></td>
+                                    <td><textarea cols="" rows="5" name="area1"  class="content" data-field="m_requires"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">技术要求</td>
-                                    <td><textarea cols="" rows="5" name="jsyq"></textarea></td>
+                                    <td><textarea cols="" rows="5" name="jsyq" class="content" data-field="t_requires"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">备注</td>
-                                    <td><textarea cols="" rows="5" name="bz"></textarea></td>
+                                    <td><textarea cols="" rows="5" name="bz"class="content" data-field="remark"></textarea></td>
                                 </tr>
 
                             </table>
                         </div>
                         <div class="hd-submit">
-                            <input type="submit" value="发布询价" name="submit" class="submit">
+                            <input type="submit" value="发布询价" name="submit" class="submit submit-button">
                         </div>
-                    </form>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+<input type="file" class="files" id="bidding_file" name="bidding_file" style="display: none">
+<script>
+    var biddingInquiryInf={};
+    $(document).ready(function(){
+        ajaxPost('User','get_company_inf',{},function(back){
+            console.log(back);
+            var backValue=backHandle(back,function(value){
+
+            },function(errCode,errMsg){
+                switch(errCode){
+                    case 101:
+                        location.href='?href=login';
+                        break;
+                    case 102:
+                        location.href='?href=pc_company_profile'
+                }
+//               console.log(errMsg);
+            })
+        });
+        initView();
+        registEvent();
+        setUpload();
+    });
+
+    function registEvent(){
+        $(document).on('click','.upload-button',function(){
+            $('#bidding_file').click();
+        });
+        $(document).on('click','.submit-button',function(){
+            var submitError=false;
+            $('.content').each(function(k,v){
+
+                var field=$(v).data('field');
+                var keyValue=$(v).hasClass('key-value');
+                if(field){
+                    biddingInquiryInf[field]=$(v).val();
+                    if((!biddingInquiryInf[field])&&keyValue)submitError='信息不完整';
+                }
+            });
+            if(!submitError){
+                ajaxPost('Bidding','add_bidding_inquiry',biddingInquiryInf,function(back){
+                    var backValue=backHandle(back,function(data){
+                        location.href='?href=bidding_transaction';
+                    },function(code,msg){
+                        alert('发布失败，请稍后再试');
+                    });
+
+                });
+            }else{
+                alert(submitError);
+            }
+            console.log(biddingInquiryInf);
+        });
+    }
+
+    function initView(){
+        laydate({
+            elem:'#times',
+            format: 'YYYY-MM-DD hh:mm:ss',
+            show:true,
+            start:laydate.now()
+        });
+    }
+
+    function setUpload(){
+        setUploadEvent('#bidding_file',function(data){
+            $('.uploaded').text(data.originalName);
+            biddingInquiryInf.attachment=data.url;
+            console.log(data);
+        });
+    }
+</script>

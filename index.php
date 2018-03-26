@@ -16,7 +16,6 @@ if (isset($_GET['img'])) {
 }
 $href = isset($_GET['href']) ? $_GET['href'] : 'index';
 $href = $GLOBALS['mypath'] . "/view/$href.html";
-mylog($href);
 if (file_exists($href)) {
     if (isset($_GET['login'])) {
         if (!isset($_SESSION['user'])) {

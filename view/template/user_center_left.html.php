@@ -2,14 +2,19 @@
     sessionStorage.currentCompanyId=<?=$_SESSION['user']['company']['company_id']?>;
 </script>
 <div class="pc-aside">
+    <style>
+        .left-a{
+            cursor: pointer;;
+        }
+    </style>
     <ul>
         <li>
             <h3 class="aside-title">我的发布<i class="icon icon-angle-right"></i></h3>
             <ol>
-                <li class="li-cur"><a href="#">加工需求</a></li>
-                <li><a href="#">采购需求</a></li>
-                <li><a href="#">招标需求</a></li>
-                <li><a href="#">询价需求</a></li>
+                <li class="li-process-need"><a class="left-a my-button" id="process-need" data-href="personal_center">加工需求</a></li>
+                <li class="li-purchase-need"><a class="left-a my-button" id="purchase-need" data-href="personal_center">采购需求</a></li>
+                <li class="li-bidding-need"><a class="left-a my-button" id="bidding-need" data-href="personal_center">招标需求</a></li>
+                <li class="li-product-need"><a class="left-a my-button" id="product-need" data-href="personal_center">询价需求</a></li>
             </ol>
         </li>
         <li>
@@ -51,6 +56,7 @@
     </ul>
     <script>
         $(document).ready(function(){
+            initLeftNaveButton();
             init();
 //            $(document).on('click','.my-company',function(){
 //
@@ -60,7 +66,9 @@
             ajaxPost('User','get_company_inf',{},function(back){
                 console.log(back);
                 var backValue=backHandle(back,function(value){
-
+                    var press=getUrlParam('press');
+//                    console.log(press);
+                    if(press)$('#'+press).click();
                 },function(errCode,errMsg){
                     switch(errCode){
                         case 101:
@@ -70,9 +78,29 @@
                             location.href='?href=pc_company_profile'
                     }
 //               console.log(errMsg);
-                })
+                });
+
             });
         }
+
+        function initLeftNaveButton(){
+            $(document).on('click','.left-a',function(){
+                var currentHref=getUrlParam('href');
+                var destinyHref=$(this).data('href');
+                var aId=$(this).attr('id');
+                if(destinyHref&&destinyHref!=currentHref){
+                    location.href="?href="+destinyHref+'&press='+aId;
+                }else{
+                    setLeftAEvent(aId);
+                }
+            })
+        }
+        function setLeftAEvent(id){
+//            console.log(id);
+            $('.li-cur').removeClass('li-cur');
+            $('.li-'+id).addClass('li-cur');
+        }
+
 
     </script>
 </div>

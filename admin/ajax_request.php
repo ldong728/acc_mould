@@ -198,6 +198,10 @@ function product_list($data){
     $back=getList('product_company_view','product_company_view',$data);
     echo ajaxBack($back);
 }
+function user_company_list($data){
+    $back=getList('user_company_view','user_company_view',$data);
+    echo ajaxBack($back);
+}
 
 
 /*

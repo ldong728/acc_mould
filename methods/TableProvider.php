@@ -53,6 +53,12 @@ class TableProvider
         $back=$this->getList('product_detail_view',null,'product_tbl',$data,false);
         echoBack($back);
     }
+    public function own_process_need($data){
+        $companyId=API::companyVerify();
+        $data['where']['company']=$companyId;
+        $back=$this->getList('process_need_list_view',null,'process_need_tbl',$data,false);
+        echoBack($back);
+    }
     public function process_need_list_index($data){
 //        if($data['where']['end_time']
         $back=$this->getList('process_need_index_view',null,'process_need_tbl',$data,false);
@@ -69,6 +75,14 @@ class TableProvider
 
     public function bidding_list_index($data){
         $back=$this->getList('bidding_index_view',null,null,$data,false);
+        echoBack($back);
+    }
+    public function bidding_list($data){
+        $back=$this->getList('bidding_list_view',null,null,$data,false);
+        echoBack($back);
+    }
+    public function bidding_inquiry_list($data){
+        $back=$this->getList('bidding_inquiry_list_view',null,null,$data,false);
         echoBack($back);
     }
 

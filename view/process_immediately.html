@@ -1,26 +1,26 @@
 <div class="home">
     <div class="container">
         <div class="zh-main">
-            <h2 class="zh-main-title">加工4号这里是加工标题</h2>
+            <h2 class="zh-main-title process-content" data-field="process_need_title"></h2>
             <div class="zh-main-box">
                 <div class="pi-message">
                     <div class="pi-top">
                         <div class="pi-top-t clearfix">
                             <div class="li">
                                 <p class="text">报价人数</p>
-                                <p class="light">12<span>个</span></p>
+                                <p class="light"><i class="process-content" data-field="count"></i><span>个</span></p>
                             </div>
                             <div class="li">
                                 <p class="text">被查看次数</p>
-                                <p class="light">500<span>次</span></p>
+                                <p class="light"><i class=" process-content" data-field="look_count"></i><span>次</span></p>
                             </div>
                             <div class="li">
                                 <p class="text">报价剩余天数</p>
-                                <p class="light">20<span>天</span></p>
+                                <p class="light"><i class="day-last">0</i><span>天</span></p>
                             </div>
                             <div class="li">
-                                <p class="text">当前状态：<span class="st-cur">已报价</span></p>
-                                <p class="btn">
+                                <p class="text">当前状态：<span class="st-cur process-status">已报价</span></p>
+                                <p class="btn action-button">
                                     <button type="button" id="send_quote">发送报价</button>
                                     <button type="button">联系厂家</button>
                                 </p>
@@ -29,40 +29,40 @@
                         <div class="pi-top-m clearfix">
                             <div class="li">
                                 <p class="text">报价截止日期</p>
-                                <p class="content">2017.12.31</p>
+                                <p class="content process-content" data-field="end_time"></p>
                             </div>
                             <div class="li">
                                 <p class="text">信息发布日期</p>
-                                <p class="content">2017.12.01</p>
+                                <p class="content process-content" data-field="start_time"></p>
                             </div>
                             <div class="li">
                                 <p class="text">公司</p>
-                                <p class="content">广州测试公司</p>
+                                <p class="content process-content" data-field="company_name"></p>
                             </div>
                             <div class="li">
                                 <p class="text">地址</p>
-                                <p class="content">广州测试地址</p>
+                                <p class="content process-content" data-field="company_address"></p>
                             </div>
                         </div>
                         <div class="pi-top-b">
                             <div class="li">
                                 <p class="title">工序</p>
-                                <p class="text"><span>锯加工</span><span>铣加工</span><span>装饰纹加工</span></p>
+                                <p class="text step-container"><span class="step-template"></span></p>
                             </div>
                             <div class="li">
                                 <p class="title">图文文件</p>
-                                <p class="cur-color">图纸.rar<i class="icon icon-arrow-circle-o-down"></i></p>
+                                <p class="cur-color"><a class="attachment">图纸<i class="icon icon-arrow-circle-o-down"></i></a></p>
                             </div>
                         </div>
                     </div>
                     <div class="pi-bottom">
                         <div class="li">
                             <h3 class="title cur-color">更多要求</h3>
-                            <p class="text">测试技术要求</p>
+                            <p class="text process-content" data-field="requires"></p>
                         </div>
                         <div class="li">
                             <h3 class="title cur-color">详细说明</h3>
-                            <p class="text">详细说明内容</p>
+                            <p class="text process-content" data-field="detail"></p>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,6 @@
     </div>
 </div>
 <div class="send-form">
-        <form method="post" action="#">
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <thead>
                 <tr>
@@ -142,23 +141,26 @@
                 <tbody>
                 <tr>
                     <td style="vertical-align: top;">收货地：</td>
-                    <td><textarea rows="3"></textarea></td>
+                    <td><textarea rows="3" class="submit-content" data-field="address"></textarea></td>
                 </tr>
                 <tr>
                     <td>加工时长：</td>
-                    <td><input type="text" name="time"><span>天</span></td>
+                    <td><input type="text" name="time" class="submit-content" data-field="days"><span>天</span></td>
                 </tr>
                 <tr>
                     <td>价格：</td>
-                    <td><input type="text" name="price"><span>元</span></td>
+                    <td><input type="text" name="price" class="submit-content" data-field="price"><span>元</span></td>
                 </tr>
                 <tr>
                     <td>运费：</td>
-                    <td><input type="text" name="fee"><span>元</span></td>
+                    <td><input type="text" name="fee" class="submit-content" data-field="freight"><span>元</span></td>
                 </tr>
                 <tr>
                     <td>报价单：</td>
-                    <td><input type="text" name="price"><span class="up"><i class="icon icon icon-arrow-circle-o-down"></i></span></td>
+
+                    <td><input type="text" name="price" class="uploaded" readonly><span class="up upload-button" style="cursor: pointer"><i class="icon icon icon-arrow-circle-o-down"></i></span>
+                        <input type="hidden" class="submit-content file-url" data-field="quote_attachment">
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -167,15 +169,15 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="发送报价" class="btn">
+                        <input type="submit" value="发送报价" class="btn submit-process-quote">
                         <input type="reset" value="取消" class="btn reset">
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </form>
     </div>
 
+<input type="file" class="files" id="process_file" name="process_file" style="display: none">
 
 <script>
     $(function () {
@@ -201,5 +203,99 @@
 
     })
 </script>
+
+        <script>
+            var id=getUrlParam('id');
+            $(document).ready(function(){
+                registEvent();
+                initProcess(id);
+                setUpload();
+            });
+
+
+            function registEvent(){
+                $(document).on('click','.upload-button',function(){
+                    $('#process_file').click();
+                });
+                $(document).on('click','.submit-process-quote',function(){
+                    var data={process_need:id};
+                    $('.submit-content').each(function(k,v){
+                        var field=$(v).data('field');
+                        data[field]=$(v).val();
+                    });
+                    ajaxPost('Process','add_process_need_quote',data,function(back){
+                       backHandle(back,function(data){
+                            location.reload(true);
+                       },function(errCode,errMsg){
+                            alert(errMsg);
+                       }) ;
+                    });
+                    console.log(data);
+                })
+            }
+            function initProcess(id,callback){
+                ajaxPost('Process','process_need_detail',{id:id},function(back){
+                    backHandle(back,initContent,function(code,msg){
+                        switch(code) {
+                            case 101:
+                                location.href = '?href=login';
+                                break;
+                            case 102:
+                                location.href = '?href=pc_company_profile';
+                                break;
+                        }
+                    });
+                    function initContent(backValue){
+                        var inf=backValue['processInf'];
+                        $('.process-content').each(function(k,v){
+                           var field=$(this).data('field');
+                            $(this).removeAttr('data-attr');
+                            $(this).text(inf[field]||'');
+                        });
+                        if(inf['process_steps']){
+                            var steps=inf['process_steps'];
+                            var elementCreate=prepareElement('.step-template');
+                            $.each(steps,function(k,v){
+                                var element=elementCreate();
+                                element.text(v);
+                                $('.step-container').append(element);
+                            })
+                        }
+                        $('.attachment').attr('href',inf.attachment);
+//                        inf.start_time_unix=inf.start_time_unix||0;
+//                        console.log(inf.start_time_unix);
+                        var nowTime=parseInt((new Date().getTime())/1000);
+                        console.log(nowTime);
+                        var dayLast=parseInt((parseInt(inf.end_time_unix)-nowTime)/24/3600);
+                        console.log(dayLast);
+                        if(dayLast>0){
+                            $('.day-last').text(dayLast);
+                        }else{
+                            $('.process-status').text('已完成');
+                            $('.action-button').remove();
+                        }
+                        if(backValue.record){
+                            $('.process-status').text('已报价');
+                            $('.action-button').remove();
+                        }
+
+
+                        console.log(backValue);
+                    }
+
+//                    console.log(backValue);
+
+                    if(callback)callback();
+                });
+            }
+
+            function setUpload(){
+                setUploadEvent('#process_file',function(data){
+                    $('.uploaded').val(data.originalName);
+                   $('.file-url').val(data.url);
+                    console.log(data);
+                });
+            }
+        </script>
 </body>
 </html>

@@ -43,7 +43,7 @@
                             <div class="item-r-r">
                                 <a class="process-action" href="?href=process_immediately">我要报价</a>
                                 <!--<a href="#" class="carry-out">查看详情</a>-->
-                                <p>已有<span class="light count">5</span>条报价</p>
+                                <p>已有<span class="light count">0</span>条报价</p>
                             </div>
                         </div>
                     </div>
@@ -96,12 +96,12 @@
                         processContent.find('.process-type').addClass('carry-out');
                         processContent.find('.process-action').text('查看详情');
                         processContent.find('.process-action').addClass('carry-out');
-                        processContent.find('.process-action').attr('href','#');
+
                     }
+                    processContent.find('.process-action').attr('href','?href=process_immediately&id='+ v.process_need_id);
                     processContent.find('.count').text(v.count||'0');
 
                     $('.process-need-container').append(processContent);
                 });
-
             }
         </script>

@@ -2,32 +2,34 @@
     <div class="container">
         <div class="pu-container">
             <div class="pu-breadcrumbs clearfix">
-            <ul class="clearfix">
-                <li><a href="?href=index">首页</a></li>
-                <span>&gt;</span>
-                <li><a href="?href=purchase_info">采购信息</a></li>
-                <span>&gt;</span>
-                <li><a href="?href=purchase_info_details">这里是采购标题</a></li>
-            </ul>
-            <p class="number">共找到<span class="light">1234</span>信息</p>
-        </div>
+                <ul class="clearfix">
+                    <li><a href="?href=index">首页</a></li>
+                    <span>&gt;</span>
+                    <li><a href="?href=mold_bidding">模具招投标</a></li>
+                    <span>&gt;</span>
+                    <li><a href="?href=bidding_details" class="bidding-content" data-field="bidding_title"></a></li>
+                </ul>
+            </div>
             <div class="pu-company-box clearfix">
-               <div class="pu-company-l">
-                   <h3 class="title">宁波汽车有限公司<img src="images/vip.jpg"></h3>
-                   <p class="text"><span class="color8">所在地区：</span>广东广州</p>
-                   <p class="more-need">
-                       <a href="#" class="clearfix"><span>更多Ta的采购需求</span><i class="icon icon-angle-double-right"></i> </a>
-                   </p>
-               </div>
-               <div class="pu-company-r">
-                   <a href="?href=purchase_demand" class="clearfix">
-                       <img src="images/text1.png">
-                       <span class="cur-color">我也要发布采购需求</span>
-                   </a>
-               </div>
-           </div>
+                <div class="pu-company-l">
+                    <h3 class="title bidding-content" data-field="company_name"><img src="images/vip.jpg"></h3>
+
+                    <p class="text"><span class="color8">所在地区：</span><i class="bidding-content"
+                                                                        data-field="company_address"></i></p>
+
+                    <p class="more-need">
+                        <!--<a href="#" class="clearfix"><span>更多Ta的采购需求</span><i class="icon icon-angle-double-right"></i> </a>-->
+                    </p>
+                </div>
+                <div class="pu-company-r">
+                    <a href="?href=bidding_release" class="clearfix">
+                        <img src="images/text1.png">
+                        <span class="cur-color">我也要发布招标</span>
+                    </a>
+                </div>
+            </div>
             <div class="pu-parameter">
-                <h2 class="pu-parameter-title">这里是采购信息标题</h2>
+                <h2 class="pu-parameter-title"></h2>
                 <div class="pi-message">
                     <div class="pi-top">
                         <div class="pi-top-t clearfix">
@@ -39,14 +41,14 @@
                                 <p class="text">被查看次数</p>
                                 <p class="light">500<span>次</span></p>
                             </div>
-                            <div class="li">
-                                <p class="text">采购数量</p>
-                                <p class="light">3<span>种</span></p>
-                            </div>
+                            <!--<div class="li">-->
+                                <!--<p class="text">采购数量</p>-->
+                                <!--<p class="light">3<span>种</span></p>-->
+                            <!--</div>-->
                             <div class="li">
                                 <span class="circle"></span>
                                 <button type="button" class="btn">立即报价</button>
-                                <span class="text">距离报价结束还剩1天</span>
+                                <span class="text">距离报价结束还剩<i class="day-last">0</i>天</span>
                             </div>
                         </div>
                         <div class="pi-top-m clearfix">
@@ -115,98 +117,168 @@
                     </div>
                 </div>
             </div>
-            <div class="get-quote">
-                <h3 class="title cur-color">已收到的报价</h3>
-                <div class="table">
-                    <table width="100%" cellpadding="0" cellspacing="0" border="1" borderColor="#eee">
-                        <thead>
-                        <tr>
-                            <td>报价时间</td>
-                            <td>报价厂家</td>
-                            <td>所在地区</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州****公司</td>
-                            <td>广东省 广州市</td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州****公司</td>
-                            <td>广东省 广州市</td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州****公司</td>
-                            <td>广东省 广州市</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="pi-need">
-                <h2 class="pi-need-title">更多类似需求</h2>
-                <div class="pi-need-lists clearfix">
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容</p>
-                            <p class="li-t-text">平台报价</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>工序：</span>3道</p>
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background">我要报价</button>
-                        </div>
-                    </div>
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容</p>
-                            <p class="li-t-text">平台报价</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>工序：</span>3道</p>
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background">我要报价</button>
-                        </div>
-                    </div>
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容</p>
-                            <p class="li-t-text">平台报价</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>工序：</span>3道</p>
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background">我要报价</button>
-                        </div>
-                    </div>
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容</p>
-                            <p class="li-t-text">平台报价</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>工序：</span>3道</p>
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background">我要报价</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+<div class="send-form send-bi">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <thead>
+        <tr>
+            <td colspan="2">我的报价</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>价格：</td>
+            <td><input type="text" name="price"><span>元</span></td>
+        </tr>
+        <tr>
+            <td>运费：</td>
+            <td><input type="text" name="fee" class="tender-content" data-field="freight"><span>元</span></td>
+        </tr>
+        <tr>
+            <td>报价单：</td>
+            <td><input type="text" name="price" class="uploaded" readonly><span class="up upload-button"><i class="icon icon icon-arrow-circle-o-down"></i></span>
+                <input type="hidden" class="tender-content" data-field="tender_attachment">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><p class="info">* 上传excel详细报价单</p></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="发送报价" class="btn submit-tender">
+                <input type="reset" value="取消" class="btn reset">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<input type="file" class="files" id="tender_file" name="tender_file" style="display: none">
+<script>
+    $(function () {
+        sendQuote();
+
+        function sendQuote() {
+            $(document).on('click','.bidding-quote',function () {
+                $('.send-form').show();
+                $('body').append('<div class="mask"></div>');
+                var bodyHeight = $('body').height();
+                console.log(bodyHeight);
+                $('.mask').height(bodyHeight);
+            });
+            $(document).on('click','.reset',function () {
+                $('.mask').remove();
+                $('.send-form').hide();
+            });
+            $(document).on('click','.mask',function(){
+                $('.mask').remove();
+                $('.send-form').hide();
+            });
+        }
+
+    })
+</script>
+<script>
+    var id = getUrlParam('id');
+    $(document).ready(function () {
+        registEvent();
+        initBidding(id);
+        setUpload();
+    });
+
+
+    function registEvent() {
+        $(document).on('click', '.upload-button', function () {
+            $('#tender_file').click();
+        });
+        $(document).on('click', '.submit-tender', function () {
+            var data = {bidding_inquiry: id};
+            $('.tender-content').each(function(k,v){
+                var field=$(v).data('field');
+                data[field]=$(v).val();
+            });
+            console.log(data);
+            ajaxPost('Bidding', 'add_tender', data, function (back) {
+                backHandle(back, function (data) {
+                    location.reload(true);
+                }, function (errCode, errMsg) {
+                    alert(errMsg);
+                });
+            });
+            console.log(data);
+        });
+    }
+    function initBidding(id, callback) {
+        ajaxPost('Bidding', 'bidding_inquiry_detail', {id: id}, function (back) {
+            backHandle(back, initContent, function (code, msg) {
+                switch (code) {
+                    case 101:
+                        location.href = '?href=login';
+                        break;
+                    case 102:
+                        location.href = '?href=pc_company_profile';
+                        break;
+                }
+            });
+            function initContent(backValue) {
+                console.log(backValue);
+                var inf = backValue['biddingInf'];
+                $('.bidding-content').each(function (k, v) {
+                    var field = $(this).data('field');
+                    $(this).removeAttr('data-attr');
+                    $(this).text(inf[field] || '');
+                });
+                $('.attachment').attr('href',inf.attachment);
+                $('.attachment').attr('href', inf.attachment);
+//                        inf.start_time_unix=inf.start_time_unix||0;
+//                        console.log(inf.start_time_unix);
+                var nowTime = parseInt((new Date().getTime()) / 1000);
+                console.log(nowTime);
+                var dayLast = parseInt((parseInt(inf.end_time_unix) - nowTime) / 24 / 3600);
+                if (dayLast > 0) {
+                    $('.day-last').text(dayLast);
+                } else {
+                    $('.bidding-status').text('已完成');
+                    $('.action-button').remove();
+                }
+                if (backValue.record) {
+                    $('.bidding-status').text('已报价');
+                    $('.action-button').remove();
+                }
+                var companyInf = backValue['companyInf'];
+                $('.company-content').each(function (k, v) {
+                    var field = $(v).data('field');
+                    $(v).val(companyInf[field]);
+                    $(v).removeAttr('data-field');
+                });
+                var tenders=backValue['tenders'];
+                var tendersCreator=prepareElement('.tendered-template');
+                console.log(tenders);
+                if(tenders){
+                    $.each(tenders,function(k,v){
+                        var element=tendersCreator();
+                        element.find('.tendered-content').each(function(id,subElement){
+                            var field=$(subElement).data('field');
+                            $(subElement).text(v[field]);
+                        });
+                        $('.tendered-container').append(element);
+                    })
+                }
+            }
+
+
+            if (callback)callback();
+        });
+    }
+
+    function setUpload() {
+        setUploadEvent('#tender_file', function (data) {
+            $('.uploaded').val(data.originalName);
+            $('.file-url').val(data.url);
+            console.log(data);
+        });
+    }
+</script>

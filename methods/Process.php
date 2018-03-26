@@ -29,5 +29,28 @@ class Process {
         if($id)echoBack('ok');
         else echoBack(null,109,'数据库错误');
     }
+    public function process_need_detail($data){
+        $id=$data['id'];
+        $companyId=API::companyVerify();
+        exeNew("update process_need_tbl set look_count=look_count+1 where process_need_id=$id limit 1");
+        $record=pdoQuery('process_need_quote_tbl',null,['provider'=>$companyId,'process_need'=>$id],'limit 1')->fetch(PDO::FETCH_ASSOC);
+        $processInf=pdoQuery('process_need_list_view',null,['process_need_id'=>$id],'limit 1')->fetch(PDO::FETCH_ASSOC);
+        if($processInf['process_steps']){
+            $value=trim($processInf['process_steps'],',');
+            $value=explode(',',$value);
+            $processInf['process_steps']=$value;
+        }
+        echoBack(['record'=>$record,'processInf'=>$processInf]);
+
+    }
+    public function add_process_need_quote($data){
+        $companyId=API::companyVerify();
+        $data['provider']=$companyId;
+        $data['create_time']=timeUnixToMysql(time());
+        $data['create_time_unix']=time();
+        $id=pdoInsert('process_need_quote_tbl',$data,'ignore');
+        if($id)echoBack('ok');
+        else echoBack(null,109,'数据库错误');
+    }
 
 }

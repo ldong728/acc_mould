@@ -7,16 +7,18 @@
                     <span>&gt;</span>
                     <li><a href="?href=mold_bidding">模具招投标</a></li>
                     <span>&gt;</span>
-                    <li><a href="?href=bidding_details">这里是采购标题</a></li>
+                    <li><a href="?href=bidding_details" class="bidding-content" data-field="bidding_title"></a></li>
                 </ul>
-                <p class="number">共找到<span class="light">1234</span>信息</p>
             </div>
             <div class="pu-company-box clearfix">
                 <div class="pu-company-l">
-                    <h3 class="title">宁波汽车有限公司<img src="images/vip.jpg"></h3>
-                    <p class="text"><span class="color8">所在地区：</span>广东广州</p>
+                    <h3 class="title bidding-content" data-field="company_name"><img src="images/vip.jpg"></h3>
+
+                    <p class="text"><span class="color8">所在地区：</span><i class="bidding-content"
+                                                                        data-field="company_address"></i></p>
+
                     <p class="more-need">
-                        <a href="#" class="clearfix"><span>更多Ta的采购需求</span><i class="icon icon-angle-double-right"></i> </a>
+                        <!--<a href="#" class="clearfix"><span>更多Ta的采购需求</span><i class="icon icon-angle-double-right"></i> </a>-->
                     </p>
                 </div>
                 <div class="pu-company-r">
@@ -27,7 +29,8 @@
                 </div>
             </div>
             <div class="pu-parameter bd-parameter">
-                <h2 class="pu-parameter-title">上海大众公司 汽车模具招标</h2>
+                <h2 class="pu-parameter-title bidding-content" data-field="bidding_title"></h2>
+
                 <div class="pi-message">
                     <div class="pi-top">
                         <div class="pi-top-m clearfix">
@@ -35,16 +38,18 @@
                             <div class="bd-b">
                                 <div class="li">
                                     <p class="text">发布时间</p>
-                                    <p class="content">2017.12.31</p>
+
+                                    <p class="content bidding-content" data-field="start_time"></p>
                                 </div>
                                 <div class="li">
                                     <p class="text">招标截止</p>
-                                    <p class="content">2017.12.01</p>
+
+                                    <p class="content bidding-content" data-field="end_time"></p>
                                 </div>
-                                <div class="li countdown">
+                                <div class="li countdown action-button">
                                     <span class="circle"></span>
                                     <button type="button" class="btn" id="bd-bidding">我要投标</button>
-                                    <span class="text white">距离报价结束还剩1天
+                                    <span class="text white">距离报价结束还剩<i class="day-last">0</i>天
                             </span></div>
                             </div>
 
@@ -52,24 +57,30 @@
                         <div class="pi-top-t clearfix">
                             <div class="li">
                                 <p class="text">投标数</p>
-                                <p class="light">3<span>家</span></p>
+
+                                <p class="light"><i class="bidding-content" data-field="tender_count"></i><span>家</span>
+                                </p>
                             </div>
                             <div class="li">
                                 <p class="text">被查看次数</p>
-                                <p class="light">500<span>次</span></p>
+
+                                <p class="light"><i class="bidding-content" data-field="look_count"></i><span>次</span>
+                                </p>
                             </div>
                             <div class="li"></div>
                         </div>
                         <div class="pi-top-b">
                             <div class="li">
-                                <p class="title">投标公司要求</p>
-                                <p class="text">发票要求：增值税普通发票</p>
-                                <p class="text">经营要求：经销批发</p>
-                                <p class="text">证照要求：营业执照、税务登记证、阻止机构代码证、一般纳税人证明材料、三/五证合一、统计登记证、社会保险登记证</p>
+                                <p class="title">项目要求</p>
+
+                                <p class="text bidding-content" data-field="company_requires"></p>
+                                <!--<p class="text">经营要求：经销批发</p>-->
+                                <!--<p class="text">证照要求：营业执照、税务登记证、阻止机构代码证、一般纳税人证明材料、三/五证合一、统计登记证、社会保险登记证</p>-->
                             </div>
                             <div class="li">
                                 <p class="title">项目要求</p>
-                                <p class="text">这里是项目具体要求描述，项目指标内容</p>
+
+                                <p class="text bidding-content" data-field="requires"></p>
                             </div>
                         </div>
                     </div>
@@ -77,6 +88,7 @@
             </div>
             <div class="get-quote">
                 <h3 class="title cur-color">已收到的报价</h3>
+
                 <div class="table">
                     <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="#eee">
                         <thead>
@@ -107,64 +119,72 @@
                 </div>
             </div>
             <div class="pi-need bd-need">
-                <h2 class="pi-need-title">更多类似招标</h2>
-                <div class="pi-need-lists clearfix">
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a></button>
-                        </div>
-                    </div>
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a></button>
-                        </div>
-                    </div>
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a></button>
-                        </div>
-                    </div>
-                    <div class="li">
-                        <div class="li-t">
-                            <p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>
-                        </div>
-                        <div class="li-m">
-                            <p><span>有效日期：</span>2017-12-18</p>
-                            <p><span>交货地址：</span>广州测试地址</p>
-                        </div>
-                        <div class="li-b">
-                            <button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a></button>
-                        </div>
-                    </div>
-                </div>
+                <!--<h2 class="pi-need-title">更多类似招标</h2>-->
+
+                <!--<div class="pi-need-lists clearfix">-->
+                    <!--<div class="li">-->
+                        <!--<div class="li-t">-->
+                            <!--<p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-m">-->
+                            <!--<p><span>有效日期：</span>2017-12-18</p>-->
+
+                            <!--<p><span>交货地址：</span>广州测试地址</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-b">-->
+                            <!--<button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="li">-->
+                        <!--<div class="li-t">-->
+                            <!--<p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-m">-->
+                            <!--<p><span>有效日期：</span>2017-12-18</p>-->
+
+                            <!--<p><span>交货地址：</span>广州测试地址</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-b">-->
+                            <!--<button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="li">-->
+                        <!--<div class="li-t">-->
+                            <!--<p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-m">-->
+                            <!--<p><span>有效日期：</span>2017-12-18</p>-->
+
+                            <!--<p><span>交货地址：</span>广州测试地址</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-b">-->
+                            <!--<button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="li">-->
+                        <!--<div class="li-t">-->
+                            <!--<p class="li-t-title">加工4号这里是加工内容加工4号这里是加工内容加</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-m">-->
+                            <!--<p><span>有效日期：</span>2017-12-18</p>-->
+
+                            <!--<p><span>交货地址：</span>广州测试地址</p>-->
+                        <!--</div>-->
+                        <!--<div class="li-b">-->
+                            <!--<button type="button" class="cur-background"><a href="?href=bidding_details">我要投标</a>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
 </div>
 
 <div class="send-form">
-    <form method="post" action="#">
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <thead>
             <tr>
@@ -174,62 +194,158 @@
             <tbody>
             <tr>
                 <td>公司名称：</td>
-                <td><input type="text" name="time"></td>
+                <td><input type="text" name="time" class="company-content" data-field="company_name" readonly></td>
             </tr>
             <tr>
                 <td>公司地址：</td>
-                <td><input type="text" name="time"></td>
+                <td><input type="text" name="time" class="company-content" data-field="company_address" readonly></td>
             </tr>
             <tr>
                 <td>联系电话：</td>
-                <td><input type="text" name="time"></td>
+                <td><input type="text" name="time" class="company-content" data-field="company_tel" readonly></td>
             </tr>
             <tr>
                 <td>联系人：</td>
-                <td><input type="text" name="time"></td>
+                <td><input type="text" name="time" class="company-content" data-field="company_legal_rep" readonly></td>
             </tr>
             <tr>
                 <td>注册资金：</td>
-                <td><input type="text" name="time"><span>万</span></td>
+                <td><input type="text" name="time" class="company-content" data-field="registered_capital"
+                           readonly><span></span></td>
             </tr>
             <tr>
                 <td>公司规模：</td>
-                <td><input type="text" name="time"><span>人</span></td>
+                <td><input type="text" name="time" class="company-content" data-field="company_employee_count" readonly><span>人</span>
+                </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit" value="立即投标" class="btn">
+                    <input type="submit" value="立即投标" class="btn submit-tender">
                     <input type="reset" value="取消" class="btn reset">
                 </td>
             </tr>
             </tbody>
         </table>
-    </form>
 </div>
-
+<input type="file" class="files" id="tender_file" name="tender_file" style="display: none">
 
 <script>
     $(function () {
         sendQuote();
 
         function sendQuote() {
-            $(document).on('click','#bd-bidding',function () {
+            $(document).on('click', '#bd-bidding', function () {
                 $('.send-form').show();
                 $('body').append('<div class="mask"></div>');
                 var bodyHeight = $('body').height();
                 console.log(bodyHeight);
                 $('.mask').height(bodyHeight);
             });
-            $(document).on('click','.reset',function () {
+            $(document).on('click', '.reset', function () {
                 $('.mask').remove();
                 $('.send-form').hide();
             });
-            $(document).on('click','.mask',function(){
+            $(document).on('click', '.mask', function () {
                 $('.mask').remove();
                 $('.send-form').hide();
             });
         }
 
     })
+</script>
+
+<script>
+    var id = getUrlParam('id');
+    $(document).ready(function () {
+        registEvent();
+        initBidding(id);
+    });
+
+
+    function registEvent() {
+        $(document).on('click', '.upload-button', function () {
+            $('#bidding_file').click();
+        });
+        $(document).on('click', '.submit-tender', function () {
+            var data = {bidding: id};
+            console.log(data);
+                ajaxPost('Bidding', 'add_tender', data, function (back) {
+                    backHandle(back, function (data) {
+                        location.reload(true);
+                    }, function (errCode, errMsg) {
+                        alert(errMsg);
+                    });
+                });
+                console.log(data);
+        });
+    }
+    function initBidding(id, callback) {
+        ajaxPost('Bidding', 'bidding_detail', {id: id}, function (back) {
+            backHandle(back, initContent, function (code, msg) {
+                switch (code) {
+                    case 101:
+                        location.href = '?href=login';
+                        break;
+                    case 102:
+                        location.href = '?href=pc_company_profile';
+                        break;
+                }
+            });
+            function initContent(backValue) {
+                var inf = backValue['biddingInf'];
+                $('.bidding-content').each(function (k, v) {
+                    var field = $(this).data('field');
+                    $(this).removeAttr('data-attr');
+                    $(this).text(inf[field] || '');
+                });
+                $('.attachment').attr('href', inf.attachment);
+//                        inf.start_time_unix=inf.start_time_unix||0;
+//                        console.log(inf.start_time_unix);
+                var nowTime = parseInt((new Date().getTime()) / 1000);
+                console.log(nowTime);
+                var dayLast = parseInt((parseInt(inf.end_time_unix) - nowTime) / 24 / 3600);
+                if (dayLast > 0) {
+                    $('.day-last').text(dayLast);
+                } else {
+                    $('.bidding-status').text('已完成');
+                    $('.action-button').remove();
+                }
+                if (backValue.record) {
+                    $('.bidding-status').text('已报价');
+                    $('.action-button').remove();
+                }
+                var companyInf = backValue['companyInf'];
+                $('.company-content').each(function (k, v) {
+                    var field = $(v).data('field');
+                    $(v).val(companyInf[field]);
+                    $(v).removeAttr('data-field');
+                });
+                var tenders=backValue['tenders'];
+                var tendersCreator=prepareElement('.tendered-template');
+                console.log(tenders);
+                if(tenders){
+                    $.each(tenders,function(k,v){
+                        var element=tendersCreator();
+                        element.find('.tendered-content').each(function(id,subElement){
+                            var field=$(subElement).data('field');
+                            $(subElement).text(v[field]);
+                        });
+                        $('.tendered-container').append(element);
+                    })
+                }
+            }
+
+
+            if (callback)callback();
+        });
+    }
+
+    function setUpload() {
+        setUploadEvent('#tender_file', function (data) {
+            $('.uploaded').val(data.originalName);
+            $('.file-url').val(data.url);
+            console.log(data);
+        });
+    }
 </script>

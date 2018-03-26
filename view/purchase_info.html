@@ -9,61 +9,61 @@
                 <!--</ul>-->
                 <!--<p class="number">共找到<span class="light">1234</span>信息</p>-->
             <!--</div>-->
-            <div class="pu-filter">
+            <!--<div class="pu-filter">-->
+                <!--&lt;!&ndash;<div class="pu-filter-item clearfix">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="title">分类：</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p class="text">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>全部</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="cur-color">模具钢</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>模架</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>热流道</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>标准件</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>电极（石墨）</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>模具油缸</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>刀具</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>耗材</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span>模具加工设备</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
                 <!--<div class="pu-filter-item clearfix">-->
-                    <!--<p class="title">分类：</p>-->
+                    <!--<p class="title">发布时间：</p>-->
                     <!--<p class="text">-->
                         <!--<span>全部</span>-->
-                        <!--<span class="cur-color">模具钢</span>-->
-                        <!--<span>模架</span>-->
-                        <!--<span>热流道</span>-->
-                        <!--<span>标准件</span>-->
-                        <!--<span>电极（石墨）</span>-->
-                        <!--<span>模具油缸</span>-->
-                        <!--<span>刀具</span>-->
-                        <!--<span>耗材</span>-->
-                        <!--<span>模具加工设备</span>-->
+                        <!--<span>今日新发</span>-->
+                        <!--<span>最近3天</span>-->
+                        <!--<span class="cur-color">最近7天</span>-->
+                        <!--<span>最近15天</span>-->
                     <!--</p>-->
                 <!--</div>-->
-                <div class="pu-filter-item clearfix">
-                    <p class="title">发布时间：</p>
-                    <p class="text">
-                        <span>全部</span>
-                        <span>今日新发</span>
-                        <span>最近3天</span>
-                        <span class="cur-color">最近7天</span>
-                        <span>最近15天</span>
-                    </p>
-                </div>
-            </div>
-            <div class="pu-nav">
-                <ul class="clearfix">
-                    <li class="cur-color">
-                        <a href="#">
-                            发布时间
-                            <i class="icon icon-angle-down"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            报价截止时间
-                            <i class="icon icon-angle-down"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            所在地区
-                            <i class="icon icon-angle-down"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            报价数
-                            <i class="icon icon-angle-down"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <!--</div>-->
+            <!--<div class="pu-nav">-->
+                <!--<ul class="clearfix">-->
+                    <!--<li class="cur-color">-->
+                        <!--<a href="#">-->
+                            <!--发布时间-->
+                            <!--<i class="icon icon-angle-down"></i>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--报价截止时间-->
+                            <!--<i class="icon icon-angle-down"></i>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--所在地区-->
+                            <!--<i class="icon icon-angle-down"></i>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--报价数-->
+                            <!--<i class="icon icon-angle-down"></i>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
             <div class="pu-lists clearfix purchase-container">
                 <div class="pu-item purchase-template">
                     <div class="pu-item-t">
@@ -89,7 +89,7 @@
                                 <p class="text"></p>
                             </div>
                             <div class="btn">
-                                <a href="?href=purchase_info_details">立即报价</a>
+                                <a class="to-details" href="?href=purchase_info_details">立即报价</a>
                             </div>
                         </div>
                     </div>
@@ -143,6 +143,7 @@
 //                purchaseContent.find('.purchase-action').addClass('carry-out');
 //                purchaseContent.find('.purchase-action').attr('href','#');
             }
+            purchaseContent.find('.to-details').attr('href','?href=purchase_info_details&id='+ v.purchase_id)
             purchaseContent.find('.count').text(v.count||'0');
 
             $('.purchase-container').append(purchaseContent);
