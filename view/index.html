@@ -1,10 +1,9 @@
-
 <div class="main">
     <div class="focus-container">
         <div class="focus" id="slidebox">
-            <li style="background: url(images/focus1.jpg) center 0 no-repeat"></li>
-            <li style="background: url(images/focus2.png) center 0 no-repeat"></li>
-            <!--<li style="background: url(images/focus1.jpg) center 0 no-repeat"></li>-->
+            <?php foreach($imgs as $row):?>
+            <a href="<?=$row['href']?>"><li style="background: url(<?=$row['url']?>) center 0 no-repeat"></li></a>
+            <?php endforeach ?>
         </div>
         <div class="service-box">
             <div class="container">

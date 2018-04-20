@@ -170,7 +170,11 @@ function add_company($data)
 
 function company_list($data)
 {
-    $back = getList('company_tbl', 'company_tbl', $data);
+    $back = getList('company_user_view', 'company_user_view', $data);
+    echo ajaxBack($back);
+}
+function regist_request_list($data){
+    $back=getList('regist_request_view','regist_request_view',$data);
     echo ajaxBack($back);
 }
 
@@ -201,6 +205,29 @@ function product_list($data){
 function user_company_list($data){
     $back=getList('user_company_view','user_company_view',$data);
     echo ajaxBack($back);
+}
+function get_index_img($data){
+    $back=pdoQuery('img_tbl',['url'],['type'=>'index'],'order by img_id asc limit 5')->fetchAll(PDO::FETCH_ASSOC);
+    echo ajaxBack($back);
+}
+function add_index_img($data){
+    if(count($data['img'])>0){
+        pdoDelete('img_tbl',['type'=>'index']);
+        $insertValue=[];
+        foreach($data['img'] as $url){
+            $insertValue[]=['url'=>$url,'type'=>'index'];
+        }
+        pdoBatchInsert('img_tbl',$insertValue);
+    }
+    echo ajaxBack('ok');
+
+}
+function pass_level($data){
+    $companyId=$data['id'];
+    $level =$data['level'];
+    $companyInf=pdoQuery('company_tbl',['user'],['company_id'=>$companyId],'limit 1')->fetch();
+    pdoUpdate('user_tbl',['user_level'=>$level],['user_id'=>$companyInf['user']],' limit 1');
+    echo ajaxBack('ok');
 }
 
 

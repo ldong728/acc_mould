@@ -86,38 +86,39 @@
                     </div>
                 </div>
             </div>
-            <div class="get-quote">
-                <h3 class="title cur-color">已收到的报价</h3>
+            <!--<div class="get-quote">-->
+                <!--<h3 class="title cur-color">已收到的报价</h3>-->
 
-                <div class="table">
-                    <table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="#eee">
-                        <thead>
-                        <tr>
-                            <td>报价时间</td>
-                            <td>报价厂家</td>
-                            <td>所在地区</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州****公司</td>
-                            <td>广东省 广州市</td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州****公司</td>
-                            <td>广东省 广州市</td>
-                        </tr>
-                        <tr>
-                            <td>2017.12.12</td>
-                            <td>广州****公司</td>
-                            <td>广东省 广州市</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <!--<div class="table">-->
+                    <!--<table width="100%" cellpadding="0" cellspacing="0" border="1" bordercolor="#eee">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<td>报价时间</td>-->
+                            <!--<td>报价厂家</td>-->
+                            <!--<td>所在地区</td>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<tr>-->
+                            <!--<td>2017.12.12</td>-->
+                            <!--<td>广州****公司</td>-->
+                            <!--<td>广东省 广州市</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>2017.12.12</td>-->
+                            <!--<td>广州****公司</td>-->
+                            <!--<td>广东省 广州市</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>2017.12.12</td>-->
+                            <!--<td>广州****公司</td>-->
+                            <!--<td>广东省 广州市</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!---->
             <div class="pi-need bd-need">
                 <!--<h2 class="pi-need-title">更多类似招标</h2>-->
 
@@ -258,6 +259,21 @@
 <script>
     var id = getUrlParam('id');
     $(document).ready(function () {
+        ajaxPost('User','get_company_inf',{},function(back){
+            console.log(back);
+            var backValue=backHandle(back,function(value){
+                verifyLevel(3);
+            },function(errCode,errMsg){
+                switch(errCode){
+                    case 101:
+                        location.href='?href=login';
+                        break;
+                    case 102:
+                        location.href='?href=pc_company_profile'
+                }
+//               console.log(errMsg);
+            })
+        });
         registEvent();
         initBidding(id);
     });

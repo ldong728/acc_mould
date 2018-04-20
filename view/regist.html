@@ -11,7 +11,15 @@
         <!--</h2>-->
     <!--</div>-->
 <!--</div>-->
-
+<style>
+    .login-main{
+        background: url(images/login-bg.jpg) no-repeat 43% 0;
+    }
+    #type-select{
+        border: #ddd;
+        /*width: 100%;*/
+    }
+</style>
 <div class="login-main">
     <div class="container">
         <div class="login-main-form">
@@ -30,10 +38,22 @@
                         <label for="set-pwd">设置密码</label>
                         <input type="text" name="phone" id="set-pwd" placeholder="请输入密码">
                     </li>
+                    <li>
+                        <label for="type-select">类型选择</label>
+                        <select class="user_type" id="type-select">
+                            <option value="0" disabled selected>请选择类型</option>
+                            <option value="模具厂">模具厂</option>
+                            <option value="零件加工厂">零件加工厂</option>
+                            <option value="钢材厂">钢材厂</option>
+                            <option value="供应商">供应商</option>
+                            <option value="主机厂">主机厂/一级零部件供应商</option>
+                        </select>
+                    </li>
                 </ul>
                 <p class="read">
-                    <input type="checkbox" name="checkbox" id="checked" checked>
-                    <label for="checked" class="label">我已经阅读并同意《服务条款》</label>
+                    <input type="checkbox" name="checkbox" id="checked">
+                    <label for="checked" class="label">我已经阅读并同意<a href="files/TermsOfService.docx">《服务条款》</a></label>
+
                 </p>
                 <div class="login-btn">
                     <!--<button type="button" class="btn">确认提交注册</button>-->
@@ -81,14 +101,18 @@
                     var tel=$('#phone-num').val();
                     var password=$('#set-pwd').val();
                     var code=$('#v-code').val();
-                    if(tel&&password&&code){
-                        ajaxPost('User','regist',{user_tel:tel,user_password:password,code:code},function(back){
+                    var type=$('#type-select').val();
+                    var checked=$('#checked').prop('checked');
+                    if(tel&&password&&code&&type&&checked){
+                        ajaxPost('User','regist',{user_tel:tel,user_password:password,code:code,type:type},function(back){
                             console.log(back);
                             var backValue=backHandle(back);
                             if(backValue){
                                 location.href='?href=index';
                             }
                         });
+                    }else{
+                        alert('注册信息不全，请重新输入');
                     }
                 });
             }

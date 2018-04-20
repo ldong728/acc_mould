@@ -1,0 +1,177 @@
+<script type="text/javascript" src="js/laydate.js"></script>
+        <style>
+            .home .h-demand-style {
+                background: url(images/regist_request.jpg) center 0 no-repeat;
+            }
+            .bold{
+                width: 130px;
+                font-weight: bold;
+                font-size: 15px;
+            }
+            input[type=tel]{
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                font-size: 12px;
+                border: 1px solid #ddd;
+                box-sizing: border-box;
+            }
+        </style>
+<div class="home">
+    <div class="h-demand-style"></div>
+
+    <div class="h-demand-container">
+        <div class="container">
+            <div class="h-breadcrumbs clearfix">
+                <span class="h-b-l">当前：</span>
+                <ol class="h-b-r clearfix">
+                    <li><a href="?href=index">首页</a></li>
+                    <span><i class="icon icon-angle-right"></i></span>
+                    <li><a href="?href=personal_center">个人中心</a></li>
+                    <span><i class="icon icon-angle-right"></i></span>
+                    <li><a href="?href=regist_request">申请会员</a></li>
+                </ol>
+            </div>
+            <div class="h-pd-content">
+                <div class="pd-form">
+                    <!--<form method="post" action="#">-->
+                    <div class="li">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>公司名称</td>
+                                <td colspan="3"><input type="text" id="company_name" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>牛模王账号</td>
+                                <td colspan="3"><input type="text" id="user_tel" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>通信地址</td>
+                                <td colspan="3"><input type="text" name="title" class="content" data-field="address"></td>
+                            </tr>
+                            <tr>
+                                <td>联系人</td>
+                                <td><input type="text" name="title" class="content" data-field="contact"></td>
+                                <td class="bold">职务</td>
+                                <td><input type="text" name="title" class="content" data-field="position"></td>
+                            </tr>
+                            <tr>
+                                <td>手机</td>
+                                <td><input type="tel" name="title" class="content" data-field="mobile_phone"></td>
+                                <td class="bold">电话</td>
+                                <td><input type="tel" name="title" class="content" data-field="tel"></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">邮箱</td>
+                                <td><input type="text" name="title" class="content" data-field="mail"></td>
+                            </tr>
+                            <tr>
+                                <td>主营产品</td>
+                                <td colspan="3"><input type="text" name="title" class="content" data-field="major_business"></td>
+                            </tr>
+                            <tr>
+                                <td>主要市场</td>
+                                <td colspan="3"><input type="text" name="title" class="content" data-field="major_market"></td>
+                            </tr>
+                            <tr>
+                                <td>产品定位</td>
+                                <td colspan="3"><input type="text" name="title" class="content" data-field="product_positioning"></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">技术优势</td>
+                                <td colspan="3"><textarea rows="5" class="content" data-field="advantages"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">与同行的差异化</td>
+                                <td colspan="3"><textarea rows="5" class="content" data-field="differ"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: right">具体介绍，详见“牛模王”会员介绍</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <input type="radio" name="level" class="level-radio" id="rdo2" value="2"><label for="rdo2" style="margin-right: 15px">采购会员</label>
+                                    <input type="radio" name="level" class="level-radio" id="rdo3" value="3"><label for="rdo3" style="margin-right: 15px">模具会员</label>
+                                    <input type="radio" name="level" class="level-radio" id="rdo4" value="4"><label for="rdo4" style="margin-right: 15px">VIP会员</label>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div class="hd-submit">
+                            <input type="submit" value="提交需求" name="submit" class="submit submit-button">
+                            <!--<a href="process_immediately.html" class="submit">提交需求</a>-->
+                        </div>
+                    </div>
+
+                    <!--</form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="file" class="files" id="process_file" name="process_file" style="display: none">
+<script>
+    var processInf={};
+    var stepCreator;
+    var needLevel=getUrlParam('level');
+    $(document).ready(function(){
+        initView();
+        registEvent();
+    });
+
+    function registEvent(){
+        $(document).on('click','.submit-button',function(){
+            var requestInf={};
+            var submitError=false;
+                $('.content').each(function(k,v){
+                var field=$(v).data('field');
+                var keyValue=$(v).hasClass('key-value');
+                if(field){
+                    requestInf[field]=$(v).val();
+                    if((!requestInf[field])&&keyValue)submitError='信息不完整';
+                }
+            });
+            $('.level-radio').each(function(k,v){
+               if(v.checked){
+                   requestInf['level']=$(v).val();
+               }
+            });
+            console.log(requestInf);
+            if(!submitError){
+                ajaxPost('User','add_regist_request',requestInf,function(back){
+                    var backValue=backHandle(back);
+
+                    if(backValue){
+                        location.reload(true);
+                    }else{
+                        alert('发布失败，请稍后再试')
+                    }
+                });
+            }else{
+                alert(submitError);
+            }
+        });
+    }
+
+    function initView(){
+        if(needLevel){
+            $('#rdo'+needLevel).attr("checked",'checked');
+        }
+        ajaxPost('User','get_regist_request_inf',{},function(back){
+           backHandle(back,
+                   function(data){
+                        console.log(data);
+                       $.each(data,function(k,v){
+                           $('#'+k).val(v);
+                       })
+           },
+                   function(code,msg){
+               alert(msg);
+                       $('.submit-button').remove();
+           })
+        });
+    }
+    function sendRegistRequest(){
+
+    }
+</script>

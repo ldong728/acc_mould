@@ -67,7 +67,7 @@
         ajaxPost('User','get_company_inf',{},function(back){
             console.log(back);
             var backValue=backHandle(back,function(value){
-
+                verifyLevel(2);
             },function(errCode,errMsg){
                 switch(errCode){
                     case 101:

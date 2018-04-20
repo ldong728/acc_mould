@@ -717,8 +717,8 @@ ul.countNum span.num-9{margin-top: -207px}
 .login-header .login-header-r{float: right;}
 .login-header .login-header-r a:hover{text-decoration: underline;}
 .login-main{position: relative;}
-.login-main .container{height: calc(100vh - 245px); background-color: #fff;border-top: 2px solid #00c1de;box-sizing: border-box;}
-.login-main .login-main-form{ position: absolute;left: 50%;top: 50%; width: 400px;height: 300px;padding: 15px 0;  margin-top: -150px; margin-left: -200px;box-sizing: border-box;}
+.login-main .container{height: calc(100vh - 245px);border-top: 2px solid #00c1de;box-sizing: border-box;}
+.login-main .login-main-form{ background-color: white; position: absolute;right: 0;top: 40%; width: 400px;height: 300px;padding: 15px 10px;  margin-top: -150px; margin-left: -200px;box-sizing: border-box;}
 .login-footer{ position: absolute;bottom: 0;width: 100%; color: #666; background-color: #f8f8f8;}
 .login-main .login-main-form tr{height: 35px; border: 1px solid #ddd;box-sizing: border-box;padding: 10px 0;}
 .login-main .login-main-form td:first-child{width: 110px;padding-left: 20px;box-sizing: border-box;}

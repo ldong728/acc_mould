@@ -13,7 +13,7 @@
                     <span>&gt;</span>
                     <li><a href="?href=purchase_details" class="product-inf" data-field="category_name"></a></li>
                 </ul>
-                <p class="number">共找到<span class="light">1234</span>信息</p>
+                <p class="number">共找到<span class="light"></span>信息</p>
             </div>
             <div class="pu-details">
                 <div class="pu-details-info clearfix">
@@ -78,12 +78,12 @@
                             </li>
                         </ul>
                         <div class="pd-info-shop clearfix">
-                            <p class="li-l">订购数量</p>
+                            <p class="li-l number-hidden">订购数量</p>
 
                             <div class="shop-r">
-                                <div class="top">
-                                    <span class="less"><i class="icon icon-minus"></i></span><span>10</span><span
-                                        class="plus"><i class="icon icon-plus"></i></span>
+                                <div class="top number-hidden">
+                                    <span class="less number-button" data-type="minus"><i class="icon icon-minus"></i></span><span class="number">1</span><span
+                                        class="plus number-button" data-type="plus"><i class="icon icon-plus"></i></span>
                                 </div>
                                 <div class="bottom">
                                     <button class="add-shop add-to-cart"><i class="icon icon-shopping-cart"></i>加入购物车
@@ -101,7 +101,7 @@
                                             <span class="attr-name">长</span><input type="text" value="0"
                                                                                    name="long" class="number-input"><span class="attr-unit">mm</span>
                                         </div>
-                                        <a href="javascript:void(0)" class="d-m-add calc-button">加入购物车</a>
+                                        <a href="javascript:void(0)" class="d-m-add calc-button confirm-to-cart">加入购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
         <p>
             <span class="img">
                 <img src="images/co3.png">
-            </span>联系人：陈先生
+            </span>
         </p>
 
         <p>
@@ -199,12 +199,31 @@
     var productId=sessionStorage.currentProductId;
     var categoryAttr;
     var orderAttr={};
+    var productAttr={};
     var productInf;
     var calFunction;
     var inputCreator=prepareElement('.calc-value');
     var fileCreator=prepareElement('.file-value');
+    var price=0;
+    var totalPrice=0;
+    var number=1;
 //    var pruduct_type=0;
     $(document).ready(function(){
+        ajaxPost('User','get_company_inf',{},function(back){
+            console.log(back);
+            var backValue=backHandle(back,function(value){
+                verifyLevel(2);
+            },function(errCode,errMsg){
+                switch(errCode){
+                    case 101:
+                        location.href='?href=login';
+                        break;
+                    case 102:
+                        location.href='?href=pc_company_profile'
+                }
+//               console.log(errMsg);
+            })
+        });
         if(productId){
             initProductInf();
             registEvent();
@@ -227,6 +246,8 @@
                 if(!orderAttr[attrId].value){
                     alert(orderAttr[attrId].category_attr_name+"未上传");
                     return;
+                }else{
+                    addToCart();
                 }
 
             }
@@ -241,37 +262,59 @@
             $('.current-img').attr('src',src);
             console.log(src);
         });
-//        $(document).on('click')
-        $(document).on('click','.calc-button',function(){
-
+        $(document).on('click','.number-button',function(){
+           var type
         });
         $(document).on('change','.number-input',function(){
            var id=$(this).attr('id').slice(3);
             var value=$(this).val();
             orderAttr[id].value=value;
+            categoryAttr[id].value=value;
 //            console.log(id);
             var result=calculateNumber();
             $('.calc-result').text(result.toFixed(2));
+
             console.log(result);
         });
+        $(document).on('click','.confirm-to-cart',function(){
+            var testValue=true;
+            $('.number-input').each(function(){
+                var value=$(this).val();
+                if(0==value){
+                    alert('数据不完整');
+                    testValue=false;
+                    return false;
+                }
+            });
+            $(document).on('click','button-minus',function(){
+
+            });
+//            if()
+        });
     }
+
+    function addToCart(){
+//        var data={product:id,product_attr:orderAttr,total_price:}
+    }
+
     function calculateNumber(){
         var parm=[];
         if(calFunction){
             for(var i in orderAttr){
                 parm.push(orderAttr[i].value);
             }
-            var result=calFunction(parm)
+            var result=calFunction(parm);
+            totalPrice=result*price;
             return result;
         }else{
             return null;
         }
     }
     function initProductInf(){
-        var _=this;
         ajaxPost('product','detail',{product_id:productId},function(back){
             var backValue=backHandle(back);
             if(backValue){
+                console.log(backValue);
                 categoryAttr=backValue.attrs;
                 productInf=backValue.detail;
                 $('.product-inf').each(function(k,v){
@@ -284,13 +327,13 @@
                 var img=JSON.parse(productInf.img);
                 $('.current-img').attr('src',img['product-img'][0]);
 
-                var imgCreator= _.prepareElement('.img-template');
+                var imgCreator= prepareElement('.img-template');
                 for(var i in img['product-img']){
                     var sImg=imgCreator();
                     sImg.find('.small-image').attr('src',img['product-img'][i]);
                     $('.img-container').append(sImg);
                 }
-                setAttrs(_);
+                setAttrs();
 
 //                console.log(categoryAttr);
 //                console.log(attr);
@@ -304,7 +347,13 @@
 //        productAttr=attr;
 //        return;
         for(var i in categoryAttr){
-            if(attr[i])categoryAttr[i]=attr[i];
+            if(attr[i]){
+                console.log(attr[i]);
+                categoryAttr[i]=attr[i];
+                if('价格'==attr[i].category_attr_name){
+                    price=parseFloat(attr[i].value);
+                }
+            }
             if(4==categoryAttr[i].attr_pms){
                 orderAttr[i]=categoryAttr[i];
                 switch(categoryAttr[i].attr_type){
@@ -314,6 +363,7 @@
                         inputElement.find('.attr-unit').text(categoryAttr[i].attr_unit);
                         inputElement.find('input').attr('id','cal'+categoryAttr[i].category_attr_id);
                             $('.calc-result-box').after(inputElement);
+                        $('.number-hidden').hide();
                         break;
 
                     case'file':
@@ -335,6 +385,7 @@
                 break;
             }
 
+
         }
     }
     function uploadSuccess(back){
@@ -344,6 +395,7 @@
             $('.down-file-icon').attr('href',back.url);
             $('.file-status').show();
             orderAttr[orderAttrId].value=back.url;
+            categoryAttr[orderAttrId].value=back.url;
             console.log(back);
         }else{
             alert(back.state);

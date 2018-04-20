@@ -34,4 +34,10 @@ class Purchase {
         echoBack(['record'=>$record,'biddingInf'=>$processInf,'companyInf'=>$companyInf,'tenders'=>$tenders]);
     }
 
+    public function add_cart($data){
+
+
+        echoBack('ok');
+    }
+
 }

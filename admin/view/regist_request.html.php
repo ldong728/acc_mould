@@ -11,21 +11,19 @@
             <th>名称</th>
             <th>地址</th>
             <th>联系电话</th>
-            <th>优先级(双击修改)</th>
-            <th>级别</th>
+            <th>申请级别</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody class="company-table">
         <tr class="tr-template">
             <td class="content" data-field="company_name"></td>
-            <td class="content" data-field="company_address"></td>
-            <td class="content" data-field="company_tel"></td>
-            <td class="content proirity ipt-toggle" data-field="priority" data-tbl="company" data-col="priority" data-index="company_id"></td>
-            <td class="content" data-field="user_level"></td>
+            <td class="content" data-field="address"></td>
+            <td class="content" data-field="mobile_phone"></td>
+            <td class="content" data-field="user_level_name"></td>
             <td>
-                <button class="button edit" data-type="edit">编辑</button>
-                <button class="button delete" data-type="delete">删除</button>
+                <button class="button pass" data-type="pass">通过</button>
+                <button class="button reject" data-type="reject">驳回</button>
             </td>
         </tr>
         </tbody>
@@ -52,9 +50,9 @@
     $(document).ready(function () {
         elements = TableController.prepareElement('.tr-template');
 //        TableController.methodName = 'company_list';
-        TableController.init('company_list', backDataHandle);
+        TableController.init('regist_request_list', backDataHandle);
         TableController.setPageEvent();
-        TableController.setOrder('priority',false);
+        TableController.setOrder('submit_time',false);
         TableController.getList();
 
 
@@ -68,10 +66,12 @@
             var id = this.id.slice(3);
             console.log(id);
             switch (type) {
-                case 'edit':
-                    var href = getHref('company_edit');
-
-                    location.href = href + '&company_id=' + id;
+                case 'pass':
+                    var level=$(this).data('level');
+                    ajaxPost('pass_level',{id:id,level:level},function(back){
+                        location.reload(true);
+                    });
+//                    alert(id);
 
 
                 default :
@@ -93,9 +93,10 @@
 //                    console.log(value);
 //                    delete value.data-field;
             });
-            element.find('.proirity').attr('id', v.company_id);
-            element.find('.edit').attr('id', 'edt' + v.company_id);
-            element.find('.delete').attr('id', 'del' + v.company_id);
+            element.find('.proirity').attr('id', v.company);
+            element.find('.pass').attr('id', 'pss' + v.company);
+            element.find('.pass').attr('data-level', v.level);
+            element.find('.delete').attr('id', 'del' + v.company);
             $('.company-table').append(element);
         });
     }

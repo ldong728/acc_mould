@@ -15,6 +15,9 @@ if (isset($_GET['img'])) {
     exit;
 }
 $href = isset($_GET['href']) ? $_GET['href'] : 'index';
+if('index'==$href){
+    $imgs=pdoQuery('img_tbl',['url','href'],['type'=>'index'],'order by img_id asc limit 5');
+}
 $href = $GLOBALS['mypath'] . "/view/$href.html";
 if (file_exists($href)) {
     if (isset($_GET['login'])) {
@@ -28,6 +31,7 @@ if (file_exists($href)) {
     } else {
         include $GLOBALS['mypath'] . "/view/template/entrance.html.php";
     }
+
     include $href;
     include $GLOBALS['mypath'] . "/view/template/foot.html.php";
 } else {

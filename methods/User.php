@@ -18,8 +18,9 @@ class User
         $tel = $data['user_tel'];
         $password = $data['user_password'];
         $code = $data['code'];
+//        $type=$data['type'];
 //        $deviceToken = $data['device_token'];
-        $userType=isset($data['user_type'])?$data['user_type']:1;
+        $userType=isset($data['type'])?$data['type']:"无";
         $query = pdoQuery('user_tbl', ['user_id'], ['user_tel' => $tel], 'limit 1')->fetch();
         if (!$query) {
             $codeQuery=pdoQuery('user_code_tbl',null,['tel'=>$tel,'code'=>$code],'limit 1')->fetch();
@@ -64,11 +65,7 @@ class User
             $companyQuery=$companyQuery->fetch();
             if($companyQuery)$_SESSION['user']['company']=$companyQuery;
             echoBack('ok');
-//            $userSession = getRandStr(20);
-//            pdoUpdate('user_tbl', ['user_session' => $userSession, 'session_creating_time' => time(), 'device_token' => $deviceToken], ['user_id' => $query['user_id']], ' limit 1');
-//            echoBack(null, 0, '登陆成功', $userSession);
         } else {
-//            mylog('faile');
             echoBack(null, 403, '登录失败');
         }
     }
@@ -126,6 +123,39 @@ class User
                 echoBack(null,100,'验证码发送失败，请稍后重试');
             }
         }
+    }
+    public function get_regist_request_inf(){
+        $userID=API::userVerify();
+        $companyId=API::companyVerify();
+        $registInf=pdoQuery('regist_request_tbl',['regist_request_id'],['company'=>$companyId],'limit 1')->fetch();
+        if($registInf){
+            echoBack(null,120,'申请内容正在审核中');
+        }else{
+            echoBack(['user_tel'=>$_SESSION['user']['user_tel'],'company_name'=>$_SESSION['user']['company']['company_name']]);
+        }
+
+    }
+    public function add_regist_request($data){
+        $companyId=API::companyVerify();
+        $data['company']=$companyId;
+        $id=pdoInsert('regist_request_tbl',$data,'update');
+        if($id){
+            echoBack("OK");
+        }else{
+            echoBack(null,109,"数据库错误");
+        }
+    }
+    public function level_verify($data){
+        API::userVerify();
+        API::companyVerify();
+        $level=$data['level'];
+        $currentLevel=$_SESSION['user']['user_level'];
+        if($currentLevel>=$level){
+            echoBack('ok');
+        }else{
+            echoBack(null,130,'权限不足');
+        }
+
     }
     public function sign_out(){
         session_unset();

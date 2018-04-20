@@ -97,6 +97,13 @@ function product_list(){
 function user_list(){
     printAdminView('user_list.html.php','用户列表');
 }
+function index_manage(){
+    printAdminView('index_manage.html.php','首页设置');
+}
+function regist_request(){
+    printAdminView('regist_request.html.php','首页设置');
+
+}
 
 
 

@@ -84,8 +84,12 @@ class API {
         $process->$methodType($postData);
     }
 
-    public static function userVerify(){
+    public static function userVerify($level=1){
         if(isset($_SESSION['user'])){
+            if($_SESSION['user']['user_level']<$level){
+                echoBack(null,104,'权限不足');
+                exit;
+            }
             return $_SESSION['user']['user_id'];
         }else{
             echoBack(null,101,'用户未登录');
@@ -93,8 +97,8 @@ class API {
         }
 
     }
-    public static function companyVerify(){
-        static::userVerify();
+    public static function companyVerify($level=1){
+        static::userVerify($level);
         if(isset($_SESSION['user']['company'])){
             return $_SESSION['user']['company']['company_id'];
         }else{
