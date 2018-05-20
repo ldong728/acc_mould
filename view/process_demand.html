@@ -154,7 +154,6 @@
                         processInf.process_steps+=(','+$(v).text());
                     });
                     $('.content').each(function(k,v){
-
                         var field=$(v).data('field');
                         var keyValue=$(v).hasClass('key-value');
                         if(field){
@@ -204,9 +203,16 @@
             }
             function setUpload(){
                 setUploadEvent('#process_file',function(data){
-                    $('.uploaded').text(data.originalName);
-                    processInf.attachment=data.url;
+                    if('SUCCESS'==data.state){
+                        $('.uploaded').text(data.originalName);
+                        processInf.attachment=data.url;
+                    }else{
+                        alert(data.state);
+                    }
                     console.log(data);
+                },function(msg){
+                    alert("上传错误，大文件请发邮件至sales@accmould.cn");
+                    console.log(msg);
                 });
             }
         </script>

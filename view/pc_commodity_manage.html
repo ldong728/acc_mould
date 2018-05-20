@@ -92,11 +92,20 @@
     function setProductList(back){
         $.each(back,function(k,v){
             var tr=trCreator();
-            var img=JSON.parse(v.img);
-            var attr=JSON.parse(v.product_attr);
+            var img;
+            var attr
+            try{
+                img=JSON.parse(v.img);
+                attr=JSON.parse(v.product_attr);
+            }catch(e){
+                img={'product-img':['']}
+            }
+
             console.log(attr);
             tr.find('.product-name').text(v.product_name);
-            tr.find('img').attr('src',img['product-img'][0]);
+            if(img){
+                tr.find('img').attr('src',img['product-img'][0]);
+            }
             tr.find('.product-unit').text(v.unit_name);
             $.each(attr,function(id,value){
                 if('价格'==value.category_attr_name){

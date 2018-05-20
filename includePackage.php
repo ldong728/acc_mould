@@ -33,12 +33,19 @@ define("PRO","http://");
 //define("DB_USER","acc_mould_user");
 //define("DB_PSW","QLPyxyVfTCmvC9ET");
 
-
+//本机测试
 define('DOMAIN',"/acc_mould");
 define('DB_IP','localhost');
 define("DB_NAME","acc_mould_db");
 define("DB_USER","root");
 define("DB_PSW","");
+
+//牛魔王2
+//define('DOMAIN',"/");
+//define('DB_IP','localhost');
+//define("DB_NAME","acc_mould_db");
+//define("DB_USER","nmw");
+//define("DB_PSW","!1234nmw");
 
 $mypath = $_SERVER['DOCUMENT_ROOT'] .DOMAIN;   //用于直接部署
 include_once $mypath . '/includes/magicquotes.inc.php';

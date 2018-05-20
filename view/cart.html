@@ -1,0 +1,386 @@
+<style>
+    ul.cart-list {
+        /*height: 40px;*/
+        /*background: gray;*/
+    }
+    .title{
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .cart-list .cart-content {
+        height: 200px;
+    }
+
+    li .company-block {
+        overflow: hidden;
+        zoom:1;
+        box-sizing: border-box;
+        height: 30px;
+        line-height: 36px;
+    }
+    .company-block .order-id{
+        float: right;
+        color: gray;
+    }
+    .company-block .company-name{
+        float: left;
+    }
+
+    li .cart-block {
+        overflow: hidden;
+        zoom: 1;
+        box-sizing: border-box;
+        height: 170px;
+        border: 1px solid #d8d0d0;
+        background-color: #f6f8f9;
+    }
+    .cart-block .cart-sub-block{
+        float: left;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .cart-block .select-block{
+        width: 5%;
+        line-height: 170px;
+        padding-left: 10px;
+    }
+    .cart-block .img-block{
+        padding: 10px;
+        width: 15%;
+    }
+    .cart-block .img-block img{
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+    .cart-block .name-block{
+        font-size: 17px;
+        font-weight: 600;
+        padding-top: 30px;
+        padding-left: 10px;
+        width: 15%;
+    }
+    .cart-block .address-block{
+        color: gray;
+        padding-top: 30px;
+        padding-left: 10px;
+        width: 15%;
+    }
+    .cart-block .price-block{
+        padding-top: 30px;
+        padding-left: 10px;
+        width: 15%;
+        color: red;
+        font-size: 19px;
+        font-size: 600;
+    }
+    .cart-block .attr-block{
+        color: gray;
+        padding-top: 30px;
+        padding-left: 10px;
+        width: 15%;
+    }
+    .cart-block .edit-block{
+        color: gray;
+        line-height: 170px;
+        padding-left: 10px;
+    }
+    .manage-container{
+        overflow: hidden;
+        zoom: 1;
+        margin-top: 10px;
+        background-color: #f1f2f3;
+        width: 100%;
+        height: 80px;
+    }
+    .manage-container .sub-block{
+        float: left;
+        height: 100%;
+        box-sizing: border-box;
+        line-height: 80px;
+    }
+    .manage-container .main-select-block{
+        width: 10%;
+        float: left;
+        padding-left: 10px;
+
+    }
+    .manage-container .statistics-block{
+        width: 28%;
+        float: right;
+
+    }
+    .manage-container .button-block{
+        width: 10%;
+        float: right;
+    }
+    .manage-container .button-block button{
+        cursor: pointer;
+        font-size: 18px;
+        letter-spacing: 5px;
+        border: none;
+        color: #f5f5f5;
+        background: #ff0000;
+        width: 100%;
+        height: 95%;
+    }
+    .selected-count{
+        color: red;;
+    }
+    .selected-total-price{
+        color: red;
+        font-size: 18px;
+    }
+
+
+
+
+
+</style>
+<div class="home">
+    <div class="container">
+        <div class="cart-main">
+            <div class="title">
+            </div>
+            <ul class="cart-list cart-container">
+                <li class="cart-content cart-template">
+                    <div class="company-block">
+                        <div class="company-name content" data-field="seller_company_name"></div>
+                        <div class="order-id">订单号：<span class="content" data-field="order_id"></span></div>
+
+                    </div>
+                    <div class="cart-block">
+                        <div class="cart-sub-block select-block"><input type="checkbox" class="select-cart"> </div>
+                        <div class="cart-sub-block img-block"><img class="product-img"></div>
+                        <div class="cart-sub-block name-block">
+                            <div class="product-name content" data-field="product_name"></div>
+                        </div>
+                        <div class="cart-sub-block address-block">
+                            <div>发货地：<span class="content" data-field="shipping_place"></span></div>
+                            <div>收货地：<span class="content" data-field="buyer_company_address"></span></div>
+                        </div>
+                        <div class="cart-sub-block price-block">
+                            <div>￥<span class="product-price"></span></div>
+                        </div>
+                        <div class="cart-sub-block attr-block">
+
+                        </div>
+                        <div class="cart-sub-block price-block">
+                            <div>￥<span class="content total-price" data-field="total_price"></span></div>
+                        </div>
+                        <div class="cart-sub-block edit-block">
+                            <a href="#" class="delete-button">删除</a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+            <div class="manage-container">
+                <div class="sub-block main-select-block">
+                    <input type="checkbox" class="select-all">全选
+                    <a href="#" class="delete-all">删除</a>
+                </div>
+                <div class="sub-block button-block">
+                    <button class="pre_order_button">结算</button>
+                </div>
+                <div class="sub-block statistics-block">
+                    已选择<span class="selected-count">0</span>件产品，合计（不含运费）：<span class="selected-total-price">￥0.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="pagination clearfix">
+            <ul class="clearfix">
+                <li class="prev-page">上一页</li>
+                <li class="page-cur current-page">1</li>
+                <li class="next-page">下一页</li>
+            </ul>
+            <div class="p-jump">
+                <span class="text">共<i class="total-page">1</i>页</span>
+                    <span>
+                            到<input class="page-input" type="text" name="page">页
+                        </span>
+                <span class="confirm page-jump">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var currentCategory=sessionStorage.currentCategoryId||0;
+    var liCreator;
+    var tableHandler;
+    var categoryElementCreator
+    $(document).ready(function(){
+        ajaxPost('User','get_company_inf',{},function(back){
+            console.log(back);
+            var backValue=backHandle(back,function(value){
+                verifyLevel(2);
+            },function(errCode,errMsg){
+                switch(errCode){
+                    case 101:
+                        location.href='?href=login';
+                        break;
+                    case 102:
+                        location.href='?href=pc_company_profile'
+                }
+//               console.log(errMsg);
+            })
+        });
+        liCreator=prepareElement('.cart-template');
+            tableHandler=new ContentHandler('cart_detail_list_admin',setCartList);
+            tableHandler.setFilter({cart_status:1})
+            tableHandler.setPageEvent('.next-page','.prev-page');
+            tableHandler.setNumber(20);
+            tableHandler.getList();
+
+        registEvent();
+    });
+
+    function registEvent(){
+        $(document).on('click','.delete-button',function(){
+            var id=$(this).attr('id').slice(3);
+            if(confirm('确认删除此商品？')){
+                ajaxPost('Purchase','delete_cart',{id:id},function(data){
+                    backHandle(data,function(back){
+                       location.reload(true);
+                    },function(code,msg){
+
+                    });
+                })
+            }
+            console.log(id);
+        });
+        $(document).on('change','.select-cart',function(){
+            calcTotalPrice();
+        });
+        $(document).on('click','.pre_order_button',function(){
+            preOrder();
+        });
+        $(document).on('change','.select-all',function(){
+            var selectAll=$(this).prop('checked');
+            if(selectAll){
+                $('.select-cart').prop('checked',true);
+            }else{
+                $('.select-cart').prop('checked',false);
+            }
+            calcTotalPrice();
+        });
+        $(document).on('click','.delete-all',function(){
+            if(confirm('删除选中项？')){
+                var deleteList=[];
+                $('.select-cart').each(function(k,v){
+                    var isChecked=$(v).prop('checked');
+                    if(isChecked){
+                        var id=$(v).attr('id').slice(3);
+                        deleteList.push(id);
+                    }
+                });
+                ajaxPost('Purchase','delete_cart',{id:deleteList},function(data){
+                    backHandle(data,function(back){
+                        location.reload(true);
+                    },function(code,msg){
+
+                    });
+                })
+            }
+
+
+        })
+    }
+
+    function setCartList(back){
+        console.log(back);
+        $('.cart-container').empty();
+        $.each(back,function(k,v){
+            var img='';
+            var attr=[];
+            var buyerAttr=[];
+            try{
+                img=JSON.parse(v.img)['product-img'][0];
+                attr=JSON.parse(v.seller_attr);
+                buyerAttr=JSON.parse(v.buyer_attr);
+
+            }catch (e){
+                console.log(v.img);
+//                console.error(e);
+            }
+            console.log(buyerAttr);
+            var element=liCreator();
+            var attrContainer=element.find('.attr-block');
+            $.each(buyerAttr,function(attrId,buyerAttr){
+                if(4==buyerAttr.attr_pms||5==buyerAttr.attr_pms||7==buyerAttr.attr_pms){
+                    if('file'==buyerAttr.attr_type){
+                        attrContainer.append('<div>'+buyerAttr.category_attr_name+ ': <a href="'+buyerAttr.value+'">点击下载</a></div>')
+                    }else{
+                        attrContainer.append('<div>'+buyerAttr.category_attr_name+ ':&nbsp;'+buyerAttr.value+'&nbsp;'+buyerAttr.attr_unit+'</div>')
+                    }
+                }
+            });
+
+            for(var i in attr){
+                if('价格'==attr[i].category_attr_name){
+                    element.find('.product-price').text(attr[i].value||'0.00');
+                }
+            }
+            $.each(element.find('.content'), function (index, value) {
+                $(value).text(v[$(value).data('field')]);
+                $(value).removeAttr('data-field');
+            });
+            element.find('.delete-button').attr('id','del'+ v.cart_detail_id);
+            element.find('.select-cart').attr('id','sel'+ v.cart_detail_id);
+            element.find('.total-price').attr('id','pri'+ v.cart_detail_id);
+            element.find('.shipping-place').text(v.shipping_place);
+            element.find('.product-img').attr('src',img);
+            element.find('.to-detail').attr('id','dtl'+ v.product_id);
+            $('.cart-container').append(element);
+        });
+        setPagination();
+        $('#cat'+currentCategory).addClass('cur-color');
+
+    }
+    function setPagination(){
+        var currentPage=tableHandler.filter.page+1;
+        var totalPage=tableHandler.totalPage;
+        $('.total-page').text(totalPage);
+        $('.current-page').text(currentPage);
+    }
+    function calcTotalPrice(){
+        var totalCount=0;
+        var totalPrice=0;
+        $('.select-cart').each(function(k,v){
+           var isChecked=$(v).prop('checked');
+            if(isChecked){
+                var id=$(v).attr('id').slice(3);
+                totalCount++;
+                console.log($('#pri'+id).text());
+                totalPrice+=parseFloat($('#pri'+id).text());
+            }
+        });
+        $('.selected-count').text(totalCount);
+        $('.selected-total-price').text('￥'+totalPrice.toFixed(2))
+    }
+    function preOrder(){
+        var preOrderList=[];
+        $('.select-cart').each(function(k,v){
+            var isChecked=$(v).prop('checked');
+            if(isChecked){
+                var id=$(v).attr('id').slice(3);
+                preOrderList.push(id);
+            }
+        });
+        if(preOrderList.length>0){
+            ajaxPost('Purchase','pre_order',{id:preOrderList},function(back){
+                backHandle(back,function(data){
+                   location.href='?href=pre_order';
+                },function(code,msg){
+
+                });
+            });
+        }
+    }
+
+
+
+
+</script>

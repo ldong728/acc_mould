@@ -83,7 +83,7 @@ function category_list()
     if (!$back) {
         $back = [];
     }
-    mylog($back);
+//    mylog($back);
     echo ajaxBack($back);
 }
 
@@ -143,7 +143,8 @@ function add_company($data)
 {
     $companyInf = $data['company_inf'];
     $companyCategory = isset($data['company_category'])?$data['company_category']:[];
-    $companyInf['img'] = json_encode($companyInf['img']);
+    if(is_array($companyInf['img'])) $companyInf['img']= json_encode($companyInf['img']);
+    unset($companyInf['user']);
     pdoTransReady();
     try {
         $newId = pdoInsert('company_tbl', $companyInf, 'update');
@@ -228,6 +229,48 @@ function pass_level($data){
     $companyInf=pdoQuery('company_tbl',['user'],['company_id'=>$companyId],'limit 1')->fetch();
     pdoUpdate('user_tbl',['user_level'=>$level],['user_id'=>$companyInf['user']],' limit 1');
     echo ajaxBack('ok');
+}
+function cart_list($data){
+    $back=getList('cart_detail_admin_view','cart_detail_admin_view',$data);
+    echo ajaxBack($back);
+}
+
+function process_list($data){
+    $back=getList('process_need_index_view','process_need_index_view',$data);
+    echo ajaxBack($back);
+}
+function process_quote_list($data){
+    $back=getList('process_quote_view','process_quote_view',$data);
+    echo ajaxBack($back);
+}
+function get_cart_detail($data){
+    $id=$data['id'];
+    $data=pdoQuery('cart_detail_admin_view',null,['cart_detail_id'=>$id],' limit 1')->fetch(PDO::FETCH_ASSOC);
+    echo ajaxBack($data);
+}
+function purchase_list($data){
+    $back=getList('purchase_list_view','purchase_list_view',$data);
+    echo ajaxBack($back);
+}
+function purchase_quote_list($data){
+    $back=getList('purchase_quote_view','purchase_quote_view',$data);
+    echo ajaxBack($back);
+}
+function bidding_list($data){
+    $back=getList('bidding_list_view','bidding_list_view',$data);
+    echo ajaxBack($back);
+}
+function tender_list($data){
+    $back=getList('tender_view','tender_view',$data);
+    echo ajaxBack($back);
+}
+function bidding_inquiry_list($data){
+    $back=getList('bidding_inquiry_list_view','bidding_inquiry_list_view',$data);
+    echo ajaxBack($back);
+}
+function tender_inquiry_list($data){
+    $back=getList('tender_inquiry_view','tender_inquiry_view',$data);
+    echo ajaxBack($back);
 }
 
 

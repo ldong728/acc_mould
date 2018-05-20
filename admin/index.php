@@ -102,8 +102,43 @@ function index_manage(){
 }
 function regist_request(){
     printAdminView('regist_request.html.php','首页设置');
-
 }
+function cart_manage(){
+    printAdminView('cart_manage.html.php','交易管理');
+}
+function process_manage(){
+    printAdminView('process_manage.html.php','加工需求管理');
+}
+function process_quote_manage(){
+    global $processNeedId;
+    $processNeedId=isset($_GET['process_need_id'])?$_GET['process_need_id']:0;
+    printAdminView('process_quote_manage.html.php','加工需求报价管理');
+}
+function purchase_manage(){
+    printAdminView('purchase_manage.html.php','采购管理');
+}
+function purchase_quote_manage(){
+    global $purchaseId;
+    $purchaseId=isset($_GET['purchase_id'])?$_GET['purchase_id']:0;
+    printAdminView('purchase_quote_manage.html.php','采购报价管理');
+}
+function bidding_manage(){
+    printAdminView('bidding_manage.html.php','投标管理');
+}
+function tender_manage() {
+    global $biddingId;
+    $biddingId=isset($_GET['bidding_id'])?$_GET['bidding_id']:0;
+    printAdminView('tender_manage.html.php','采购报价管理');
+}
+function bidding_inquiry_manage(){
+    printAdminView('bidding_inquiry_manage.html.php','询价管理');
+}
+function tender_inquiry_manage() {
+    global $biddingInquiryId;
+    $biddingInquiryId=isset($_GET['biding_inquiry_id'])?$_GET['biding_inquiry_id']:0;
+    printAdminView('tender_inquiry_manage.html.php','采购报价管理');
+}
+
 
 
 

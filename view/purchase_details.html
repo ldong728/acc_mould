@@ -101,7 +101,7 @@
                                             <span class="attr-name">长</span><input type="text" value="0"
                                                                                    name="long" class="number-input"><span class="attr-unit">mm</span>
                                         </div>
-                                        <a href="javascript:void(0)" class="d-m-add calc-button confirm-to-cart">加入购物车</a>
+                                        <a class="d-m-add calc-button confirm-to-cart" style="cursor: pointer">加入购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -137,11 +137,11 @@
 
     <div class="message">
         <p>
-            <span class="img"><img src="images/co2.png"></span>手机号：<span class="red">13400000000</span>
+            <span class="img"><img src="images/co2.png"></span>手机号：<span class="red"></span>
         </p>
 
         <p>
-            <span class="img"> <img src="images/co1.png"></span>电&nbsp;&nbsp;&nbsp;话：0574-68686868
+            <span class="img"> <img src="images/co1.png"></span>电&nbsp;&nbsp;&nbsp;话：
         </p>
 
         <p>
@@ -244,12 +244,13 @@
             }else if($('.file-value').length>0){
                 var attrId=$('.file-value').attr('id').slice(4);
                 if(!orderAttr[attrId].value){
-                    alert(orderAttr[attrId].category_attr_name+"未上传");
-                    return;
+                    orderAttr[attrId].value="noimg";
                 }else{
                     addToCart();
                 }
-
+                addToCart();
+            }else{
+                addToCart();
             }
 
         });
@@ -263,7 +264,14 @@
             console.log(src);
         });
         $(document).on('click','.number-button',function(){
-           var type
+           var type=$(this).data('type');
+            if('plus'==type){
+                number++;
+            }else{
+                if(number>1)number--;
+            }
+            $('.number').text(number);
+            totalPrice=price*number;
         });
         $(document).on('change','.number-input',function(){
            var id=$(this).attr('id').slice(3);
@@ -286,15 +294,22 @@
                     return false;
                 }
             });
-            $(document).on('click','button-minus',function(){
+            if(testValue)addToCart();
 
-            });
-//            if()
         });
     }
 
     function addToCart(){
-//        var data={product:id,product_attr:orderAttr,total_price:}
+        var data={product:productId,product_attr:orderAttr,number:number,total_price:totalPrice};
+        ajaxPost('Purchase','add_cart',data,function(back){
+           backHandle(back,function(data){
+               alert("已加入购物车");
+               location.reload(true);
+                console.log(data);
+            },function(code,msg){
+
+           })
+        });
     }
 
     function calculateNumber(){

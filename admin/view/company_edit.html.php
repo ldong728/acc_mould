@@ -138,7 +138,7 @@
                     }
                     companyInf[field]= v.value;
                 });
-                companyInf['img']=imgs;
+                companyInf['img']=JSON.stringify(imgs);
                 if(!isNull){
                     updateCompanyInf();
                 }
@@ -227,6 +227,11 @@
         }
 
         function updateCompanyInf(){
+//            console.log(companyInf)
+//            companyInf.img=JSON.stringify(imgs);
+//            console.log(companyInf.img);
+//            console.log(companyInf);
+//            return;
 
             ajaxPost('add_company',{company_inf:companyInf,company_category:categoryValue},function(back){
                 var backValue=backHandle(back);

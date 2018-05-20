@@ -91,12 +91,11 @@
                         var field=$(element).data('field');
                         $(element).text(v[field]);
                     });
-                    if(v.end_time_unix*1000<time.getTime()){
+                    if(v.end_time_unix*1000<time.getTime()||3== v.status){
                         processContent.find('.process-type').text('已完成');
                         processContent.find('.process-type').addClass('carry-out');
                         processContent.find('.process-action').text('查看详情');
                         processContent.find('.process-action').addClass('carry-out');
-
                     }
                     processContent.find('.process-action').attr('href','?href=process_immediately&id='+ v.process_need_id);
                     processContent.find('.count').text(v.count||'0');

@@ -330,7 +330,12 @@ function initCompany(id) {
 function initImgValues() {
     var imgInf = {};
     if (productInf.product_id) {
-        imgInf = JSON.parse(productInf.img) || {};
+        try{
+            imgInf = JSON.parse(productInf.img);
+        }catch(e){
+            console.error('json error');
+        }
+
         console.log(imgInf);
         imgs = imgInf;
     }

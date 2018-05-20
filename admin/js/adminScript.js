@@ -34,17 +34,62 @@ function getRandStr(length){
     }
     return randomStr;
 }
-function backHandle(data){
+function backHandle(data,callback,errorHandle){
     var re=eval('('+data+')');
     if(0==re.errcode){
         var state= null==re.data?0:re.data;
+        if(callback)callback(state);
         //console.mylog(state);
         return state;
     }else{
+        if(errorHandle)errorHandle(re.errcode,re.errmsg);
         console.log('error: '+re.errmsg);
         return false;
     }
 }
+function fillValuefromObjec(jqueryElement,obj){
+    jqueryElement.each(function(k,v){
+       var field=$(v).data('field');
+        var tagName= v.tagName.toLowerCase();
+        if(field){
+            switch(tagName){
+                case 'input':
+                    $(v).val(obj[field]);
+                    break;
+                default :
+                    $(v).text(obj[field]);
+                    break;
+            }
+        }
+
+    });
+}
+
+function prepareElement(){
+    var returnData={};
+    var classList=[];
+    var outArg=arguments;
+    $.each(arguments,function(k,v){
+        if($(v.toString()).length>0){
+            returnData[v]=$(v).clone();
+        }
+        classList.push(v);
+    });
+    $.each(classList,function(k,v){
+        $(v).remove();
+        for(var i in returnData){
+            returnData[i].find(v).remove();
+        }
+    });
+    return function(jqueryElement){
+        var element=jqueryElement;
+        if(1==outArg.length){
+            element=outArg[0];
+        }
+        return returnData[element].clone();
+    }
+}
+
 function altTable(tablename,colname,colvalue,indexname,indexvalue,success){
     var colValuePare={};
     colValuePare[colname]=colvalue;

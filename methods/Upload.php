@@ -39,7 +39,7 @@ class Upload{
             if(count($insertValue)){
                 pdoBatchInsert('file_tbl',$insertValue,'ignore');
             }
-//        mylog(json_encode($backData));
+        mylog(json_encode($backData));
             echo json_encode($backData);
             exit;
         }

@@ -60,11 +60,13 @@ class TableProvider
         echoBack($back);
     }
     public function process_need_list_index($data){
+        $data['where']['status']=[2,3];
 //        if($data['where']['end_time']
         $back=$this->getList('process_need_index_view',null,'process_need_tbl',$data,false);
         echoBack($back);
     }
     public function process_need_list($data){
+        $data['where']['status']=[2,3];
         $back=$this->getList('process_need_list_view',null,'process_need_tbl',$data);
         echoBack($back);
     }
@@ -83,6 +85,22 @@ class TableProvider
     }
     public function bidding_inquiry_list($data){
         $back=$this->getList('bidding_inquiry_list_view',null,null,$data,false);
+        echoBack($back);
+    }
+    public function cart_detail_list_buyer($data){
+        $back=$this->getList('cart_detail_buy_view',null,null,$data,false);
+        echoBack($back);
+    }
+    public function cart_detail_list_admin($data){
+        $companyId=API::companyVerify();
+        $data['where']['company_id']=$companyId;
+        $back=$this->getList('cart_detail_admin_view',null,null,$data,false);
+        echoBack($back);
+    }
+    public function cart_detail_list_seller($data){
+        $companyId=API::companyVerify();
+        $data['where']['seller_company']=$companyId;
+        $back=$this->getList('cart_detail_admin_view',null,null,$data,false);
         echoBack($back);
     }
 

@@ -95,7 +95,7 @@ jQuery.extend({
 				}
             }catch(e)
 			{
-				jQuery.handleError(s, xml, null, e);
+				handleError(s, xml, null, e);
 			}
             //console.log(xml.responseText)
             if ( xml || isTimeout == "timeout")
@@ -124,12 +124,12 @@ jQuery.extend({
                         }
 
                     } else
-                        jQuery.handleError(s, xml, status);
+                        handleError(s, xml, status);
                 } catch(e)
 				{
                     status = "error";
-                    //console.log(e.message);
-                    jQuery.handleError(s, xml, status, e);
+                    console.log(e.message);
+                    handleError(s, xml, status, e);
                 }
 
                 // The request was completed
@@ -154,7 +154,7 @@ jQuery.extend({
 
 										} catch(e)
 										{
-											jQuery.handleError(s, xml, null, e);
+											handleError(s, xml, null, e);
 										}
 
 									}, 100)
@@ -190,7 +190,7 @@ jQuery.extend({
 
         } catch(e)
 		{
-            jQuery.handleError(s, xml, null, e);
+            handleError(s, xml, null, e);
         }
 
 		jQuery('#' + frameId).load(uploadCallback	);
@@ -213,6 +213,17 @@ jQuery.extend({
             jQuery("<div>").html(data).evalScripts();
 
         return data;
+    },
+    handleError: function( s, xhr, status, e )      {
+        // If a local callback was specified, fire it  
+        if ( s.error ) {
+            s.error.call( s.context || s, xhr, status, e );
+        }
+
+        // Fire the global callback  
+        if ( s.global ) {
+            (s.context ? jQuery(s.context) : jQuery.event).trigger( "ajaxError", [xhr, s, e] );
+        }
     }
 })
 

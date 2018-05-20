@@ -1,0 +1,364 @@
+<style>
+    .order-table {
+        margin-top: 10px;
+        box-shadow: 5px 1px 5px gray;
+    }
+
+    td img {
+        height: auto;
+        width: 60px;
+    }
+
+    .shipping-button {
+        cursor: pointer;
+        background: #fe9094;
+        border: none;
+        color: white;
+        height: 25px;
+        line-height: 25px;
+    }
+    .shipping-info{
+        width: 350px;
+        height: 200px;
+        margin-top: -175px;
+        margin-left: -100px;
+        padding: 10px;
+        box-shadow: gray 5px 2px 2px;
+    }
+    .shipping-info .title{
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .shipping-info .input-box{
+        box-sizing: border-box;
+        text-align: center;
+        height: 35px;
+        line-height: 35px;
+        margin: 5px 0;
+    }
+    .shipping-info .input-box input{
+        padding-left: 5px;
+        border: none;
+        height: 28px;
+        background: #f2f2f2;
+    }
+    .shipping-info .button-box{
+        margin-top: 15px;
+        text-align: center;
+    }
+    .shipping-info .button-box button{
+        border: 1px solid #00a2ca;
+        width: 100px;
+        height: 35px;
+        background: #00a2ca;
+        color: white;
+        cursor: pointer;
+    }
+    .shipping-info .button-box button.cancel-shipping{
+        background: white;
+        color: #00a2ca;
+    }
+</style>
+
+<div class="pc-home clearfix">
+    <div class="container">
+        <?php include '/view/template/user_center_left.html.php'?>
+        <div class="pc-content">
+            <ul class="clearfix">
+                <li class="li-filter li-cur" data-status="all"><a href="#" class="status-filter">全部店铺订单</a></li>
+                <li class="li-filter" data-status="3"><a href="#" class="status-filter">待付款</a></li>
+                <li class="li-filter" data-status="5"><a href="#" class="status-filter">待发货</a></li>
+                <li class="li-filter" data-status="6"><a href="#" class="status-filter">待收货</a></li>
+                <li class="li-filter" data-status="9"><a href="#" class="status-filter">退款退货中</a></li>
+                <li class="li-filter" data-status="7"><a href="#" class="status-filter">已完成</a></li>
+
+            </ul>
+            <div class="pc-details-table">
+                <div class="top-table" style="display: none">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="1" borderColor="#ddd">
+                        <tr>
+                            <td>订单关键词</td>
+                            <td><input type="text"></td>
+                            <td>买家登录名</td>
+                            <td><input type="text"></td>
+                            <td>下单时间</td>
+                            <td><input>-<input></td>
+                        </tr>
+                        <tr>
+                            <td>收货人姓名</td>
+                            <td><input></td>
+                            <td>收货人手机</td>
+                            <td><input></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <button>搜索</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="bottom-table">
+                    <h3 class="pc-inquiry-title">订单列表</h3>
+                    <table width="100%" cellspacing="0" cellpadding="0" border="1" bordercolor="#ddd">
+                        <thead>
+                        <tr>
+                            <td width="20%">货品</td>
+                            <td width="15%">单价</td>
+                            <td width="15%">数量</td>
+                            <td width="15%">总金额</td>
+                            <td width="15%">订单状态</td>
+                            <td>交易操作</td>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="bottom-table order-container">
+                    <table class="order-table order-template" width="100%" cellspacing="0" cellpadding="0" border="1"
+                           bordercolor="#ddd">
+                        <tr>
+                            <td colspan="8" height="25px">
+                                <span>订单号：</span><span class="content" data-field="order_id"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="content" data-field="cart_time"></span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="content"
+                                                                                data-field="buyer_company_tel"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="10%"><img class="product-img"></td>
+                            <td width="10%" class="content" data-field="product_name"></td>
+                            <td width="15%">￥<span class="product-price"></span></td>
+                            <td width="15%" class="content" data-field="number"></td>
+                            <td width="15%">￥<span class="content" data-field="total_price"></span></td>
+                            <td width="15%"><span class="status-display"></span>&nbsp;&nbsp;<span class="detail"
+                                                                                                  style="color:#fe9094;cursor: pointer">(详情)</span>
+                            </td>
+                            <td>
+                                <button class="shipping-button" style="display: none">确认发货</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="turnpage">
+                <li><span class="page_noclick">上一页</span></li>
+                <li class="page-item"><span class="page_cur">1</span></li>
+                <li class="page_last"><span class="page_noclick">下一页</span></li>
+                <div class="go_turn_page">
+                    共1页&nbsp; &nbsp; &nbsp;到
+                    <input type="text" name="num" class="turn_to_page" maxlength="8">&nbsp;页<a href="javascript:void(0)"
+                                                                                               class="go_turn">确定</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="contact-message shipping-info">
+    <div class="title">
+        填写发货信息
+    </div>
+    <div class="input-box">
+        物流商：<input type="text" class="shipping-type-input">
+    </div>
+    <div class="input-box">
+        运单号：<input type="text" class="shipping-order-input">
+    </div>
+    <div class="button-box">
+        <button class="confirm-shipping">发货</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancel-shipping">取消</button>
+    </div>
+</div>
+
+<script>
+    var tableHandler;
+    var liCreate;
+    var currentCartId = false;
+    var statusFilter={cart_status:[2,3,4,5,6,7]};
+    var statusList = {1: '购物车', 2: '询价中', 3: '已报价', 4: '待审核', 5: '待发货', 6: '已发货', 7: "已完成", 8: "审核未通过", 9: "已取消"};
+    $(document).ready(function () {
+        ajaxPost('User', 'get_company_inf', {}, function (back) {
+            console.log(back);
+            var backValue = backHandle(back, function (value) {
+                verifyLevel(2);
+            }, function (errCode, errMsg) {
+                switch (errCode) {
+                    case 101:
+                        location.href = '?href=login';
+                        break;
+                    case 102:
+                        location.href = '?href=pc_company_profile'
+                }
+//               console.log(errMsg);
+            })
+        });
+        ajaxPost('User', 'get_company_detail', {}, function (back) {
+            backHandle(back, function (data) {
+                $('.company-address').text(data.company_address);
+                $('.company-tel').text(data.company_tel);
+            }, function (code, msg) {
+
+            })
+        });
+        liCreator = prepareElement('.order-template');
+        tableHandler = new ContentHandler('cart_detail_list_seller', setCartList);
+        tableHandler.setFilter(statusFilter);
+        tableHandler.setPageEvent('.next-page', '.prev-page');
+        tableHandler.setNumber(20);
+        tableHandler.getList();
+
+        registEvent();
+
+    });
+
+    function registEvent() {
+        $(document).on('click', '.delete-button', function () {
+            var id = $(this).attr('id').slice(3);
+            if (confirm('确认删除此商品？')) {
+                ajaxPost('Purchase', 'delete_cart', {id: id}, function (data) {
+                    backHandle(data, function (back) {
+                        location.reload(true);
+                    }, function (code, msg) {
+
+                    });
+                })
+            }
+        });
+        $(document).on('click', '.shipping-button', function () {
+            var id = $(this).attr('id').slice(3);
+            currentCartId = id;
+            $('.shipping-info').show();
+        });
+        $(document).on('click','.cancel-shipping',function(){
+           currentCartId=false;
+            $('.shipping-info').hide();
+        });
+        $(document).on('click','.confirm-shipping',function(){
+            var shippingType=$('.shipping-type-input').val();
+            var shippingOrder=$('.shipping-order-input').val();
+            if(currentCartId){
+                ajaxPost('Purchase','shipping_confirm',{id:currentCartId,shipping_type:shippingType,shipping_order:shippingOrder},function(data){
+                    backHandle(data,function(back){
+                        currentCartId=false;
+                        $('.shipping-info').hide();
+                        tableHandler.getList();
+                    },function(code,msg){
+                        alert(msg);
+                    })
+                });
+            }
+        });
+        $(document).on('click','.li-filter',function(){
+            $('.li-filter').removeClass('li-cur');
+            $(this).addClass('li-cur');
+            var status=$(this).data('status');
+            if('all'!=status){
+                statusFilter={cart_status:status};
+            }else{
+                statusFilter={cart_status:[2,3,4,5,6,7]};
+            }
+            tableHandler.setFilter(statusFilter);
+            tableHandler.setPage(0);
+            tableHandler.getList();
+        });
+        $(document).on('click','.detail',function(){
+            var id=this.id.slice(3);
+            window.sessionStorage.currentCartId=id;
+            location.href="?href=pc_seller_order_detail";
+        })
+
+    }
+
+    function setCartList(back) {
+        $('.order-container').empty();
+        $.each(back, function (k, v) {
+            var img = '';
+            var attr = [];
+            var buyerAttr = [];
+            try {
+                img = JSON.parse(v.img)['product-img'][0];
+                attr = JSON.parse(v.seller_attr);
+                buyerAttr = JSON.parse(v.buyer_attr);
+
+            } catch (e) {
+                console.log(v.img);
+            }
+            var element = liCreator();
+//            var attrContainer = element.find('.attr-block');
+//            $.each(buyerAttr, function (attrId, buyerAttr) {
+//                if (4 == buyerAttr.attr_pms || 5 == buyerAttr.attr_pms || 7 == buyerAttr.attr_pms) {
+//                    if ('file' == buyerAttr.attr_type) {
+//                        attrContainer.append('<div>' + buyerAttr.category_attr_name + ': <a href="' + buyerAttr.value + '">点击下载</a></div>')
+//                    } else {
+//                        attrContainer.append('<div>' + buyerAttr.category_attr_name + ':&nbsp;' + buyerAttr.value + '&nbsp;' + buyerAttr.attr_unit + '</div>')
+//                    }
+//                }
+//            });
+
+            for (var i in attr) {
+                if ('价格' == attr[i].category_attr_name) {
+                    element.find('.product-price').text(attr[i].value || '0.00');
+                    element.find('.product-price').append('/' + v.unit_name);
+                }
+            }
+            $.each(element.find('.content'), function (index, value) {
+                $(value).text(v[$(value).data('field')]);
+                $(value).removeAttr('data-field');
+            });
+            var status = statusList[v.cart_status];
+            if (5 == v.cart_status) {
+                element.find('.shipping-button').show();
+            }
+            var totalFee = parseFloat(v.total_price) + parseFloat(v.shipping_fee);
+            element.find('.status-display').text(status);
+            element.find('.shipping-button').attr('id', 'shp' + v.cart_detail_id);
+            element.find('.detail').attr('id','det'+ v.cart_detail_id);
+//            element.find('.delete-button').attr('id', 'del' + v.cart_detail_id);
+//            element.find('.select-cart').attr('id', 'sel' + v.cart_detail_id);
+//            element.find('.total-price').attr('id', 'pri' + v.cart_detail_id);
+//            element.find('.shipping-place').text(v.shipping_place);
+            element.find('.product-img').attr('src', img);
+//            element.find('.to-detail').attr('id', 'dtl' + v.product_id);
+//            element.find('.caled-total-fee').text(totalFee.toFixed(2));
+            $('.order-container').append(element);
+        });
+        setPagination();
+//        calcTotalPrice();
+
+    }
+    function setPagination() {
+        var currentPage = tableHandler.filter.page + 1;
+        var totalPage = tableHandler.totalPage;
+        $('.total-page').text(totalPage);
+        $('.current-page').text(currentPage);
+    }
+    function calcTotalPrice() {
+        var totalPrice = 0;
+        $('.total-price').each(function (k, v) {
+            totalPrice += parseFloat($(this).text());
+        });
+        $('.selected-total-price').text('￥' + totalPrice.toFixed(2))
+    }
+    function setOrder() {
+        var setOrderList = [];
+        $('.total-price').each(function (k, v) {
+            var id = $(v).attr('id').slice(3);
+            setOrderList.push(id);
+        });
+        if (setOrderList.length > 0) {
+            ajaxPost('Purchase', 'set_order', {
+                id: setOrderList,
+                pay_type: payType,
+                remark: $('.buyer-remark').val()
+            }, function (back) {
+                backHandle(back, function (data) {
+                    location.href = '?href=personal_center';
+                }, function (code, msg) {
+
+                });
+            });
+        }
+    }
+</script>
+

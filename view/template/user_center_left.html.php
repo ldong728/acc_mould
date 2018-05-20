@@ -29,9 +29,9 @@
         <li>
             <h3 class="aside-title">交易管理<i class="icon icon-angle-right"></i></h3>
             <ol>
-                <li><a href="#">我的订单</a></li>
+                <li><a href="?href=pre_order">我的订单</a></li>
                 <li><a href="#">收货地址</a></li>
-                <li><a href="#">店铺订单</a></li>
+                <li><a href="?href=pc_seller_order_list">店铺订单</a></li>
                 <li><a href="?href=pc_commodity_manage">商品管理</a></li>
                 <li><a href="#">收到的询价</a></li>
             </ol>

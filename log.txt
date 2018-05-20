@@ -1,35 +1,101 @@
-2018.04.07.09:11:36:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
-2018.04.07.09:17:49:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
-2018.04.07.11:02:20:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.11:06:51:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.11:08:26:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.11:09:11:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.11:10:31:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.11:10:32:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.13:55:42:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.13:56:19:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:07:06:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:07:11:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:07:12:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:07:18:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:07:24:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:53:56:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:53:57:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:53:57:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:53:58:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:53:58:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:53:59:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:54:01:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:55:36:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:55:55:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:55:56:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:56:23:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.14:56:24:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.15:11:48:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.07.15:12:35:D:\xampp\htdocs\acc_mould\methods\User.php131:is array: {rand: 30716,user: {user_id: 1,user_tel: 13566603735,user_type: 1,user_level: 1,company: {company_id: 71,company_name: 测试企业5678}}}
-2018.04.16.09:26:45:D:\xampp\htdocs\acc_mould\methods\VerifySms.php138:
-2018.04.16.09:26:45:D:\xampp\htdocs\acc_mould\methods\VerifySms.php50:profile ok
-2018.04.18.14:36:58:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php9197.tmp
-2018.04.18.14:36:58:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/01f894677dabe0b6f0afa5e8284a0cba.jpg
-2018.04.20.13:59:54:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php9CB6.tmp
-2018.04.20.13:59:54:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/01f894677dabe0b6f0afa5e8284a0cba.jpg
+2018.04.24.14:22:50:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:22:58:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:23:17:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:23:17:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:23:25:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:23:25:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:23:36:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:23:36:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:23:57:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:23:57:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:23:58:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:23:58:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:24:09:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:24:09:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:24:11:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:24:11:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:24:40:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:24:40:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:24:47:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:24:47:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:24:49:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:24:49:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:25:28:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:25:28:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:25:37:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:25:37:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:25:59:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:25:59:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:26:09:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:26:09:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:26:16:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:26:16:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.14:26:33:D:\wwwroot\pss\acc_mould\methods\Purchase.php50:mark
+2018.04.24.14:26:33:D:\wwwroot\pss\acc_mould\methods\Purchase.php54:0
+2018.04.24.15:17:01:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\php95F7.tmp
+2018.04.24.15:17:01:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/4d77884f82c952cae1c27374cd556cc4.jpg
+2018.04.24.15:17:08:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpB45D.tmp
+2018.04.24.15:17:08:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/1da3a970083bad87d30d58546fde479e.jpg
+2018.04.24.15:17:16:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpD3BD.tmp
+2018.04.24.15:17:16:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/d40d4a335782dd69454d2c5dad33b8af.jpg
+2018.04.24.20:16:44:D:\wwwroot\pss\acc_mould\methods\VerifySms.php138:
+2018.04.24.20:16:44:D:\wwwroot\pss\acc_mould\methods\VerifySms.php50:profile ok
+2018.04.25.09:29:13:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\php85F9.tmp
+2018.04.25.09:29:13:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/d7551fe8bccc46dd045167b18b7f7c29.jpg
+2018.04.25.09:29:29:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpC4A9.tmp
+2018.04.25.09:29:29:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/d7551fe8bccc46dd045167b18b7f7c29.jpg
+2018.04.26.09:20:35:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpF818.tmp
+2018.04.26.09:20:35:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/e7543191d43ffb680804dcc5f958e8f4.jpg
+2018.04.26.09:23:17:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\php704D.tmp
+2018.04.26.09:23:17:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/f1ac6bece7313a41ee40230157ef2ce9.jpg
+2018.04.26.09:23:17:D:\wwwroot\pss\acc_mould\methods\Upload.php42:{"errno":0,"data":["?img=files\/f1ac6bece7313a41ee40230157ef2ce9.jpg"]}
+2018.04.26.09:24:38:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpACD5.tmp
+2018.04.26.09:24:38:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/451c97fccedbe08c6778b32136c1fa2f.jpg
+2018.04.26.09:26:14:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\php25DA.tmp
+2018.04.26.09:26:14:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/a9750e32ecae9bd490984ade23ac95f2.jpg
+2018.04.26.09:26:14:D:\wwwroot\pss\acc_mould\methods\Upload.php42:{"errno":0,"data":["?img=files\/a9750e32ecae9bd490984ade23ac95f2.jpg"]}
+2018.04.26.09:27:09:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpFABF.tmp
+2018.04.26.09:27:09:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/b5222e110c8830475780f62d3a0c884b.jpg
+2018.04.26.09:29:20:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpF95E.tmp
+2018.04.26.09:29:20:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/2940d28842795ac5051079c2e59fbe08.jpg
+2018.04.26.09:29:20:D:\wwwroot\pss\acc_mould\methods\Upload.php42:{"errno":0,"data":["?img=files\/2940d28842795ac5051079c2e59fbe08.jpg"]}
+2018.04.26.09:30:08:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpB702.tmp
+2018.04.26.09:30:08:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/9d6af74d696ecaf6f2d5063845e61377.jpg
+2018.04.26.09:31:52:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\php4D53.tmp
+2018.04.26.09:31:52:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/f43f26e86699a449106a47428e29760d.jpg
+2018.04.26.09:33:21:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpA7D3.tmp
+2018.04.26.09:33:21:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/f86c44670d46d3109202b73df1b59994.jpg
+2018.04.26.09:34:34:D:\wwwroot\pss\acc_mould\includes\upload.class.php128:C:\Windows\Temp\phpC54A.tmp
+2018.04.26.09:34:34:D:\wwwroot\pss\acc_mould\includes\upload.class.php129:files/3b1249345a581f52935fcfcc0036ca85.jpg
+2018.04.26.16:45:26:D:\wwwroot\pss\acc_mould\methods\VerifySms.php138:
+2018.04.26.16:45:26:D:\wwwroot\pss\acc_mould\methods\VerifySms.php50:profile ok
+2018.04.26.16:47:55:D:\wwwroot\pss\acc_mould\methods\VerifySms.php138:
+2018.04.26.16:47:55:D:\wwwroot\pss\acc_mould\methods\VerifySms.php50:profile ok
+2018.05.05.08:53:23:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php9FE2.tmp
+2018.05.05.08:53:23:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/91a1509f0e2b05fb8cac9b888874335d.jpg
+2018.05.05.08:54:18:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php798A.tmp
+2018.05.05.08:54:18:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/c86e4b577d5ff606497758a8137cbb39.jpg
+2018.05.06.09:11:44:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:17:07:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:17:15:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:17:23:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:17:36:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:17:51:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:23:41:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:23:56:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.06.09:24:04:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.08.08:27:08:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php7D64.tmp
+2018.05.08.08:27:08:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/5b4448ffb85e174de0aa5b919011b865.zip
+2018.05.08.08:42:57:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\phpF98E.tmp
+2018.05.08.08:42:57:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/66a8c3f526f2ac4670226cc9d2221ebf.rar
+2018.05.08.08:48:13:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\phpC9DE.tmp
+2018.05.08.08:48:13:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/4d7d73ec30555f5351db74f6cfebe91e.zip
+2018.05.08.08:54:42:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\phpB91C.tmp
+2018.05.08.08:54:42:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/28d9a27d9c980828b7fa0cfd98d58189.jpg
+2018.05.08.09:06:26:D:\xampp\htdocs\acc_mould\includes\upload.class.php128:D:\xampp\tmp\php773D.tmp
+2018.05.08.09:06:26:D:\xampp\htdocs\acc_mould\includes\upload.class.php129:files/0abf58976fa1e2c62de46c72ef4074b7.doc
+2018.05.08.09:06:35:D:\xampp\htdocs\acc_mould\methods\Process.php20:is array: {attachment: files/0abf58976fa1e2c62de46c72ef4074b7.doc,process_steps: ,锯加工,铣加工,process_need_title: 手动发放,remark: ,requires: ,detail: ,address: 阿三地方,end_time: 2018-05-18 00:00:00}
+2018.05.08.09:06:35:D:\xampp\htdocs\acc_mould\methods\Process.php27:is array: {attachment: files/0abf58976fa1e2c62de46c72ef4074b7.doc,process_steps: 锯加工,铣加工,process_need_title: 手动发放,remark: ,requires: ,detail: ,address: 阿三地方,end_time: 2018-05-18 00:00:00,company: 71,end_time_unix: 1526572800,start_time: 2018-05-08 09:06:35,start_time_unix: 1525741595}
+2018.05.18.10:19:34:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.18.10:23:19:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding
+2018.05.18.17:43:14:D:\xampp\htdocs\acc_mould\controller\API.php79:Bidding

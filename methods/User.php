@@ -74,6 +74,11 @@ class User
         $inf=API::companyVerify();
         echoBack($inf);
     }
+    public function get_company_detail(){
+        $companyId=API::companyVerify();
+        $inf=pdoQuery('company_tbl',null,['company_id'=>$companyId],'limit 1')->fetch(PDO::FETCH_ASSOC);
+        echoBack($inf);
+    }
 
     public function info_modify($data)
     {

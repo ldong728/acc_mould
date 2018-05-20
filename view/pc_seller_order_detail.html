@@ -1,0 +1,330 @@
+<style>
+
+    .shipping-info {
+        width: 350px;
+        height: 200px;
+        margin-top: -175px;
+        margin-left: -100px;
+        padding: 10px;
+        box-shadow: gray 5px 2px 2px;
+    }
+
+    .shipping-info .title {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .shipping-info .input-box {
+        box-sizing: border-box;
+        text-align: center;
+        height: 35px;
+        line-height: 35px;
+        margin: 5px 0;
+    }
+
+    .shipping-info .input-box input {
+        padding-left: 5px;
+        border: none;
+        height: 28px;
+        background: #f2f2f2;
+    }
+
+    .shipping-info .button-box {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .shipping-info .button-box button {
+        border: 1px solid #00a2ca;
+        width: 100px;
+        height: 35px;
+        background: #00a2ca;
+        color: white;
+        cursor: pointer;
+    }
+
+    .shipping-info .button-box button.cancel-shipping {
+        background: white;
+        color: #00a2ca;
+    }
+
+    .status-block {
+        padding-left: 10px;
+        border: 1px solid rgb(235, 213, 176);
+        background: rgb(255, 251, 221);
+        /*width: 100%;*/
+        height: 35px;
+        line-height: 35px;
+
+    }
+
+    .status-block .status-display {
+        color: red;
+    }
+
+    .status-block button{
+        cursor: pointer;
+        border: none;
+        width: 80px;
+        height: 25px;
+        color: white;
+        background-color: #fe9094;
+    }
+
+    .address-block {
+        margin-top: 15px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        /*width: 100%;*/
+        height: 170px;
+
+    }
+
+    .address-block .title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .address-block .address-content {
+        margin-top: 10px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    td img {
+        height: auto;
+        width: 60px;
+    }
+
+    .other-block {
+        overflow: hidden;
+        zoom: 1;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .other-block .shipping-fee {
+        float: right;
+        padding-right: 10px;
+    }
+    .other-block .total-fee-box{
+        float:right;
+        padding-right:10px;
+    }
+    .other-block .confirm-box{
+        float: right;
+        padding-right: 10px;
+    }
+    .confirm-box button{
+        font-size: 15px;
+        cursor: pointer;
+        border: none;
+        width: 100px;
+        height: 30px;
+        color: white;
+        background-color: #fe9094;
+    }
+</style>
+
+<div class="pc-home clearfix">
+    <div class="container">
+        <?php include '/view/template/user_center_left.html.php'?>
+        <div class="pc-content">
+            <div class="pc-details-table">
+                    <div class="progress-block">
+
+                    </div>
+                    <div class="status-block">
+                        当前订单状态：<span class="status-display"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="shipping-button" style="display: none">我已发货</button>
+                    </div>
+                    <div class="address-block">
+                        <div class="title">买家信息</div>
+                        <div class="address-content">
+                            订单号：&nbsp;&nbsp;&nbsp;&nbsp;<span class="content" data-field="order_id"></span>
+                        </div>
+                        <div class="address-content">
+                            收货人：&nbsp;&nbsp;&nbsp;&nbsp;<span></span>
+                        </div>
+                        <div class="address-content">
+                            收货地址：&nbsp;&nbsp;&nbsp;&nbsp;<span class="content" data-field="buyer_company_address"></span>
+                        </div>
+                        <div class="address-content">
+                            手机：&nbsp;&nbsp;&nbsp;&nbsp;<span class="content" data-field="buyer_company_tel"></span>
+                        </div>
+                    </div>
+                <div class="bottom-table">
+                    <h3 class="pc-inquiry-title" style="padding-left: 10px">详情</h3>
+                    <table width="100%" cellspacing="0" cellpadding="0" border="1" bordercolor="#ddd">
+                        <thead>
+                        <tr>
+                            <td>货品</td>
+                            <td></td>
+                            <td>单价</td>
+                            <td>数量</td>
+                            <td>总金额</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><img class="img"></td>
+                            <td><span class="content" data-field="product_name"></span></td>
+                            <td>￥<span class="product-price"></span></td>
+                            <td><span class="content" data-field="number"></span></td>
+                            <td>￥<span class="content" data-field="total_price"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="other-block">
+                    <div class="shipping-fee">运费：￥<span class="content" data-field="shipping_fee"></span></div>
+                </div>
+                <div class="other-block">
+                    <div class="total-fee-box">
+                        实付款：<span class="total-fee" style="font-size: 15px;color: red"></span>
+                    </div>
+                </div>
+                <div class="other-block" style="height: 40px">
+                    <div class="confirm-box">
+                        <button class="shipping-button" style="display: none">我已发货</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="contact-message shipping-info">
+    <div class="title">
+        填写发货信息
+    </div>
+    <div class="input-box">
+        物流商：<input type="text" class="shipping-type-input">
+    </div>
+    <div class="input-box">
+        运单号：<input type="text" class="shipping-order-input">
+    </div>
+    <div class="button-box">
+        <button class="confirm-shipping">发货</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="cancel-shipping">取消</button>
+    </div>
+</div>
+
+<script>
+    var currentCartId = window.sessionStorage.currentCartId || 0;
+    //    var tableHandler;
+    //    var liCreate;
+    //    var currentCartId = false;
+    //    var statusFilter={cart_status:[2,3,4,5,6,7]};
+    var statusList = {1: '购物车', 2: '询价中', 3: '已报价', 4: '待审核', 5: '待发货', 6: '已发货', 7: "已完成", 8: "审核未通过", 9: "已取消"};
+    $(document).ready(function () {
+        registEvent();
+        getCartDetail();
+
+    });
+
+    function registEvent() {
+        $(document).on('click', '.delete-button', function () {
+            var id = $(this).attr('id').slice(3);
+            if (confirm('确认删除此商品？')) {
+                ajaxPost('Purchase', 'delete_cart', {id: id}, function (data) {
+                    backHandle(data, function (back) {
+                        location.reload(true);
+                    }, function (code, msg) {
+
+                    });
+                })
+            }
+        });
+        $(document).on('click', '.shipping-button', function () {
+            $('.shipping-info').show();
+        });
+        $(document).on('click', '.cancel-shipping', function () {
+            currentCartId = false;
+            $('.shipping-info').hide();
+        });
+        $(document).on('click', '.confirm-shipping', function () {
+            var shippingType = $('.shipping-type-input').val();
+            var shippingOrder = $('.shipping-order-input').val();
+            if (currentCartId) {
+                alert('all ok');
+                ajaxPost('Purchase', 'shipping_confirm', {
+                    id: currentCartId,
+                    shipping_type: shippingType,
+                    shipping_order: shippingOrder
+                }, function (data) {
+                    backHandle(data, function (back) {
+                        location.reload(true);
+//                        currentCartId = false;
+//                        $('.shipping-info').hide();
+//                        tableHandler.getList();
+                    }, function (code, msg) {
+                        alert(msg);
+                    })
+                });
+            }
+        });
+        $(document).on('click', '.li-filter', function () {
+            $('.li-filter').removeClass('li-cur');
+            $(this).addClass('li-cur');
+            var status = $(this).data('status');
+            if ('all' != status) {
+                statusFilter = {cart_status: status};
+            } else {
+                statusFilter = {cart_status: [2, 3, 4, 5, 6, 7]};
+            }
+            tableHandler.setFilter(statusFilter);
+            tableHandler.setPage(0);
+            tableHandler.getList();
+        })
+
+    }
+
+    function getCartDetail() {
+        ajaxPost('Purchase', 'cart_detail_seller', {id: currentCartId}, function (data) {
+            backHandle(data, handleDetail, function (code, msg) {
+                alert(msg);
+            })
+        });
+    }
+    function handleDetail(data) {
+        var img = '';
+        var attr = [];
+        var buyerAttr = [];
+        try {
+            img = JSON.parse(data.img)['product-img'][0];
+            attr = JSON.parse(data.seller_attr);
+            buyerAttr = JSON.parse(data.buyer_attr);
+        } catch (e) {
+            console.log(v.img);
+        }
+        for (var i in attr) {
+            if ('价格' == attr[i].category_attr_name) {
+                $('.product-price').text(attr[i].value || '0.00');
+                $('.product-price').append('/' + data.unit_name);
+            }
+        }
+        $.each(buyerAttr, function (k, v) {
+            if (4 == v.attr_pms) {
+//                console.log(v);
+            }
+        });
+        $('.content').each(function (k, v) {
+            var field = $(v).data('field');
+            $(v).text(data[field]);
+            $(v).removeAttr('data-field');
+        });
+        if(5==data.cart_status)$('.shipping-button').show();
+        $('.img').attr('src', img);
+        var totalFee=parseFloat(data.total_price)+parseFloat(data.shipping_fee);
+        $('.total-fee').text(totalFee.toFixed(2));
+        $('.status-display').text(statusList[data.cart_status]);
+
+
+    }
+
+</script>
+

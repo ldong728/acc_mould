@@ -1,0 +1,664 @@
+<style>
+.cart-main {
+    margin-top: 30px;
+}
+
+ul.cart-list {
+    /*height: 40px;*/
+    /*background: gray;*/
+}
+
+ul.address-container {
+    border-top: 1px solid #d8d0d0;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+ul.address-container li {
+    width: 100%;
+    padding-left: 10px;
+    font-size: 15px;
+    height: 35px;
+
+}
+
+ul.address-container li.checked {
+    border: 1px solid red;
+    background: #f5e0e0;
+}
+
+li .li-block {
+    display: inline-block;
+    line-height: 38px;
+    padding-left: 10px;
+}
+
+.line-block {
+    border-top: 1px solid #d8d0d0;
+    width: 100%;
+    height: 2px;
+}
+
+.cart-main .title {
+    /*font-family: "黑体", Arial, sans-serif;*/
+    font-weight: 600;
+    font-size: 18px;
+    /*font-weight: 500;*/
+}
+
+.cart-list .cart-content {
+    height: 300px;
+}
+
+li .company-block {
+    overflow: hidden;
+    zoom: 1;
+    box-sizing: border-box;
+    height: 30px;
+    line-height: 36px;
+}
+
+.company-block .company-name {
+    float: left;
+}
+
+.company-block .order-id {
+    float: right;
+    color: gray;
+}
+
+li .cart-block {
+    overflow: hidden;
+    zoom: 1;
+    box-sizing: border-box;
+    height: 140px;
+    border: 1px solid #d8d0d0;
+}
+
+.cart-block .cart-sub-block {
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.cart-block .select-block {
+    width: 5%;
+    line-height: 100px;
+    padding-left: 10px;
+}
+
+.cart-block .img-block {
+    padding: 10px;
+    width: 15%;
+}
+
+.cart-block .img-block img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+.cart-block .name-block {
+    font-size: 17px;
+    font-weight: 500;
+    padding-top: 30px;
+    padding-left: 10px;
+    width: 15%;
+}
+
+.cart-block .address-block {
+    color: gray;
+    padding-top: 30px;
+    padding-left: 10px;
+    width: 15%;
+}
+
+.cart-block .price-block {
+    color: red;
+    padding-top: 30px;
+    padding-left: 10px;
+    width: 15%;
+}
+
+.cart-block .price-block .price-display {
+    padding-right: 10px;
+    color: red;
+    font-size: 19px;
+    /*font-size: 600;*/
+}
+
+.cart-block .attr-block {
+    color: gray;
+    padding-top: 30px;
+    padding-left: 10px;
+    width: 15%;
+}
+
+.cart-block .edit-block {
+    color: gray;
+    line-height: 140px;
+    padding-left: 10px;
+}
+
+.cart-block .product-price {
+    color: red;
+}
+
+li .ship-block {
+    margin-top: 10px;
+
+    box-sizing: border-box;
+    height: 100px;
+    border: 1px solid #d8d0d0;
+}
+
+li .shipping-type-block {
+    overflow: hidden;
+    zoom: 1;
+    margin: 0 10px;
+    box-sizing: border-box;
+    line-height: 55px;
+    height: 55px;
+    border-bottom: 1px solid #000000;
+}
+
+li .shipping-type-block .shipping-type {
+    height: 100%;
+    float: left;
+}
+
+li .shipping-type-block .shipping-fee {
+    /*text-align: right;*/
+    /*width: 30px;*/
+    float: right;
+    font-size: 17px;
+    font-weight: 500;
+    color: red;
+}
+
+li .total-fee-block {
+    box-sizing: border-box;
+    height: 45px;
+}
+
+li .total-fee-block .total-fee-des {
+    float: right;
+    color: gray;
+    line-height: 45px;
+}
+
+li .total-fee-block .total-fee {
+    color: #ff0000;
+    color: 10px;
+    padding-right: 10px;
+    float: right;
+    font-size: 18px;
+    line-height: 45px;
+}
+
+.selected-count {
+    color: red;;
+}
+
+.selected-total-price {
+    color: red;
+    font-size: 18px;
+}
+
+.status-display {
+    color: gray;
+}
+
+.pay-mode-block {
+    overflow: hidden;
+    zoom: 0;
+    height: 120px;
+    width: 100%;
+}
+
+.pay-mode-block .pay-mode {
+    padding-top: 30px;
+    padding-left: 30px;
+    float: left;
+    box-sizing: border-box;
+    width: 20%;
+    height: 100%;
+}
+
+.pay-mode input[type=radio] {
+    width: 15%;
+}
+
+.pay-mode-block .pay-mode .icon-box {
+    margin-left: 5px;
+    text-align: center;
+    width: 65%;
+    /*line-height: 70px;*/
+    color: #00c1de;
+    display: inline-block;
+    border: 1px solid #d8d0d0;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.pay-mode-block .pay-mode p {
+    color: gray;
+    font-size: 16px;
+    padding-left: 37%;
+    display: inline-block;
+    text-align: center;
+}
+
+.pay-info-block {
+    padding-left: 10px;
+    border: 1px solid #d8d0d0;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 15px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.buyer-remark-block {
+    font-weight: 600;
+    padding-left: 10px;
+    border: 1px solid #d8d0d0;
+    font-size: 15px;
+    margin-top: 15px;
+    height: 140px;
+    padding-top: 5px;
+
+}
+
+.buyer-remark-block textarea {
+    resize: none;
+    border: none;
+    display: inline-block;
+}
+
+.buyer-remark-block span {
+    vertical-align: top;
+}
+
+.detail-block {
+    font-weight: 600;
+    padding-left: 10px;
+    border: 1px solid #FF6100;
+    font-size: 15px;
+    margin-top: 15px;
+    padding-top: 5px;
+}
+
+.detail-block .order-detail {
+    padding-top: 8px;
+    height: 35px;
+    line-height: 28px;
+}
+
+.manage-container {
+    overflow: hidden;
+    zoom: 1;
+    /*margin-top: 10px;*/
+    /*background-color: #f1f2f3;*/
+    width: 100%;
+    height: 50px;
+}
+
+.manage-container .sub-block {
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.manage-container .button-block {
+    width: 10%;
+    float: right;
+}
+
+.manage-container .button-block button {
+    cursor: pointer;
+    font-size: 17px;
+    border: none;
+    color: #f5f5f5;
+    background: #FF6100;
+    width: 100%;
+    height: 95%;
+}
+
+.manage-container .back-block {
+    /*width: 10px;*/
+    padding-right: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 47px;
+    float: right;
+}
+
+
+
+</style>
+<div class="home">
+    <div class="container">
+        <div class="cart-main">
+            <div class="title">
+                确认收货地址
+            </div>
+            <ul class="address-container">
+                <li class="checked">
+                    <div class="li-block" style="width: 60px"></div>
+                    <div class="li-block"><input type="radio" checked></div>
+                    <div class="li-block company-address"></div>
+                    <div class="li-block company-tel"></div>
+                </li>
+
+            </ul>
+
+            <div class="title">
+                确认订单信息
+            </div>
+            <div class="line-block"></div>
+
+            <ul class="cart-list cart-container">
+                <li class="cart-content cart-template">
+                    <div class="company-block">
+                        <div class="company-block">
+                            <div class="company-name"><span class="fa fa-building-o"></span>&nbsp;<span class="content"
+                                                                                                        data-field="seller_company_name"></span>
+                            </div>
+                            <div class="order-id">订单号：<span class="content"
+                                                            data-field="order_id"></span>&nbsp;&nbsp;<span
+                                    class="content" data-field="start_time"></span></div>
+                        </div>
+                    </div>
+                    <div class="cart-block">
+                        <div class="cart-sub-block img-block">
+                            <img class="product-img"></div>
+                        <div class="cart-sub-block name-block">
+                            <div class="product-name content" data-field="product_name"></div>
+                        </div>
+                        <div class="cart-sub-block address-block">
+                            <div>发货地：<span class="content" data-field="shipping_place"></span></div>
+                            <div>收货地：<span class="content" data-field="buyer_company_address"></span></div>
+                        </div>
+                        <div class="cart-sub-block price-block">
+                            <div>￥<span class="product-price"></span></div>
+                        </div>
+                        <div class="cart-sub-block attr-block">
+
+                        </div>
+                        <div class="cart-sub-block price-block"
+                             style="float: right;text-align: right;padding-right: 10px">
+                            <div class="price-display">￥<span class="content total-price"
+                                                              data-field="total_price"></span>
+                            </div>
+                            <!--<div class="status-display"></div>-->
+                        </div>
+                        <!--<div class="cart-sub-block edit-block">-->
+                        <!--删除-->
+                        <!--</div>-->
+
+                    </div>
+                    <div class="ship-block">
+                        <div class="shipping-type-block">
+                            <div class="shipping-type">
+                                运送方式：<span class="content" data-field="shipping_type"></span>
+                            </div>
+                            <div class="shipping-fee">
+                                ￥<span class="content" data-field="shipping_fee"></span>
+                            </div>
+                        </div>
+                        <div class="total-fee-block">
+                            <div class="total-fee">￥<span class="caled-total-fee"></span></div>
+                            <div class="total-fee-des">已选择<span style="color: red">1</span>件商品 ，合计（包含运费）：</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="title">
+                确认支付方式
+            </div>
+            <div class="line-block"></div>
+            <div class="pay-mode-block">
+                <div class="pay-mode">
+                    <input type="radio" name="pay-type" class="pay-type" value="直接支付" checked>
+
+                    <div class="icon-box"><span class="fa fa-money fa-3x"></span></div>
+                    <p>直接支付</p>
+                </div>
+                <div class="pay-mode">
+                    <input type="radio" name="pay-type" class="pay-type" value="分期付款">
+
+                    <div class="icon-box"><span class="fa fa-credit-card fa-3x"></span></div>
+                    <p>分期付款</p>
+                </div>
+                <div class="pay-mode">
+                    <input type="radio" name="pay-type" class="pay-type" value="账期支付">
+
+                    <div class="icon-box"><span class="fa fa-rmb fa-3x"></span></div>
+                    <p>账期支付</p>
+                </div>
+                <div class="pay-mode">
+                    <input type="radio" name="pay-type" class="pay-type" value="预付+分期">
+
+                    <div class="icon-box"><span class="fa fa-credit-card fa-3x"></span></div>
+                    <p>预付+分期</p>
+                </div>
+                <div class="pay-mode">
+                    <input type="radio" name="pay-type" class="pay-type" value="预付+账期">
+
+                    <div class="icon-box"><span class="fa fa-credit-card-alt fa-3x"></span></div>
+                    <p>预付+账期</p>
+                </div>
+
+            </div>
+            <div class="title">
+                订单支付
+            </div>
+            <div class="line-block"></div>
+            <div class="pay-info-block">
+                <span>交易方式：</span><span style="padding-left: 50px">支付方式：</span><span class="pay-type-display"
+                                                                                     style="width: 150px">直接支付</span>
+            </div>
+            <div class="buyer-remark-block">
+                <span>买家备注：</span>
+                <textarea cols="80" rows="6" class="buyer-remark"></textarea>
+            </div>
+            <div class="detail-block">
+                <div class="order-detail">
+                    <span>实付款：</span><span class="selected-total-price">￥0.00</span>
+                </div>
+                <div class="order-detail">
+                    <span>邮寄至：</span><span class="company-address"></span>
+                </div>
+                <div class="order-detail">
+                    <span>收货人：</span><span class="company-tel"></span>
+                </div>
+            </div>
+            <div class="manage-container">
+                <div class="sub-block button-block">
+                    <button class="pre_order_button">提交订单</button>
+                </div>
+                <div class="sub-block back-block">
+                    <a href="?href=cart" style="color:#3f83bf">返回购物车</a>
+                </div>
+            </div>
+            <div class="pagination clearfix">
+                <ul class="clearfix">
+                    <li class="prev-page">上一页</li>
+                    <li class="page-cur current-page">1</li>
+                    <li class="next-page">下一页</li>
+                </ul>
+                <div class="p-jump">
+                    <span class="text">共<i class="total-page">1</i>页</span>
+                    <span>
+                            到<input class="page-input" type="text" name="page">页
+                        </span>
+                    <span class="confirm page-jump">确定</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var currentCategory = sessionStorage.currentCategoryId || 0;
+    var liCreator;
+    var tableHandler;
+    var categoryElementCreator;
+    var payType, buyerRemark;
+    $(document).ready(function () {
+
+        payType='直接支付'
+        ajaxPost('User', 'get_company_inf', {}, function (back) {
+            console.log(back);
+            var backValue = backHandle(back, function (value) {
+                verifyLevel(2);
+            }, function (errCode, errMsg) {
+                switch (errCode) {
+                    case 101:
+                        location.href = '?href=login';
+                        break;
+                    case 102:
+                        location.href = '?href=pc_company_profile'
+                }
+//               console.log(errMsg);
+            })
+        });
+        ajaxPost('User', 'get_company_detail', {}, function (back) {
+            backHandle(back, function (data) {
+                $('.company-address').text(data.company_address);
+                $('.company-tel').text(data.company_tel);
+            }, function (code, msg) {
+
+            })
+        });
+        liCreator = prepareElement('.cart-template');
+        tableHandler = new ContentHandler('cart_detail_list_admin', setCartList);
+        tableHandler.setFilter({cart_status: [2, 3]});
+        tableHandler.setPageEvent('.next-page', '.prev-page');
+        tableHandler.setNumber(20);
+        tableHandler.getList();
+
+        registEvent();
+
+    });
+
+    function registEvent() {
+        $(document).on('click', '.delete-button', function () {
+            var id = $(this).attr('id').slice(3);
+            if (confirm('确认删除此商品？')) {
+                ajaxPost('Purchase', 'delete_cart', {id: id}, function (data) {
+                    backHandle(data, function (back) {
+                        location.reload(true);
+                    }, function (code, msg) {
+
+                    });
+                })
+            }
+            console.log(id);
+        });
+        $(document).on('change', '.select-cart', function () {
+            calcTotalPrice();
+        });
+        $(document).on('click', '.pre_order_button', function () {
+            setOrder();
+        });
+        $(document).on('click', '.pay-type', function () {
+            var type = $(this).val();
+            $('.pay-type-display').text(type);
+            payType = type;
+        })
+    }
+
+    function setCartList(back) {
+        console.log(back);
+        $('.cart-container').empty();
+        $.each(back, function (k, v) {
+            var img = '';
+            var attr = [];
+            var buyerAttr = [];
+            try {
+                img = JSON.parse(v.img)['product-img'][0];
+                attr = JSON.parse(v.seller_attr);
+                buyerAttr = JSON.parse(v.buyer_attr);
+
+            } catch (e) {
+                console.log(v.img);
+//                console.error(e);
+            }
+            console.log(buyerAttr);
+            var element = liCreator();
+            var attrContainer = element.find('.attr-block');
+            $.each(buyerAttr, function (attrId, buyerAttr) {
+                if (4 == buyerAttr.attr_pms || 5 == buyerAttr.attr_pms || 7 == buyerAttr.attr_pms) {
+                    if ('file' == buyerAttr.attr_type) {
+                        attrContainer.append('<div>' + buyerAttr.category_attr_name + ': <a href="' + buyerAttr.value + '">点击下载</a></div>')
+                    } else {
+                        attrContainer.append('<div>' + buyerAttr.category_attr_name + ':&nbsp;' + buyerAttr.value + '&nbsp;' + buyerAttr.attr_unit + '</div>')
+                    }
+                }
+            });
+
+            for (var i in attr) {
+                if ('价格' == attr[i].category_attr_name) {
+                    element.find('.product-price').text(attr[i].value || '0.00');
+                }
+            }
+            $.each(element.find('.content'), function (index, value) {
+                $(value).text(v[$(value).data('field')]);
+                $(value).removeAttr('data-field');
+            });
+            var status = 2 == v.cart_status ? '(询价中)' : '(已报价)';
+            var totalFee = parseFloat(v.total_price) + parseFloat(v.shipping_fee);
+            element.find('.status-display').text(status);
+            element.find('.delete-button').attr('id', 'del' + v.cart_detail_id);
+            element.find('.select-cart').attr('id', 'sel' + v.cart_detail_id);
+            element.find('.total-price').attr('id', 'pri' + v.cart_detail_id);
+            element.find('.shipping-place').text(v.shipping_place);
+            element.find('.product-img').attr('src', img);
+            element.find('.to-detail').attr('id', 'dtl' + v.product_id);
+            element.find('.caled-total-fee').text(totalFee.toFixed(2));
+            $('.cart-container').append(element);
+        });
+        setPagination();
+        calcTotalPrice();
+
+    }
+    function setPagination() {
+        var currentPage = tableHandler.filter.page + 1;
+        var totalPage = tableHandler.totalPage;
+        $('.total-page').text(totalPage);
+        $('.current-page').text(currentPage);
+    }
+    function calcTotalPrice() {
+        var totalPrice = 0;
+        $('.total-price').each(function (k, v) {
+            totalPrice += parseFloat($(this).text());
+        });
+        $('.selected-total-price').text('￥' + totalPrice.toFixed(2))
+    }
+    function setOrder() {
+        var setOrderList = [];
+        $('.total-price').each(function (k, v) {
+            var id = $(v).attr('id').slice(3);
+            setOrderList.push(id);
+        });
+        if (setOrderList.length > 0) {
+            ajaxPost('Purchase', 'set_order', {
+                id: setOrderList,
+                pay_type: payType,
+                remark: $('.buyer-remark').val()
+            }, function (back) {
+                backHandle(back, function (data) {
+                    location.href = '?href=personal_center';
+                }, function (code, msg) {
+
+                });
+            });
+        }
+    }
+
+
+</script>

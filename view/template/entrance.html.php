@@ -29,7 +29,7 @@
             </li>
             <li>
                 <div class="entrance-li-show li-shop-cart clearfix">
-                    <a href="#">购物车<span class="number">0</span></a>
+                    <a href="?href=cart">购物车<span class="number cart-number">0</span></a>
                     <i class="icon icon-angle-down"></i>
                 </div>
                 <div class="entrance-li-none shop-cart-lists"></div>
@@ -179,6 +179,13 @@
     $('.sign-out').click(function(){
         ajaxPost('User','sign_out',{},function(back){
             location.href='?href=index';
+        })
+    });
+    ajaxPost("Purchase","cart_count",{},function(data){
+        backHandle(data,function(number){
+            $('.cart-number').text(number);
+        },function(code,msg){
+
         })
     })
 </script>

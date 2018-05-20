@@ -36,13 +36,13 @@ var TableController = {
         this.filter.where=filter;
     },
     getList: function (callback) {
-        //console.log('getList');
         var sCallback=callback||this.handleCallback;
         //console.log()
         //console.log(sCallback);
         var _=this;
         if (this.methodName) {
             ajaxPost(this.methodName, this.filter, function (back) {
+                //console.log(back);
                 var backInf = backHandle(back);
                 _.totalPage=parseInt(backInf.page);
                 $(_.totalPageDisplayer).text(backInf.page);

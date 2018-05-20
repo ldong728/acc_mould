@@ -79,7 +79,6 @@ function ajaxBack($data=null,$errcode=0,$errmsg='ok'){
 }
 
 function echoBack($data=null,$errcode=0,$errmsg='ok',$isEnd=true){
-
     $back=array('success'=>!((bool)$errcode),'error_code'=>$errcode,'message'=>$errmsg);
     if(isset($_GET['callback']))$back['callback']=$_GET['callback'];
     if($data)$back['data']=$data;
